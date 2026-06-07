@@ -13,29 +13,22 @@
   --teal:#00897B; --teal-light:#4DB6AC;
   --gold:#B8860B; --gold-bright:#D4A017; --gold-bg:#FDF6DC;
   --green:#00695C; --green-bg:#E0F2F1; --green-bright:#26A69A;
+  --purple:#6B21A8; --purple-bg:#F3E8FF; --purple-mid:#9333EA;
 
-  /* surfaces */
   --bg:#FAF8F3; --surface:#FFFFFF; --surface2:#F4F6FB; --surface3:#EEF2F8;
-
-  /* text */
   --tx:#0D1B2A; --tx-mid:#2C3E50; --tx-muted:#6B7C93; --tx-light:#9EAFC2;
-
-  /* borders */
   --bd:#E4EAF2; --bd-light:#F0F4F9;
 
-  /* navbar */
   --nav-bg:linear-gradient(135deg,#0A1628 0%,#122040 60%,#1565C0 100%);
   --nav-text:rgba(255,255,255,.55);
   --nav-active:#fff;
   --nav-active-bg:rgba(255,255,255,.12);
 
-  /* shadows */
   --sh-xs:0 1px 4px rgba(10,22,40,.06);
   --sh:0 4px 20px rgba(10,22,40,.09);
   --sh-lg:0 12px 40px rgba(10,22,40,.14);
   --sh-xl:0 20px 60px rgba(10,22,40,.18);
 
-  /* misc */
   --radius:20px; --radius-sm:12px; --radius-xs:8px;
   --tip-bg:linear-gradient(135deg,#FFFDE7,#FFF8D6);
   --tip-bd:#F5D76E; --tip-tx:#5C4200;
@@ -52,10 +45,11 @@
   --drive-bd:#E4EAF2;
   --dark-btn-bg:transparent;
   --dark-btn-bd:rgba(255,255,255,.25);
-  --dark-btn-icon:🌙;
+  --gold-bg:#FDF6DC;
+  --green-bg:#E0F2F1;
 }
 
-/* ─── DARK MODE TOKENS ─── */
+/* ─── DARK MODE ─── */
 body.dark{
   --bg:#0D1117; --surface:#161B22; --surface2:#1C2128; --surface3:#21262D;
   --tx:#E6EDF3; --tx-mid:#C9D1D9; --tx-muted:#8B949E; --tx-light:#6E7681;
@@ -82,18 +76,13 @@ body.dark{
   --drive-bd:#30363D;
   --gold-bg:#2D2200;
   --green-bg:#001A16;
+  --purple-bg:#1A0A2E;
   --dark-btn-bd:rgba(255,255,255,.15);
 }
 
-/* ─── BASE ─── */
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  font-family:'Heebo',sans-serif;
-  background:var(--bg);color:var(--tx);
-  min-height:100vh;line-height:1.6;
-  transition:background .25s,color .25s;
-}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.6;transition:background .25s,color .25s;}
 
 /* ─── NAVBAR ─── */
 .navbar{
@@ -103,11 +92,7 @@ body{
   height:54px;overflow-x:auto;scrollbar-width:none;
   box-shadow:0 2px 20px rgba(0,0,0,.35);
 }
-.navbar::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(21,101,192,.2) 0%,transparent 60%);
-  pointer-events:none;
-}
+.navbar::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,101,192,.2) 0%,transparent 60%);pointer-events:none;}
 .navbar::-webkit-scrollbar{display:none;}
 .nav-btn{
   position:relative;display:flex;align-items:center;gap:5px;
@@ -118,10 +103,7 @@ body{
 }
 .nav-btn:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.08);}
 .nav-btn.active{color:var(--nav-active);background:var(--nav-active-bg);box-shadow:0 0 0 1px rgba(255,255,255,.15);}
-.nav-btn.active::after{
-  content:'';position:absolute;bottom:-1px;right:10px;left:10px;
-  height:2px;background:linear-gradient(90deg,#64B5F6,#B3E5FC);border-radius:2px 2px 0 0;
-}
+.nav-btn.active::after{content:'';position:absolute;bottom:-1px;right:10px;left:10px;height:2px;background:linear-gradient(90deg,#64B5F6,#B3E5FC);border-radius:2px 2px 0 0;}
 .nav-spacer{flex:1;}
 .dark-toggle{
   display:flex;align-items:center;justify-content:center;
@@ -151,10 +133,7 @@ body{
   letter-spacing:.5px;margin-bottom:14px;
 }
 .hero-flag{font-size:50px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));}
-.hero h1{
-  font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
-  margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.3);
-}
+.hero h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.3);}
 .hero-sub{font-size:14px;opacity:.78;margin-bottom:4px;}
 .hero-loc{font-size:12px;opacity:.52;letter-spacing:.5px;}
 .hero-div{width:40px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);margin:14px auto;}
@@ -166,39 +145,29 @@ body{
   padding:20px 10px 16px;text-align:center;cursor:pointer;
   transition:all .22s;box-shadow:var(--sh-xs);position:relative;overflow:hidden;
 }
-.quick-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--teal-light));opacity:0;transition:opacity .22s;
-}
+.quick-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal-light));opacity:0;transition:opacity .22s;}
 .quick-card:hover{border-color:var(--blue-mid);box-shadow:var(--sh-lg);transform:translateY(-3px);}
 .quick-card:hover::before{opacity:1;}
 .qc-emoji{font-size:28px;margin-bottom:8px;}
 .qc-label{font-size:13px;font-weight:700;color:var(--tx);}
 .qc-sub{font-size:11px;color:var(--tx-muted);margin-top:3px;font-weight:500;}
 
-/* ─── SECTION HEADER ─── */
+/* ─── SEC HDR ─── */
 .sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--bd);}
 .sec-hdr h2{font-size:20px;font-weight:800;color:var(--tx);letter-spacing:-.3px;}
-.sec-badge{
-  background:linear-gradient(135deg,#E3F2FD,#BBDEFB);color:var(--navy);
-  font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;
-  border:1px solid rgba(21,101,192,.15);
-}
+.sec-badge{background:linear-gradient(135deg,#E3F2FD,#BBDEFB);color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid rgba(21,101,192,.15);}
 body.dark .sec-badge{background:linear-gradient(135deg,#0D2137,#0D1B33);color:#58A6E6;border-color:#1E3A5F;}
 
 /* ─── CARDS ─── */
 .card{
   background:var(--surface);border:1px solid var(--bd);border-radius:var(--radius);
-  padding:20px 20px;margin-bottom:12px;transition:all .2s;
+  padding:20px;margin-bottom:12px;transition:all .2s;
   box-shadow:var(--sh-xs);position:relative;overflow:hidden;
 }
-.card:hover{box-shadow:var(--sh);border-color:var(--bd);}
+.card:hover{box-shadow:var(--sh);}
 body.dark .card:hover{border-color:#3D4F6E;}
 .card.best-match{border-color:var(--green-bright);border-width:2px;}
-.card.best-match::before{
-  content:'';position:absolute;top:0;right:0;left:0;height:3px;
-  background:linear-gradient(90deg,var(--teal),var(--green-bright));
-}
+.card.best-match::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--green-bright));}
 .card-accent{border-right:4px solid var(--blue-mid);}
 .card-title{font-size:15px;font-weight:800;color:var(--tx);letter-spacing:-.2px;}
 .card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
@@ -210,28 +179,22 @@ body.dark .card:hover{border-color:#3D4F6E;}
 .stars-wrap{display:flex;align-items:center;gap:4px;}
 .stars-f{color:var(--stars-color);font-size:13px;letter-spacing:1px;}
 .stars-e{color:var(--bd);font-size:13px;letter-spacing:1px;}
-.rating-num{
-  font-size:12px;font-weight:700;color:var(--rating-tx);
-  background:var(--rating-bg);border:1px solid var(--rating-bd);
-  padding:2px 7px;border-radius:6px;
-}
+.rating-num{font-size:12px;font-weight:700;color:var(--rating-tx);background:var(--rating-bg);border:1px solid var(--rating-bd);padding:2px 7px;border-radius:6px;}
 
 /* ─── BADGES ─── */
-.badge{
-  display:inline-flex;align-items:center;font-size:11px;font-weight:600;
-  padding:3px 10px;border-radius:20px;background:var(--surface2);
-  color:var(--tx-muted);margin:2px;border:1px solid var(--bd);
-}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--surface2);color:var(--tx-muted);margin:2px;border:1px solid var(--bd);}
 .badge.blue{background:#EBF5FB;color:#1565C0;border-color:#BBDEFB;}
 .badge.green{background:var(--green-bg);color:var(--green);border-color:#B2DFDB;}
 .badge.gold{background:var(--gold-bg);color:#7B5800;border-color:#F9E4A0;}
 .badge.navy{background:var(--surface2);color:var(--navy);border-color:var(--bd);}
 .badge.teal{background:var(--green-bg);color:var(--teal);border-color:#B2DFDB;}
+.badge.purple{background:var(--purple-bg);color:var(--purple);border-color:#D8B4FE;}
 body.dark .badge{background:var(--surface3);color:var(--tx-muted);border-color:var(--bd);}
 body.dark .badge.blue{background:#0D2137;color:#58A6E6;border-color:#1E3A5F;}
 body.dark .badge.green{background:#001A16;color:#4DB6AC;border-color:#00695C;}
 body.dark .badge.gold{background:#2D2200;color:#D4A017;border-color:#554000;}
 body.dark .badge.navy{background:var(--surface3);color:var(--tx-mid);border-color:var(--bd);}
+body.dark .badge.purple{background:#1A0A2E;color:#C084FC;border-color:#6B21A8;}
 
 /* ─── MAPS LINK ─── */
 .maps-link{
@@ -241,68 +204,31 @@ body.dark .badge.navy{background:var(--surface3);color:var(--tx-mid);border-colo
   background:var(--maps-bg);border:1px solid var(--maps-bd);
   border-radius:9px;transition:all .2s;
 }
-.maps-link:hover{
-  background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;
-  border-color:transparent;box-shadow:0 4px 14px rgba(21,101,192,.35);transform:translateY(-1px);
-}
+.maps-link:hover{background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(21,101,192,.35);transform:translateY(-1px);}
 
 /* ─── TIP BOX ─── */
-.tip-box{
-  background:var(--tip-bg);border:1px solid var(--tip-bd);
-  border-radius:14px;padding:14px 18px;font-size:13px;
-  color:var(--tip-tx);margin-bottom:18px;line-height:1.65;
-}
+.tip-box{background:var(--tip-bg);border:1px solid var(--tip-bd);border-radius:14px;padding:14px 18px;font-size:13px;color:var(--tip-tx);margin-bottom:18px;line-height:1.65;}
 .tip-box strong{color:var(--tip-tx);font-weight:800;}
 
 /* ─── TOGGLE ─── */
-.toggle-wrap{
-  background:var(--toggle-bg);border:1px solid var(--bd);
-  border-radius:14px;padding:4px;display:inline-flex;
-  margin-bottom:16px;box-shadow:var(--sh-xs);
-}
-.toggle-btn{
-  padding:10px 24px;border:none;border-radius:11px;cursor:pointer;
-  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
-  transition:all .22s;color:var(--tx-muted);background:transparent;
-}
-.toggle-btn.active{
-  background:linear-gradient(135deg,var(--navy),var(--blue));
-  color:#fff;box-shadow:0 4px 14px rgba(10,22,40,.3);
-}
+.toggle-wrap{background:var(--toggle-bg);border:1px solid var(--bd);border-radius:14px;padding:4px;display:inline-flex;margin-bottom:16px;box-shadow:var(--sh-xs);}
+.toggle-btn{padding:10px 24px;border:none;border-radius:11px;cursor:pointer;font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;transition:all .22s;color:var(--tx-muted);background:transparent;}
+.toggle-btn.active{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;box-shadow:0 4px 14px rgba(10,22,40,.3);}
 
 /* ─── SEARCH ─── */
 .search-wrap{position:relative;margin-bottom:18px;}
-.search-input{
-  width:100%;padding:13px 48px 13px 16px;
-  border:1.5px solid var(--bd);border-radius:14px;
-  font-family:'Heebo',sans-serif;font-size:14px;
-  background:var(--surface);color:var(--tx);outline:none;
-  transition:all .2s;box-shadow:var(--sh-xs);
-}
+.search-input{width:100%;padding:13px 48px 13px 16px;border:1.5px solid var(--bd);border-radius:14px;font-family:'Heebo',sans-serif;font-size:14px;background:var(--surface);color:var(--tx);outline:none;transition:all .2s;box-shadow:var(--sh-xs);}
 .search-input::placeholder{color:var(--tx-light);}
 .search-input:focus{border-color:var(--blue-mid);box-shadow:0 0 0 4px rgba(21,101,192,.1),var(--sh-xs);}
-body.dark .search-input:focus{box-shadow:0 0 0 4px rgba(21,101,192,.15),var(--sh-xs);}
 .search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--tx-light);pointer-events:none;}
-.search-clear{
-  position:absolute;left:12px;top:50%;transform:translateY(-50%);
-  background:var(--surface3);border:none;border-radius:50%;
-  width:22px;height:22px;cursor:pointer;font-size:11px;
-  color:var(--tx-muted);display:none;align-items:center;justify-content:center;
-}
+.search-clear{position:absolute;left:12px;top:50%;transform:translateY(-50%);background:var(--surface3);border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:11px;color:var(--tx-muted);display:none;align-items:center;justify-content:center;}
 .search-clear.visible{display:flex;}
 
 /* ─── BEST MATCH ─── */
-.bm-label{
-  font-size:11px;font-weight:800;color:var(--green);
-  display:flex;align-items:center;gap:5px;margin-bottom:8px;
-}
+.bm-label{font-size:11px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:5px;margin-bottom:8px;}
 
 /* ─── RANK BALL ─── */
-.rank-ball{
-  min-width:32px;height:32px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:900;flex-shrink:0;
-}
+.rank-ball{min-width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
 .rk-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 2px 8px rgba(245,158,11,.25);}
 .rk-2{background:linear-gradient(135deg,#F1F5F9,#E2E8F0);color:#475569;}
 .rk-3{background:linear-gradient(135deg,#FEE2E2,#FECACA);color:#991B1B;}
@@ -311,20 +237,13 @@ body.dark .rk-2{background:linear-gradient(135deg,#1C2128,#21262D);color:#8B949E
 body.dark .rk-3{background:linear-gradient(135deg,#2D0D0D,#3D1010);color:#F48080;}
 
 /* ─── DIST BADGE ─── */
-.dist-badge{
-  font-size:12px;font-weight:800;padding:6px 14px;border-radius:20px;
-  background:linear-gradient(135deg,var(--surface2),var(--surface3));
-  color:var(--navy);border:1px solid var(--bd);white-space:nowrap;
-}
+.dist-badge{font-size:12px;font-weight:800;padding:6px 14px;border-radius:20px;background:linear-gradient(135deg,var(--surface2),var(--surface3));color:var(--navy);border:1px solid var(--bd);white-space:nowrap;}
 body.dark .dist-badge{color:var(--tx-mid);}
 
 /* ─── ACCORDION ─── */
-.acc-wrap{
-  background:var(--surface);border:1px solid var(--bd);border-radius:var(--radius);
-  overflow:hidden;margin-bottom:12px;box-shadow:var(--sh-xs);transition:box-shadow .2s;
-}
+.acc-wrap{background:var(--surface);border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;box-shadow:var(--sh-xs);transition:box-shadow .2s;}
 .acc-wrap:hover{box-shadow:var(--sh);}
-.acc-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;transition:background .15s;}
+.acc-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;transition:background .15s;user-select:none;}
 .acc-header:hover{background:var(--acc-hover);}
 .acc-body{display:none;padding:0 20px 18px;border-top:1px solid var(--bd);}
 .acc-body.open{display:block;}
@@ -332,25 +251,18 @@ body.dark .dist-badge{color:var(--tx-mid);}
 .store-row:last-child{border-bottom:none;}
 .store-name{font-weight:700;color:var(--tx-mid);}
 .store-hours{color:var(--tx-muted);font-size:12px;font-weight:500;}
-.arrow{
-  width:28px;height:28px;border-radius:50%;background:var(--surface2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:var(--tx-muted);transition:all .22s;flex-shrink:0;
-}
+.arrow{width:28px;height:28px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--tx-muted);transition:all .22s;flex-shrink:0;}
 .arrow.open{background:var(--blue);color:#fff;transform:rotate(180deg);}
 
-/* ─── WALKING VIZ ─── */
-.walk-viz{
-  background:var(--walk-viz-bg);border:1px solid var(--walk-viz-bd);
-  border-radius:16px;padding:18px 14px 14px;margin-bottom:18px;
-}
+/* ─── WALK VIZ ─── */
+.walk-viz{background:var(--walk-viz-bg);border:1px solid var(--walk-viz-bd);border-radius:16px;padding:18px 14px 14px;margin-bottom:18px;}
 .walk-viz-title{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.5px;margin-bottom:14px;text-align:center;}
 .walk-bars{display:flex;gap:10px;align-items:flex-end;height:100px;}
 .walk-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;}
 .walk-bar-name{font-size:10px;font-weight:800;color:var(--tx-muted);text-align:center;line-height:1.3;}
 .walk-bar-dist{font-size:10px;font-weight:700;color:var(--blue);}
 
-/* ─── DRIVING TIMELINE ─── */
+/* ─── DRIVE TIMELINE ─── */
 .drive-timeline{margin-bottom:18px;}
 .drive-step{display:flex;align-items:center;gap:12px;position:relative;}
 .drive-step::before{content:'';position:absolute;right:19px;top:42px;width:2px;height:calc(100% - 8px);background:var(--drive-bd);z-index:0;}
@@ -359,77 +271,56 @@ body.dark .dist-badge{color:var(--tx-mid);}
 .dd-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 3px 10px rgba(245,158,11,.3);}
 .dd-2{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E40AF;box-shadow:0 3px 10px rgba(37,99,235,.2);}
 .dd-3{background:var(--surface2);color:var(--tx-muted);}
-.drive-content{flex:1;padding:12px 0;}
 
-/* ─── RESTAURANT EXTRAS ─── */
-.price-pill{
-  display:inline-flex;align-items:center;
-  background:var(--gold-bg);color:#7B5800;
-  border:1px solid #F9E4A0;font-size:11px;font-weight:800;
-  padding:3px 9px;border-radius:7px;
-}
+/* ─── RESTAURANT ─── */
+.price-pill{display:inline-flex;align-items:center;background:var(--gold-bg);color:#7B5800;border:1px solid #F9E4A0;font-size:11px;font-weight:800;padding:3px 9px;border-radius:7px;}
 body.dark .price-pill{background:#2D2200;color:#D4A017;border-color:#554000;}
-.must-try{
-  background:var(--must-bg);border:1px solid var(--must-bd);
-  border-radius:9px;padding:8px 12px;
-  font-size:12px;color:var(--must-tx);margin-top:8px;font-weight:600;
-}
+.must-try{background:var(--must-bg);border:1px solid var(--must-bd);border-radius:9px;padding:8px 12px;font-size:12px;color:var(--must-tx);margin-top:8px;font-weight:600;}
 
 /* ─── ATTR ICON ─── */
 .attr-layout{display:flex;gap:16px;align-items:flex-start;}
-.attr-icon-box{
-  width:48px;height:48px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;flex-shrink:0;background:var(--attr-icon-bg);
-  box-shadow:0 2px 8px rgba(21,101,192,.12);
-}
-.attr-tip{
-  display:flex;align-items:center;gap:6px;
-  background:var(--green-bg);border:1px solid #B2DFDB;
-  border-radius:9px;padding:8px 12px;
-  font-size:12px;color:var(--green);font-weight:600;margin-bottom:10px;
-}
+.attr-icon-box{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--attr-icon-bg);box-shadow:0 2px 8px rgba(21,101,192,.12);}
+.attr-tip{display:flex;align-items:center;gap:6px;background:var(--green-bg);border:1px solid #B2DFDB;border-radius:9px;padding:8px 12px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:10px;}
 body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 
 /* ─── JUMBO ─── */
 .jumbo-card{border-right:5px solid #F5C400 !important;}
-.jumbo-logo{
-  width:38px;height:38px;background:#F5C400;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:900;font-size:18px;color:#1a1a1a;flex-shrink:0;
-  box-shadow:0 4px 12px rgba(245,196,0,.35);
-}
+.jumbo-logo{width:38px;height:38px;background:#F5C400;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#1a1a1a;flex-shrink:0;box-shadow:0 4px 12px rgba(245,196,0,.35);}
 
 /* ─── VILLA ─── */
-.villa-hero{
-  background:linear-gradient(150deg,#134E2C 0%,#1B6E3A 45%,#2E9B52 85%,#3DAA60 100%);
-  border-radius:22px;padding:46px 24px;text-align:center;color:#fff;
-  margin-bottom:18px;position:relative;overflow:hidden;
-  box-shadow:0 20px 60px rgba(19,78,44,.4);
-}
+.villa-hero{background:linear-gradient(150deg,#134E2C 0%,#1B6E3A 45%,#2E9B52 85%,#3DAA60 100%);border-radius:22px;padding:46px 24px;text-align:center;color:#fff;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(19,78,44,.4);}
 .villa-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);}
 .villa-hero::after{content:'';position:absolute;bottom:-100px;left:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.03);}
-.villa-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:13px 24px;border-radius:13px;
-  font-family:'Heebo',sans-serif;font-size:14px;font-weight:800;
-  text-decoration:none;cursor:pointer;transition:all .22s;margin:5px;border:none;
-}
+.villa-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:13px;font-family:'Heebo',sans-serif;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;transition:all .22s;margin:5px;border:none;}
 .villa-btn.primary{background:#fff;color:#134E2C;box-shadow:0 4px 20px rgba(0,0,0,.2);}
 .villa-btn.primary:hover{background:#F0FDF4;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25);}
 .villa-btn.sec{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);}
 .villa-btn.sec:hover{background:rgba(255,255,255,.2);}
 .villa-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px;}
-.villa-feat{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
-  border-radius:13px;padding:13px 10px;text-align:center;font-size:13px;font-weight:600;color:#fff;
-}
+.villa-feat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:13px;padding:13px 10px;text-align:center;font-size:13px;font-weight:600;color:#fff;}
 
 /* ─── HOURS PILL ─── */
-.hours-pill{
-  font-size:12px;color:var(--tx-muted);font-weight:600;
-  background:var(--surface2);border:1px solid var(--bd);
-  border-radius:8px;padding:6px 12px;display:inline-block;margin-bottom:10px;
+.hours-pill{font-size:12px;color:var(--tx-muted);font-weight:600;background:var(--surface2);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;display:inline-block;margin-bottom:10px;}
+
+/* ─── STREET SECTION HEADER ─── */
+.street-section-hdr{
+  display:flex;align-items:center;gap:10px;
+  margin:24px 0 14px;padding:12px 16px;
+  background:linear-gradient(135deg,var(--purple-bg),rgba(147,51,234,.06));
+  border:1px solid #D8B4FE;border-radius:14px;
+}
+body.dark .street-section-hdr{background:linear-gradient(135deg,#1A0A2E,#12062A);border-color:#6B21A8;}
+.street-section-hdr h3{font-size:16px;font-weight:800;color:var(--purple-mid);}
+body.dark .street-section-hdr h3{color:#C084FC;}
+.street-section-hdr span{font-size:12px;color:var(--tx-muted);font-weight:500;}
+
+/* ─── NIGHT BADGE ─── */
+.night-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:700;
+  background:linear-gradient(135deg,#1E1B4B,#312E81);
+  color:#A5B4FC;border:1px solid #4338CA;
+  padding:3px 10px;border-radius:20px;
 }
 
 /* ─── ANIMATIONS ─── */
@@ -447,61 +338,30 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 .page.active .quick-card:nth-child(4){animation-delay:.20s;}
 .page.active .quick-card:nth-child(5){animation-delay:.25s;}
 
-/* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--bd);border-radius:99px;}
 
-/* ─── MOBILE ─── */
 @media(max-width:600px){
   .navbar{padding:0 4px;height:52px;}
   .nav-btn{padding:7px 9px;font-size:12px;gap:4px;}
   .dark-toggle{min-width:34px;height:34px;font-size:15px;}
   .page{padding:16px 12px 90px;}
-
   .hero{padding:34px 18px 30px;border-radius:18px;}
   .hero h1{font-size:22px;}
-  .hero-sub{font-size:13px;}
-  .hero-eyebrow{font-size:11px;padding:4px 12px;}
-  .hero-flag{font-size:42px;}
-
   .quick-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
   .quick-card{padding:16px 8px 13px;}
   .qc-emoji{font-size:24px;margin-bottom:6px;}
   .qc-label{font-size:12px;}
   .qc-sub{font-size:10px;}
-
   .card{padding:16px 14px;}
-  .card-title{font-size:14px;}
-  .card-desc{font-size:12px;}
-  .card-meta{gap:10px;font-size:11px;}
-  .card-header{gap:6px;}
-
   .toggle-btn{padding:9px 16px;font-size:13px;}
   .search-input{font-size:13px;padding:12px 44px 12px 14px;}
-
   .attr-layout{gap:12px;}
   .attr-icon-box{width:40px;height:40px;font-size:18px;}
-
-  .sec-hdr h2{font-size:18px;}
-  .acc-header{padding:14px 16px;}
-  .acc-body{padding:0 16px 14px;}
-
-  .villa-hero{padding:34px 16px;}
-  .villa-feat{font-size:12px;padding:11px 8px;}
   .villa-feats{grid-template-columns:repeat(2,1fr);gap:8px;}
-  .villa-btn{padding:11px 18px;font-size:13px;}
-
   .walk-bars{height:80px;gap:6px;}
-  .walk-bar-name,.walk-bar-dist{font-size:9px;}
-
-  .maps-link{font-size:11px;padding:7px 12px;}
-  .tip-box{font-size:12px;padding:12px 14px;}
-
-  .rank-ball{min-width:28px;height:28px;font-size:12px;}
-  .dist-badge{font-size:11px;padding:5px 10px;}
 }
-
 @media(max-width:380px){
   .nav-btn{padding:7px 7px;font-size:11px;}
   .hero h1{font-size:19px;}
@@ -510,14 +370,12 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <button class="nav-btn active" data-page="home" onclick="goto('home',this)">🏠 בית</button>
   <button class="nav-btn" data-page="attractions" onclick="goto('attractions',this)">🏛️ אטרקציות</button>
   <button class="nav-btn" data-page="restaurants" onclick="goto('restaurants',this)">🍽️ מסעדות</button>
   <button class="nav-btn" data-page="supermarkets" onclick="goto('supermarkets',this)">🛒 סופרים</button>
   <button class="nav-btn" data-page="shopping" onclick="goto('shopping',this)">🛍️ קניות</button>
-
   <div class="nav-spacer"></div>
   <button class="dark-toggle" id="darkBtn" onclick="toggleDark()" title="מצב כהה">🌙</button>
 </nav>
@@ -527,7 +385,7 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
   <div class="hero">
     <div class="hero-c1"></div><div class="hero-c2"></div>
     <div class="hero-eyebrow">✈️ &nbsp;קיץ 2025 &nbsp;•&nbsp; כרתים, יוון</div>
-    <div class="hero-flag">🇬🇷</div>
+    <div class="hero-flag"></div>
     <h1>ברוכים הבאים,<br>משפחת דנון!</h1>
     <div class="hero-div"></div>
     <div class="hero-sub">המדריך המשפחתי המלא לחופשה המושלמת</div>
@@ -537,7 +395,7 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
     <div class="quick-card" onclick="goto('attractions')"><div class="qc-emoji">🏛️</div><div class="qc-label">אטרקציות</div><div class="qc-sub">6 מקומות</div></div>
     <div class="quick-card" onclick="goto('restaurants')"><div class="qc-emoji">🍽️</div><div class="qc-label">מסעדות</div><div class="qc-sub">6 מסעדות</div></div>
     <div class="quick-card" onclick="goto('supermarkets')"><div class="qc-emoji">🛒</div><div class="qc-label">סופרים</div><div class="qc-sub">הליכה ונסיעה</div></div>
-    <div class="quick-card" onclick="goto('shopping')"><div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">מולים + Jumbo</div></div>
+    <div class="quick-card" onclick="goto('shopping')"><div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">רחובות + מולים</div></div>
     <div class="quick-card" onclick="window.open(VILLA_MAPS,'_blank')"><div class="qc-emoji">🏡</div><div class="qc-label">הוילה שלנו</div><div class="qc-sub">ניווט לוילה</div></div>
   </div>
 </div>
@@ -553,9 +411,7 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
   <div class="sec-hdr"><h2>🍽️ מסעדות באזור</h2><span class="sec-badge">6 מסעדות</span></div>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="rest-search"
-      placeholder="חפש מסעדה... למשל: ים, קפה, זול, ביר"
-      oninput="renderRestaurants()">
+    <input type="text" class="search-input" id="rest-search" placeholder="חפש מסעדה... למשל: ים, קפה, זול, ביר" oninput="renderRestaurants()">
     <button class="search-clear" id="rest-clear" onclick="clearRestSearch()">✕</button>
   </div>
   <div id="rest-tip" style="display:none;" class="tip-box"></div>
@@ -571,9 +427,7 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
   </div>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="search-input"
-      placeholder="חפש... למשל: ירקות, זול, אורגני"
-      oninput="renderMarkets()">
+    <input type="text" class="search-input" id="search-input" placeholder="חפש... למשל: ירקות, זול, אורגני" oninput="renderMarkets()">
     <button class="search-clear" id="mkt-clear" onclick="clearMktSearch()">✕</button>
   </div>
   <div id="market-tip" class="tip-box"></div>
@@ -583,15 +437,65 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 
 <!-- SHOPPING -->
 <div id="page-shopping" class="page">
-  <div class="sec-hdr"><h2>🛍️ מרכזי קניות</h2><span class="sec-badge">3 מרכזים</span></div>
-  <div id="malls-list"></div>
-  <div class="sec-hdr" style="margin-top:30px;">
-    <div class="jumbo-logo">J</div>
-    <h2>Jumbo</h2>
-    <span class="sec-badge" style="background:linear-gradient(135deg,#FFFDE7,#FFF8D6);color:#7B5800;border-color:#F9E4A0;">רשת פופולרית ביוון</span>
+  <div class="sec-hdr"><h2>🛍️ קניות</h2><span class="sec-badge">3 קטגוריות</span></div>
+
+  <!-- CATEGORY 1: STREETS -->
+  <div class="acc-wrap" id="cat-streets-wrap">
+    <div class="acc-header" onclick="toggleShopCat('streets')">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+          <span style="font-size:20px;">🚶‍♂️</span>
+          <div class="card-title">רחובות קניות</div>
+          <span class="badge purple">פתוח בלילה</span>
+        </div>
+        <div style="font-size:12px;color:var(--tx-muted);font-weight:500;">Stalos • Agia Marina • Platanias • העיר העתיקה</div>
+      </div>
+      <div class="arrow" id="arrow-cat-streets">▾</div>
+    </div>
+    <div class="acc-body" id="body-cat-streets">
+      <div class="toggle-wrap" id="street-mode-toggle" style="margin-top:4px;">
+        <button class="toggle-btn active" onclick="setStreetMode('walking',this)">🚶‍♂️ הליכה</button>
+        <button class="toggle-btn" onclick="setStreetMode('driving',this)">🚗 נסיעה קצרה</button>
+      </div>
+      <div id="street-tip" class="tip-box"></div>
+      <div id="street-list"></div>
+    </div>
   </div>
-  <p style="color:var(--tx-muted);font-size:13px;margin-bottom:16px;font-weight:500;">צעצועים, כלי בית, קישוטים ועוד — במחירים נמוכים מאוד. חובה! 🟡</p>
-  <div id="jumbos-list"></div>
+
+  <!-- CATEGORY 2: MALLS -->
+  <div class="acc-wrap" id="cat-malls-wrap">
+    <div class="acc-header" onclick="toggleShopCat('malls')">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+          <span style="font-size:20px;">🏙️</span>
+          <div class="card-title">מרכזי קניות</div>
+          <span class="badge blue">נסיעה</span>
+        </div>
+        <div style="font-size:12px;color:var(--tx-muted);font-weight:500;">Zara · H&M · Sephora · שוק Agora ועוד</div>
+      </div>
+      <div class="arrow" id="arrow-cat-malls">▾</div>
+    </div>
+    <div class="acc-body" id="body-cat-malls">
+      <div id="malls-list" style="margin-top:4px;"></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: JUMBO -->
+  <div class="acc-wrap jumbo-card" id="cat-jumbo-wrap">
+    <div class="acc-header" onclick="toggleShopCat('jumbo')">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="jumbo-logo">J</div>
+        <div>
+          <div class="card-title">Jumbo</div>
+          <div style="font-size:12px;color:var(--tx-muted);font-weight:500;margin-top:2px;">צעצועים, כלי בית, קישוטים — מחירים נמוכים!</div>
+        </div>
+      </div>
+      <div class="arrow" id="arrow-cat-jumbo">▾</div>
+    </div>
+    <div class="acc-body" id="body-cat-jumbo">
+      <div id="jumbos-list" style="margin-top:4px;"></div>
+    </div>
+  </div>
 </div>
 
 <!-- VILLA -->
@@ -618,140 +522,146 @@ body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 </div>
 
 <script>
-const VILLA_MAPS="https://www.google.com/maps/dir//35.518,24.018";
+const VILLA_MAPS="https://www.google.com/maps/dir//35.5185,24.0165";
 
 /* ── DATA ── */
 const MARKETS={
   walking:[
-    {name:"ALKION",rank:1,walk:"~5 דקות",distance:"~400 מ׳",rating:5.0,
-     tags:["הכי קרוב","הכי מדורג","מומלץ!"],
-     features:{cheap:false,vegetables:4,variety:3},
-     maps:"https://www.google.com/maps/search/Alkion+supermarket+Stalos+Crete",
-     desc:"הסופר הקרוב ביותר לוילה — ממש 5 דקות הליכה. ההמלצה הראשונה שלנו!"},
-    {name:"DIAS",rank:2,walk:"~6 דקות",distance:"~500 מ׳",rating:4.5,
-     tags:["קרוב","מגוון סביר"],
-     features:{cheap:false,vegetables:3,variety:3},
-     maps:"https://www.google.com/maps/search/Dias+supermarket+Stalos+Crete",
-     desc:"מיקום נוח ומגוון סביר — 6 דקות הליכה מהוילה"},
-    {name:"Stalos Market",rank:3,walk:"~8 דקות",distance:"~700 מ׳",rating:4.2,
-     tags:["מרחק בינוני","ירקות טריים"],
-     features:{cheap:false,vegetables:4,variety:2},
-     maps:"https://www.google.com/maps/search/Stalos+Market+supermarket+Crete",
-     desc:"שוק מקומי קטן עם מוצרים טריים ואווירה יוונית אמיתית"},
-    {name:"GIORGOS",rank:4,walk:"~11 דקות",distance:"~900 מ׳",rating:4.0,
-     tags:["רחוק יותר"],
-     features:{cheap:false,vegetables:3,variety:3},
-     maps:"https://www.google.com/maps/search/Giorgos+supermarket+Stalos+Crete",
-     desc:"קצת יותר רחוק — אבל אופציה נוספת טובה לגיוון"},
+    {name:"ALKION",rank:1,walk:"~5 דקות",distance:"~400 מ׳",rating:5.0,tags:["הכי קרוב","הכי מדורג","מומלץ!"],features:{cheap:false,vegetables:4,variety:3},maps:"https://www.google.com/maps/search/Alkion+supermarket+Stalos+Crete",desc:"הסופר הקרוב ביותר לוילה — ממש 5 דקות הליכה. ההמלצה הראשונה שלנו!"},
+    {name:"DIAS",rank:2,walk:"~6 דקות",distance:"~500 מ׳",rating:4.5,tags:["קרוב","מגוון סביר"],features:{cheap:false,vegetables:3,variety:3},maps:"https://www.google.com/maps/search/Dias+supermarket+Stalos+Crete",desc:"מיקום נוח ומגוון סביר — 6 דקות הליכה מהוילה"},
+    {name:"Stalos Market",rank:3,walk:"~8 דקות",distance:"~700 מ׳",rating:4.2,tags:["מרחק בינוני","ירקות טריים"],features:{cheap:false,vegetables:4,variety:2},maps:"https://www.google.com/maps/search/Stalos+Market+supermarket+Crete",desc:"שוק מקומי קטן עם מוצרים טריים ואווירה יוונית אמיתית"},
+    {name:"GIORGOS",rank:4,walk:"~11 דקות",distance:"~900 מ׳",rating:4.0,tags:["רחוק יותר"],features:{cheap:false,vegetables:3,variety:3},maps:"https://www.google.com/maps/search/Giorgos+supermarket+Stalos+Crete",desc:"קצת יותר רחוק — אבל אופציה נוספת טובה לגיוון"},
   ],
   driving:[
-    {name:"Lidl – Dartsos",rank:1,walk:null,distance:"~5 ד׳ נסיעה",rating:4.1,
-     tags:["הכי זול","פתוח ראשון","ירקות מעולים"],
-     features:{cheap:true,vegetables:5,variety:3},
-     maps:"https://www.google.com/maps/search/Lidl+Dartssos+Chania+Crete",
-     desc:"הכי זול באזור. פתוח גם בראשון 11:00–20:00. פירות וירקות טריים מעולים!",
-     hours:"ראשון: 11:00–20:00  •  שאר הימים: 08:00–21:00"},
-    {name:"Sklavenitis – חאניה דרום",rank:2,walk:null,distance:"~10 ד׳ נסיעה",rating:4.7,
-     tags:["הכי מדורג!","חניה חינם","מגוון ענק"],
-     features:{cheap:false,vegetables:5,variety:5},
-     maps:"https://www.google.com/maps/search/Sklavenitis+South+Chania",
-     desc:"הכי מדורג! רשת יוונית גדולה — מחירים טובים, מגוון ענק וחניה חינם ורחבה.",
-     hours:"08:00–21:00 כל הימים"},
-    {name:"Sklavenitis – מרכז חאניה",rank:3,walk:null,distance:"~15 ד׳ נסיעה",rating:4.5,
-     tags:["בלב העיר","ללא חניה נוחה"],
-     features:{cheap:false,vegetables:5,variety:5},
-     maps:"https://www.google.com/maps/search/Sklavenitis+Chania+center",
-     desc:"ממש בלב העיר — אבל חניה קשה. עדיף Sklavenitis הדרומי.",
-     hours:"08:00–21:00 כל הימים"},
+    {name:"Lidl – Dartsos",rank:1,walk:null,distance:"~5 ד׳ נסיעה",rating:4.1,tags:["הכי זול","פתוח ראשון","ירקות מעולים"],features:{cheap:true,vegetables:5,variety:3},maps:"https://www.google.com/maps/search/Lidl+Dartssos+Chania+Crete",desc:"הכי זול באזור. פתוח גם בראשון 11:00–20:00. פירות וירקות טריים מעולים!",hours:"ראשון: 11:00–20:00  •  שאר הימים: 08:00–21:00"},
+    {name:"Sklavenitis – חאניה דרום",rank:2,walk:null,distance:"~10 ד׳ נסיעה",rating:4.7,tags:["הכי מדורג!","חניה חינם","מגוון ענק"],features:{cheap:false,vegetables:5,variety:5},maps:"https://www.google.com/maps/search/Sklavenitis+South+Chania",desc:"הכי מדורג! רשת יוונית גדולה — מחירים טובים, מגוון ענק וחניה חינם ורחבה.",hours:"08:00–21:00 כל הימים"},
+    {name:"Sklavenitis – מרכז חאניה",rank:3,walk:null,distance:"~15 ד׳ נסיעה",rating:4.5,tags:["בלב העיר","ללא חניה נוחה"],features:{cheap:false,vegetables:5,variety:5},maps:"https://www.google.com/maps/search/Sklavenitis+Chania+center",desc:"ממש בלב העיר — אבל חניה קשה. עדיף Sklavenitis הדרומי.",hours:"08:00–21:00 כל הימים"},
+  ]
+};
+
+/* ── STREET SHOPPING DATA ── */
+const STREETS={
+  walking:[
+    {
+      name:"רחוב ראשי של Stalos",
+      distance:"~2-5 דקות הליכה",
+      distBadge:"ממש ליד הוילה",
+      emoji:"🛍️",rating:4.0,
+      nightOpen:false,
+      nightNote:"חנויות נסגרות ~20:00",
+      desc:"לאורך הרחוב הראשי של Stalos תמצאו חנויות מזכרות, בגדי ים, שכירת ATV, פרמציות ואטרקציות. פחות צפוף מהשכנות.",
+      maps:"https://www.google.com/maps/search/shops+Stalos+main+road+Crete",
+      stores:[
+        {name:"חנויות מזכרות ומתנות",hours:"09:00–20:00",cat:"מזכרות"},
+        {name:"בגדי ים ופירות ים",hours:"09:00–20:00",cat:"אופנת קיץ"},
+        {name:"שכירת ATV ואופנועים",hours:"09:00–19:00",cat:"השכרה"},
+        {name:"פרמציה מקומית",hours:"09:00–21:00",cat:"תרופות"},
+        {name:"ATM ושירותים",hours:"24/7",cat:"שירותים"},
+      ]
+    },
+    {
+      name:"רחוב הראשי של Agia Marina",
+      distance:"~15-20 דקות הליכה",
+      distBadge:"~1.5 ק״מ",
+      emoji:"🌟",rating:4.4,
+      nightOpen:true,
+      nightNote:"חנויות פתוחות עד 23:00+",
+      desc:"המדרחוב התיירותי הכי חי בסביבה! מסעדות, ברים, חנויות בגדים, מזכרות וכל מה שצריח — הכול פתוח עד מאוחר בלילה.",
+      maps:"https://www.google.com/maps/search/Agia+Marina+main+strip+shopping+Crete",
+      stores:[
+        {name:"חנויות בגדים ואופנה",hours:"09:00–23:00",cat:"אופנה"},
+        {name:"מזכרות ומוצרים יוונים",hours:"09:00–23:00",cat:"מזכרות"},
+        {name:"תכשיטים וקישוטים",hours:"10:00–22:30",cat:"תכשיטים"},
+        {name:"ספא וטיפוח",hours:"10:00–21:00",cat:"ביוטי"},
+        {name:"ברים ואווירת לילה",hours:"18:00–03:00",cat:"בילוי"},
+        {name:"גלידריות ומתוקים",hours:"10:00–01:00",cat:"אוכל קל"},
+      ]
+    },
+  ],
+  driving:[
+    {
+      name:"רחוב הראשי של Platanias",
+      distance:"~5 דקות נסיעה",
+      distBadge:"~3 ק״מ",
+      emoji:"🎉",rating:4.5,
+      nightOpen:true,
+      nightNote:"פעיל עד שעות הבוקר!",
+      desc:"הרחוב הכי עמוס ותוסס בחבל חאניה — מאות חנויות, מסעדות, ברים וקלאבים. אם רוצים חיי לילה ממשיים — זה המקום!",
+      maps:"https://www.google.com/maps/search/Platanias+main+street+shops+Crete",
+      stores:[
+        {name:"CHORA Jewelry & MYTHOS Ceramics",hours:"09:00–23:30",cat:"תכשיטים ייחודיים"},
+        {name:"World of Wood — עץ ואומנות",hours:"10:00–22:00",cat:"אומנות יוונית"},
+        {name:"I Love Crete — מזכרות",hours:"09:00–00:00",cat:"מזכרות"},
+        {name:"Dress Up — אופנה",hours:"09:00–23:00",cat:"בגדים"},
+        {name:"Platanias Creations — מקומי",hours:"10:00–22:00",cat:"מוצרים מקומיים"},
+        {name:"ברים ומועדונים — Eclipse, Mylos",hours:"21:00–04:00",cat:"בילוי לילה"},
+      ]
+    },
+    {
+      name:"רחוב Halidon — העיר העתיקה חאניה",
+      distance:"~15 דקות נסיעה",
+      distBadge:"~8 ק״מ",
+      emoji:"🏛️",rating:4.7,
+      nightOpen:true,
+      nightNote:"עד 23:00 בקיץ",
+      desc:"הרחוב הראשי של העיר העתיקה — מוביל מהכיכר אל הנמל הוונציאני. בגדים, עור, קרמיקה, ספרים, מזכרות איכותיות ואווירה ייחודית.",
+      maps:"https://www.google.com/maps/search/Halidon+street+Chania+old+town+shopping",
+      stores:[
+        {name:"Leather Lane — Skridlof St",hours:"09:00–22:00",cat:"עור מקומי"},
+        {name:"Zambeliou — בוטיקים ייחודיים",hours:"10:00–22:00",cat:"בוטיק"},
+        {name:"קרמיקה ועבודות יד",hours:"09:00–21:00",cat:"אומנות"},
+        {name:"חנויות תבלינים ודבש",hours:"08:00–20:00",cat:"מזון מקומי"},
+        {name:"זכוכית יוונית ותכשיטים",hours:"10:00–22:30",cat:"תכשיטים"},
+        {name:"מסעדות הנמל בשקיעה",hours:"18:00–00:00",cat:"אוכל ואווירה"},
+      ]
+    },
   ]
 };
 
 const MALLS=[
-  {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",
-   maps:"https://www.google.com/maps/search/Chania+city+centre+shopping",
-   stores:[{name:"Zara",hours:"09:00–21:00",cat:"אופנה"},{name:"H&M",hours:"09:00–21:00",cat:"אופנה"},
-     {name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},{name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},
-     {name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים"},{name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה"}]},
-  {name:"רחוב בוטיקים Chalepa",distance:"9 ק״מ",rating:4.2,emoji:"🛍️",
-   maps:"https://www.google.com/maps/search/Chalepa+shopping+Chania",
-   stores:[{name:"Greek Souvenirs",hours:"09:00–23:00",cat:"מזכרות"},{name:"Olive Wood Crafts",hours:"10:00–22:00",cat:"אומנות יוונית"},
-     {name:"Greek Natural Cosmetics",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Local Honey & Spices",hours:"09:00–20:00",cat:"מזון מקומי"}]},
-  {name:"שוק Agora – 1866",distance:"8.5 ק״מ",rating:4.6,emoji:"🏪",
-   maps:"https://www.google.com/maps/search/Agora+market+Chania+1866",
-   stores:[{name:"Agora Municipal Market",hours:"07:00–15:00",cat:"שוק כולל"},{name:"Fresh Fish & Seafood",hours:"07:00–14:00",cat:"דגים טריים"},
-     {name:"Cretan Cheese Shops",hours:"08:00–15:00",cat:"גבינות מקומיות"},{name:"Herb & Spice Stalls",hours:"07:00–15:00",cat:"עשבי תבלין"}]},
+  {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",maps:"https://www.google.com/maps/search/Chania+city+centre+shopping",stores:[{name:"Zara",hours:"09:00–21:00",cat:"אופנה"},{name:"H&M",hours:"09:00–21:00",cat:"אופנה"},{name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},{name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים"},{name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה"}]},
+  {name:"שוק Agora – 1866",distance:"8.5 ק״מ",rating:4.6,emoji:"🏪",maps:"https://www.google.com/maps/search/Agora+market+Chania+1866",stores:[{name:"Agora Municipal Market",hours:"07:00–15:00",cat:"שוק כולל"},{name:"Fresh Fish & Seafood",hours:"07:00–14:00",cat:"דגים טריים"},{name:"Cretan Cheese Shops",hours:"08:00–15:00",cat:"גבינות מקומיות"},{name:"Herb & Spice Stalls",hours:"07:00–15:00",cat:"עשבי תבלין"}]},
+  {name:"רחוב בוטיקים Chalepa",distance:"9 ק״מ",rating:4.2,emoji:"🛍️",maps:"https://www.google.com/maps/search/Chalepa+shopping+Chania",stores:[{name:"Greek Souvenirs",hours:"09:00–23:00",cat:"מזכרות"},{name:"Olive Wood Crafts",hours:"10:00–22:00",cat:"אומנות יוונית"},{name:"Greek Natural Cosmetics",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Local Honey & Spices",hours:"09:00–20:00",cat:"מזון מקומי"}]},
 ];
 
 const JUMBOS=[
-  {name:"Jumbo Χανιά",distance:"7.2 ק״מ",rating:4.4,hours:"09:00–21:00",
-   maps:"https://www.google.com/maps/search/Jumbo+Chania",
-   desc:"מגוון ענק של צעצועים, כלי בית, קישוטים, ספרים ועוד — במחירים נמוכים מאוד. חובה לכל תייר!"},
+  {name:"Jumbo Χανιά",distance:"7.2 ק״מ",rating:4.4,hours:"09:00–21:00",maps:"https://www.google.com/maps/search/Jumbo+Chania",desc:"מגוון ענק של צעצועים, כלי בית, קישוטים, ספרים ועוד — במחירים נמוכים מאוד. חובה לכל תייר!"},
 ];
 
 const ATTRACTIONS=[
-  {name:"חוף Stalos",type:"חוף",emoji:"🏖️",distance:"500 מ׳",rating:4.3,
-   desc:"החוף השקט של הכפר — מים שקופים, חצץ עדין ואווירה מקומית. ממש מתחת לוילה!",
-   maps:"https://www.google.com/maps/search/Stalos+beach+Crete",duration:"כמה שעות",tip:"בוקר מוקדם — שקט לגמרי"},
-  {name:"העיר העתיקה של חניה",type:"תרבות",emoji:"🏛️",distance:"8 ק״מ",rating:4.8,
-   desc:"הנמל הוונציאני, מסגד, שווקים עמוסים ואדריכלות עוצרת נשימה. חובה לכל תייר!",
-   maps:"https://www.google.com/maps/search/Chania+Old+Town",duration:"חצי יום",tip:"הגיעו בשעת בין ערביים לצבעים הכי יפים"},
-  {name:"Elafonisi Beach",type:"חוף",emoji:"🌸",distance:"75 ק״מ",rating:4.9,
-   desc:"חוף ורדרד ייחודי — המים הטורקיז ביותר שראיתם. אחד מ-10 החופים היפים בעולם!",
-   maps:"https://www.google.com/maps/search/Elafonisi+Beach+Crete",duration:"יום שלם",tip:"צאו מוקדם — עמוס בשעות הצהריים"},
-  {name:"Balos Lagoon",type:"חוף",emoji:"🏝️",distance:"55 ק״מ",rating:4.9,
-   desc:"לגונה טורקיז מרהיבה עם מים רדודים שקופים. הגיעו בשייט או ברכב שטח",
-   maps:"https://www.google.com/maps/search/Balos+Lagoon+Crete",duration:"יום שלם",tip:"שייט מחניה מומלץ — הגעה מדהימה"},
-  {name:"Samaria Gorge",type:"טבע",emoji:"🥾",distance:"45 ק״מ",rating:4.7,
-   desc:"הגיא הארוך ביותר באירופה — 16 ק״מ בנוף הררי דרמטי. חובה לאוהבי טיולים",
-   maps:"https://www.google.com/maps/search/Samaria+Gorge+Crete",duration:"יום שלם",tip:"נעלי טיול ומים בשפע"},
-  {name:"Botanical Park Crete",type:"טבע",emoji:"🌿",distance:"20 ק״מ",rating:4.5,
-   desc:"פארק בוטני ירוק עם מאות צמחי כרתים, מסעדה ואווירה כפרית מרגיעה",
-   maps:"https://www.google.com/maps/search/Botanical+Park+Crete",duration:"3–4 שעות",tip:"מצוין לילדים ולאוהבי טבע"},
+  {name:"חוף Stalos",type:"חוף",emoji:"🏖️",distance:"500 מ׳",rating:4.3,desc:"החוף השקט של הכפר — מים שקופים, חצץ עדין ואווירה מקומית. ממש מתחת לוילה!",maps:"https://www.google.com/maps/search/Stalos+beach+Crete",duration:"כמה שעות",tip:"בוקר מוקדם — שקט לגמרי"},
+  {name:"העיר העתיקה של חניה",type:"תרבות",emoji:"🏛️",distance:"8 ק״מ",rating:4.8,desc:"הנמל הוונציאני, מסגד, שווקים עמוסים ואדריכלות עוצרת נשימה. חובה לכל תייר!",maps:"https://www.google.com/maps/search/Chania+Old+Town",duration:"חצי יום",tip:"הגיעו בשעת בין ערביים לצבעים הכי יפים"},
+  {name:"Elafonisi Beach",type:"חוף",emoji:"🌸",distance:"75 ק״מ",rating:4.9,desc:"חוף ורדרד ייחודי — המים הטורקיז ביותר שראיתם. אחד מ-10 החופים היפים בעולם!",maps:"https://www.google.com/maps/search/Elafonisi+Beach+Crete",duration:"יום שלם",tip:"צאו מוקדם — עמוס בשעות הצהריים"},
+  {name:"Balos Lagoon",type:"חוף",emoji:"🏝️",distance:"55 ק״מ",rating:4.9,desc:"לגונה טורקיז מרהיבה עם מים רדודים שקופים. הגיעו בשייט או ברכב שטח",maps:"https://www.google.com/maps/search/Balos+Lagoon+Crete",duration:"יום שלם",tip:"שייט מחניה מומלץ — הגעה מדהימה"},
+  {name:"Samaria Gorge",type:"טבע",emoji:"🥾",distance:"45 ק״מ",rating:4.7,desc:"הגיא הארוך ביותר באירופה — 16 ק״מ בנוף הררי דרמטי. חובה לאוהבי טיולים",maps:"https://www.google.com/maps/search/Samaria+Gorge+Crete",duration:"יום שלם",tip:"נעלי טיול ומים בשפע"},
+  {name:"Botanical Park Crete",type:"טבע",emoji:"🌿",distance:"20 ק״מ",rating:4.5,desc:"פארק בוטני ירוק עם מאות צמחי כרתים, מסעדה ואווירה כפרית מרגיעה",maps:"https://www.google.com/maps/search/Botanical+Park+Crete",duration:"3–4 שעות",tip:"מצוין לילדים ולאוהבי טבע"},
 ];
 
 const RESTAURANTS=[
-  {name:"Mastrapas Taverna",type:"טברנה יוונית",distance:"200 מ׳",rating:4.5,price:"££",
-   tags:["קרוב לוילה","יוונית מסורתית"],
-   desc:"המסעדה המקומית הכי אמיתית — ספינקופיטה, מוסקה, גרילד פיש. ממש קרוב לוילה!",
-   maps:"https://www.google.com/maps/search/Mastrapas+Taverna+Stalos",hours:"12:00–23:00",mustTry:"מוסקה, ספינקופיטה"},
-  {name:"Taverna Elia",type:"מאכלי ים",distance:"400 מ׳",rating:4.3,price:"£££",
-   tags:["מאכלי ים","נוף לים","קרוב"],
-   desc:"דגים טריים ישר מהים, שרימפס ותמנון על הגריל. נוף לים מרהיב",
-   maps:"https://www.google.com/maps/search/Taverna+Elia+Stalos+Crete",hours:"13:00–00:00",mustTry:"תמנון, שרימפס ביין"},
-  {name:"To Stachi Bakery",type:"קפה ומאפים",distance:"350 מ׳",rating:4.4,price:"£",
-   tags:["זול","בוקר","קפה","מאפים","קרוב"],
-   desc:"קפה יווני מסורתי, מאפים טריים וגלידה — ארוחת בוקר מושלמת ליד הבית",
-   maps:"https://www.google.com/maps/search/bakery+cafe+Stalos+Crete",hours:"07:00–15:00",mustTry:"בוגטסה, קפה יווני"},
-  {name:"Akrogiali Beach Bar",type:"בר חוף",distance:"550 מ׳",rating:4.1,price:"££",
-   tags:["בר","חוף","שקיעה","קוקטיילים"],
-   desc:"ארוחות קלות, קוקטיילים ומאגרות. מקום מושלם לצפות בשקיעה",
-   maps:"https://www.google.com/maps/search/beach+bar+Stalos+Crete",hours:"10:00–01:00",mustTry:"Frappe, סלט יווני"},
-  {name:"Veneto Restaurant",type:"יוונית מודרנית",distance:"8 ק״מ",rating:4.6,price:"£££",
-   tags:["פרמיום","חניה","ערב","נמל"],
-   desc:"מסעדת פרמיום בנמל הוונציאני של חניה. חוויה גסטרונומית מלאה עם נוף לנמל",
-   maps:"https://www.google.com/maps/search/Veneto+Restaurant+Chania",hours:"13:00–00:00",mustTry:"סטייק כרתי, יין מקומי"},
-  {name:"Salis Restaurant",type:"ים-תיכונית",distance:"8.5 ק״מ",rating:4.7,price:"£££",
-   tags:["פרמיום","יין","ים-תיכוני","חניה"],
-   desc:"אחת המסעדות הטובות בחניה — תפריט מסוגנן ויין כרתי מצוין",
-   maps:"https://www.google.com/maps/search/Salis+Restaurant+Chania",hours:"19:00–00:00",mustTry:"טרטר פירות ים"},
+  {name:"Mastrapas Taverna",type:"טברנה יוונית",distance:"200 מ׳",rating:4.5,price:"££",tags:["קרוב לוילה","יוונית מסורתית"],desc:"המסעדה המקומית הכי אמיתית — ספינקופיטה, מוסקה, גרילד פיש. ממש קרוב לוילה!",maps:"https://www.google.com/maps/search/Mastrapas+Taverna+Stalos",hours:"12:00–23:00",mustTry:"מוסקה, ספינקופיטה"},
+  {name:"Taverna Elia",type:"מאכלי ים",distance:"400 מ׳",rating:4.3,price:"£££",tags:["מאכלי ים","נוף לים","קרוב"],desc:"דגים טריים ישר מהים, שרימפס ותמנון על הגריל. נוף לים מרהיב",maps:"https://www.google.com/maps/search/Taverna+Elia+Stalos+Crete",hours:"13:00–00:00",mustTry:"תמנון, שרימפס ביין"},
+  {name:"To Stachi Bakery",type:"קפה ומאפים",distance:"350 מ׳",rating:4.4,price:"£",tags:["זול","בוקר","קפה","מאפים","קרוב"],desc:"קפה יווני מסורתי, מאפים טריים וגלידה — ארוחת בוקר מושלמת ליד הבית",maps:"https://www.google.com/maps/search/bakery+cafe+Stalos+Crete",hours:"07:00–15:00",mustTry:"בוגטסה, קפה יווני"},
+  {name:"Akrogiali Beach Bar",type:"בר חוף",distance:"550 מ׳",rating:4.1,price:"££",tags:["בר","חוף","שקיעה","קוקטיילים"],desc:"ארוחות קלות, קוקטיילים ומאגרות. מקום מושלם לצפות בשקיעה",maps:"https://www.google.com/maps/search/beach+bar+Stalos+Crete",hours:"10:00–01:00",mustTry:"Frappe, סלט יווני"},
+  {name:"Veneto Restaurant",type:"יוונית מודרנית",distance:"8 ק״מ",rating:4.6,price:"£££",tags:["פרמיום","חניה","ערב","נמל"],desc:"מסעדת פרמיום בנמל הוונציאני של חניה. חוויה גסטרונומית מלאה עם נוף לנמל",maps:"https://www.google.com/maps/search/Veneto+Restaurant+Chania",hours:"13:00–00:00",mustTry:"סטייק כרתי, יין מקומי"},
+  {name:"Salis Restaurant",type:"ים-תיכונית",distance:"8.5 ק״מ",rating:4.7,price:"£££",tags:["פרמיום","יין","ים-תיכוני","חניה"],desc:"אחת המסעדות הטובות בחניה — תפריט מסוגנן ויין כרתי מצוין",maps:"https://www.google.com/maps/search/Salis+Restaurant+Chania",hours:"19:00–00:00",mustTry:"טרטר פירות ים"},
 ];
 
-/* ── HELPERS ── */
+/* ── STATE ── */
 let darkMode=false;
 let currentMode='walking';
+let currentStreetMode='walking';
 
+/* ── HELPERS ── */
 function starsHTML(r){
   const f=Math.floor(r),h=(r%1)>=0.5,e=5-f-(h?1:0);
   return `<div class="stars-wrap"><span class="stars-f">${'★'.repeat(f)}${h?'✦':''}</span><span class="stars-e">${'☆'.repeat(e)}</span><span class="rating-num">${r}</span></div>`;
 }
-
 function tagCls(t){
   if(/(מומלץ|מדורג|ענק)/.test(t))return'gold';
   if(/(זול|חינם)/.test(t))return'green';
   if(/(קרוב|פתוח|בוקר|קפה)/.test(t))return'blue';
   return'';
 }
-
 function hl(text,q){
   if(!q)return text;
   const re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
@@ -765,9 +675,7 @@ function toggleDark(){
   document.getElementById('darkBtn').textContent=darkMode?'☀️':'🌙';
   localStorage.setItem('dk',darkMode?'1':'0');
 }
-(function(){
-  if(localStorage.getItem('dk')==='1'){darkMode=true;document.body.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
-})();
+(function(){if(localStorage.getItem('dk')==='1'){darkMode=true;document.body.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}})();
 
 /* ── NAVIGATION ── */
 function goto(pageId,btn){
@@ -776,7 +684,6 @@ function goto(pageId,btn){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   const pg=document.getElementById('page-'+pageId);
   pg.classList.add('active');
-  // re-trigger animations
   pg.querySelectorAll('.card,.acc-wrap,.quick-card').forEach(el=>{el.style.animation='none';void el.offsetWidth;el.style.animation='';});
   const b=btn||document.querySelector(`[data-page="${pageId}"]`);
   if(b)b.classList.add('active');
@@ -791,8 +698,6 @@ function gotoVilla(btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-villa').classList.add('active');
-  const b=btn||document.querySelector('[data-page="villa"]');
-  if(b)b.classList.add('active');
 }
 
 /* ── ATTRACTIONS ── */
@@ -834,46 +739,30 @@ function scoreRest(r,q){
 
 function renderRestaurants(){
   const q=document.getElementById('rest-search').value||'';
-  const clearBtn=document.getElementById('rest-clear');
-  clearBtn.classList.toggle('visible',q.length>0);
-
+  document.getElementById('rest-clear').classList.toggle('visible',q.length>0);
   const scored=RESTAURANTS.map(r=>({...r,score:scoreRest(r,q)})).sort((a,b)=>b.score-a.score);
-
   const tipEl=document.getElementById('rest-tip');
-  if(q.trim()&&scored.length>0){
-    tipEl.style.display='block';
-    tipEl.innerHTML=`🔍 מציג תוצאות לחיפוש "<strong>${q}</strong>" — ${scored.filter(r=>r.score>1).length} מסעדות נמצאו`;
-  } else {
-    tipEl.style.display='none';
-  }
-
+  if(q.trim()&&scored.length>0){tipEl.style.display='block';tipEl.innerHTML=`🔍 מציג תוצאות לחיפוש "<strong>${q}</strong>" — ${scored.filter(r=>r.score>1).length} מסעדות נמצאו`;}
+  else{tipEl.style.display='none';}
   document.getElementById('restaurants-list').innerHTML=scored.map((r,i)=>`
     <div class="card ${i===0&&q?'best-match':''}">
       ${i===0&&q?'<div class="bm-label">✅ הכי מתאים לחיפוש שלך</div>':''}
       <div class="card-header">
         <div>
           <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
-            <span class="badge">${hl(r.type,q)}</span>
-            <span class="price-pill">${r.price}</span>
+            <span class="badge">${hl(r.type,q)}</span><span class="price-pill">${r.price}</span>
           </div>
           <div class="card-title">🍽️ ${hl(r.name,q)}</div>
         </div>
         ${starsHTML(r.rating)}
       </div>
       <div class="card-desc">${hl(r.desc,q)}</div>
-      <div class="card-meta" style="margin-bottom:8px;">
-        <span>📍 ${r.distance}</span>
-        <span>🕐 ${r.hours}</span>
-      </div>
+      <div class="card-meta" style="margin-bottom:8px;"><span>📍 ${r.distance}</span><span>🕐 ${r.hours}</span></div>
       <div class="must-try">🍴 חובה לנסות: <strong>${r.mustTry}</strong></div>
       <a href="${r.maps}" target="_blank" class="maps-link">🗺️ פתח ב-Google Maps</a>
     </div>`).join('');
 }
-
-function clearRestSearch(){
-  document.getElementById('rest-search').value='';
-  renderRestaurants();
-}
+function clearRestSearch(){document.getElementById('rest-search').value='';renderRestaurants();}
 
 /* ── SUPERMARKETS ── */
 function setMode(m,btn){
@@ -884,13 +773,7 @@ function setMode(m,btn){
   btn.classList.add('active');
   renderMarkets();
 }
-
-function clearMktSearch(){
-  document.getElementById('search-input').value='';
-  document.getElementById('mkt-clear').classList.remove('visible');
-  renderMarkets();
-}
-
+function clearMktSearch(){document.getElementById('search-input').value='';document.getElementById('mkt-clear').classList.remove('visible');renderMarkets();}
 function scoreMkt(m,q){
   if(!q.trim())return m.rating+(4-m.rank)*0.5;
   const query=q.toLowerCase();let score=m.rating;
@@ -901,16 +784,13 @@ function scoreMkt(m,q){
   if(['מגוון','variety'].some(k=>query.includes(k)))score+=m.features.variety*0.5;
   return score;
 }
-
 function renderMarkets(){
   const q=document.getElementById('search-input').value||'';
   document.getElementById('mkt-clear').classList.toggle('visible',q.length>0);
   const markets=MARKETS[currentMode].map(m=>({...m,score:scoreMkt(m,q)})).sort((a,b)=>b.score-a.score);
-
   document.getElementById('market-tip').innerHTML=currentMode==='walking'
     ?'💡 כולם במרחק הליכה מהוילה! ההמלצה: <strong>ALKION</strong> — הכי קרוב (400 מ׳) והכי מדורג.'
     :'💡 ההמלצה: <strong>Sklavenitis הדרומי</strong> (~10 דקות) — 4.7★, מגוון ענק, חניה חינם. רוצים זול? <strong>Lidl ב-5 דקות</strong> עם ירקות טריים מעולים!';
-
   const vizWrap=document.getElementById('walk-viz-wrap');
   if(currentMode==='walking'){
     const bars=[{n:'ALKION',d:400,c:'#1565C0'},{n:'DIAS',d:500,c:'#1E88E5'},{n:'Stalos Market',d:700,c:'#64B5F6'},{n:'GIORGOS',d:900,c:'#90CAF9'}];
@@ -918,7 +798,6 @@ function renderMarkets(){
   } else {
     vizWrap.innerHTML=`<div class="drive-timeline">${[{n:'Lidl – Dartsos',min:5,cls:'dd-1',note:'הכי זול'},{n:'Sklavenitis דרום',min:10,cls:'dd-2',note:'הכי מדורג ✓'},{n:'Sklavenitis מרכז',min:15,cls:'dd-3',note:'ללא חניה נוחה'}].map(s=>`<div class="drive-step"><div class="drive-dot ${s.cls}">${s.min}′</div><div class="drive-content"><div style="font-size:13px;font-weight:700;color:var(--tx-mid);">${s.n}</div><div style="font-size:12px;color:var(--tx-muted);">${s.note}</div></div></div>`).join('')}</div>`;
   }
-
   const rkMap={1:'rk-1',2:'rk-2',3:'rk-3',4:'rk-4'};
   document.getElementById('markets-list').innerHTML=markets.map((m,i)=>`
     <div class="card ${i===0&&q?'best-match':''}">
@@ -932,15 +811,70 @@ function renderMarkets(){
       </div>
       <div class="card-desc">${m.desc}</div>
       ${m.hours?`<div class="hours-pill">🕐 ${m.hours}</div>`:''}
-      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:4px;">
-        ${m.tags.map(t=>`<span class="badge ${tagCls(t)}">${t}</span>`).join('')}
-      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:4px;">${m.tags.map(t=>`<span class="badge ${tagCls(t)}">${t}</span>`).join('')}</div>
       <a href="${m.maps}" target="_blank" class="maps-link">🗺️ נווט ב-Google Maps</a>
     </div>`).join('');
 }
 
+/* ── STREET SHOPPING ── */
+function setStreetMode(m,btn){
+  currentStreetMode=m;
+  document.querySelectorAll('#street-mode-toggle .toggle-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderStreets();
+}
+
+function renderStreets(){
+  const streets=STREETS[currentStreetMode];
+  const tipEl=document.getElementById('street-tip');
+  tipEl.innerHTML=currentStreetMode==='walking'
+    ?'💡 <strong>Agia Marina</strong> היא ההמלצה — 15-20 דקות הליכה, חנויות פתוחות עד חצות ואווירה מדהימה!'
+    :'💡 <strong>Platanias</strong> — 5 דקות נסיעה עם הרחוב הכי עמוס בחבל חאניה. <strong>העיר העתיקה</strong> מציעה חנויות ייחודיות ואווירת נמל.';
+  
+  document.getElementById('street-list').innerHTML=streets.map((s,idx)=>`
+    <div class="acc-wrap">
+      <div class="acc-header" onclick="toggleStreet(${idx})">
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+            <span style="font-size:18px;">${s.emoji}</span>
+            <div class="card-title">${s.name}</div>
+            ${s.nightOpen?`<span class="night-badge">🌙 פתוח בלילה</span>`:`<span class="badge">${s.nightNote}</span>`}
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <span class="dist-badge">${s.distBadge}</span>
+            ${starsHTML(s.rating)}
+          </div>
+          <div style="font-size:12px;color:var(--tx-muted);margin-top:6px;font-weight:500;">${s.desc}</div>
+        </div>
+        <div class="arrow" id="street-arrow-${idx}">▾</div>
+      </div>
+      <div class="acc-body" id="street-body-${idx}">
+        <p style="font-size:12px;color:var(--tx-muted);margin-bottom:10px;font-weight:600;">📍 ${s.distance}</p>
+        ${s.stores.map(st=>`
+          <div class="store-row">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span class="store-name">${st.name}</span><span class="badge">${st.cat}</span>
+            </div>
+            <span class="store-hours">🕐 ${st.hours}</span>
+          </div>`).join('')}
+        <a href="${s.maps}" target="_blank" class="maps-link" style="margin-top:14px;">🗺️ פתח ב-Google Maps</a>
+      </div>
+    </div>`).join('');
+}
+
+function toggleStreet(idx){
+  const body=document.getElementById('street-body-'+idx);
+  const arrow=document.getElementById('street-arrow-'+idx);
+  const open=body.classList.contains('open');
+  document.querySelectorAll('[id^="street-body-"]').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('[id^="street-arrow-"]').forEach(a=>a.classList.remove('open'));
+  if(!open){body.classList.add('open');arrow.classList.add('open');}
+}
+
 /* ── SHOPPING ── */
 function renderShopping(){
+  renderStreets();
+
   document.getElementById('malls-list').innerHTML=MALLS.map((mall,mi)=>`
     <div class="acc-wrap">
       <div class="acc-header" onclick="toggleMall(${mi})">
@@ -952,7 +886,7 @@ function renderShopping(){
             <span class="badge blue">${mall.stores.length} חנויות</span>
           </div>
         </div>
-        <div class="arrow" id="arrow-${mi}">▾</div>
+        <div class="arrow" id="mall-arrow-${mi}">▾</div>
       </div>
       <div class="acc-body" id="mall-body-${mi}">
         ${mall.stores.map(s=>`
@@ -967,12 +901,9 @@ function renderShopping(){
     </div>`).join('');
 
   document.getElementById('jumbos-list').innerHTML=JUMBOS.map(j=>`
-    <div class="card jumbo-card">
+    <div class="card jumbo-card" style="margin-bottom:0;">
       <div class="card-header">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div class="jumbo-logo">J</div>
-          <div><div class="card-title">${j.name}</div><div style="margin-top:4px;">${starsHTML(j.rating)}</div></div>
-        </div>
+        <div><div class="card-title">${j.name}</div><div style="margin-top:4px;">${starsHTML(j.rating)}</div></div>
       </div>
       <div class="card-desc">${j.desc}</div>
       <div class="card-meta"><span>📍 ${j.distance}</span><span>🕐 ${j.hours}</span></div>
@@ -980,12 +911,25 @@ function renderShopping(){
     </div>`).join('');
 }
 
+/* toggle top-level shopping categories */
+function toggleShopCat(cat){
+  const body=document.getElementById('body-cat-'+cat);
+  const arrow=document.getElementById('arrow-cat-'+cat);
+  const open=body.classList.contains('open');
+  // close all
+  ['streets','malls','jumbo'].forEach(c=>{
+    document.getElementById('body-cat-'+c).classList.remove('open');
+    document.getElementById('arrow-cat-'+c).classList.remove('open');
+  });
+  if(!open){body.classList.add('open');arrow.classList.add('open');}
+}
+
 function toggleMall(mi){
   const body=document.getElementById('mall-body-'+mi);
-  const arrow=document.getElementById('arrow-'+mi);
+  const arrow=document.getElementById('mall-arrow-'+mi);
   const open=body.classList.contains('open');
-  document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
-  document.querySelectorAll('.arrow').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('[id^="mall-body-"]').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('[id^="mall-arrow-"]').forEach(a=>a.classList.remove('open'));
   if(!open){body.classList.add('open');arrow.classList.add('open');}
 }
 
