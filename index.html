@@ -385,7 +385,7 @@ body.dark .street-section-hdr h3{color:#C084FC;}
   <div class="hero">
     <div class="hero-c1"></div><div class="hero-c2"></div>
     <div class="hero-eyebrow">✈️ &nbsp;קיץ 2025 &nbsp;•&nbsp; כרתים, יוון</div>
-    <div class="hero-flag"></div>
+    <div class="hero-flag">🇬🇷</div>
     <h1>ברוכים הבאים,<br>משפחת דנון!</h1>
     <div class="hero-div"></div>
     <div class="hero-sub">המדריך המשפחתי המלא לחופשה המושלמת</div>
@@ -408,7 +408,7 @@ body.dark .street-section-hdr h3{color:#C084FC;}
 
 <!-- RESTAURANTS -->
 <div id="page-restaurants" class="page">
-  <div class="sec-hdr"><h2>🍽️ מסעדות באזור</h2><span class="sec-badge">6 מסעדות</span></div>
+  <div class="sec-hdr"><h2>🍽️ מסעדות באזור</h2><span class="sec-badge">7 מסעדות</span></div>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input type="text" class="search-input" id="rest-search" placeholder="חפש מסעדה... למשל: ים, קפה, זול, ביר" oninput="renderRestaurants()">
@@ -471,7 +471,7 @@ body.dark .street-section-hdr h3{color:#C084FC;}
           <div class="card-title">מרכזי קניות</div>
           <span class="badge blue">נסיעה</span>
         </div>
-        <div style="font-size:12px;color:var(--tx-muted);font-weight:500;">Zara · H&M · Sephora · שוק Agora ועוד</div>
+        <div style="font-size:12px;color:var(--tx-muted);font-weight:500;">Zara · H&M · Sephora · שוק Agora · Leather Lane</div>
       </div>
       <div class="arrow" id="arrow-cat-malls">▾</div>
     </div>
@@ -619,9 +619,48 @@ const STREETS={
 };
 
 const MALLS=[
-  {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",maps:"https://www.google.com/maps/search/Chania+city+centre+shopping",stores:[{name:"Zara",hours:"09:00–21:00",cat:"אופנה"},{name:"H&M",hours:"09:00–21:00",cat:"אופנה"},{name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},{name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים"},{name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה"}]},
-  {name:"שוק Agora – 1866",distance:"8.5 ק״מ",rating:4.6,emoji:"🏪",maps:"https://www.google.com/maps/search/Agora+market+Chania+1866",stores:[{name:"Agora Municipal Market",hours:"07:00–15:00",cat:"שוק כולל"},{name:"Fresh Fish & Seafood",hours:"07:00–14:00",cat:"דגים טריים"},{name:"Cretan Cheese Shops",hours:"08:00–15:00",cat:"גבינות מקומיות"},{name:"Herb & Spice Stalls",hours:"07:00–15:00",cat:"עשבי תבלין"}]},
-  {name:"רחוב בוטיקים Chalepa",distance:"9 ק״מ",rating:4.2,emoji:"🛍️",maps:"https://www.google.com/maps/search/Chalepa+shopping+Chania",stores:[{name:"Greek Souvenirs",hours:"09:00–23:00",cat:"מזכרות"},{name:"Olive Wood Crafts",hours:"10:00–22:00",cat:"אומנות יוונית"},{name:"Greek Natural Cosmetics",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Local Honey & Spices",hours:"09:00–20:00",cat:"מזון מקומי"}]},
+  {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",maps:"https://www.google.com/maps/search/Chania+city+centre+shopping+mall",stores:[
+    {name:"Zara",hours:"09:00–21:00",cat:"אופנה"},
+    {name:"H&M",hours:"09:00–21:00",cat:"אופנה"},
+    {name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},
+    {name:"Pull & Bear",hours:"09:00–21:00",cat:"אופנה"},
+    {name:"Bershka",hours:"09:00–21:00",cat:"אופנה"},
+    {name:"Massimo Dutti",hours:"09:00–21:00",cat:"אופנה פרמיום"},
+    {name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},
+    {name:"Yves Rocher",hours:"09:00–21:00",cat:"קוסמטיקה"},
+    {name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים וספורט"},
+    {name:"Adidas",hours:"09:00–21:00",cat:"ספורט"},
+    {name:"Nike",hours:"09:00–21:00",cat:"ספורט"},
+    {name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה ומזון"},
+    {name:"Kotsovolos — אלקטרוניקה",hours:"09:00–21:00",cat:"אלקטרוניקה"},
+    {name:"Public — ספרים ואלקטרוניקה",hours:"09:00–21:00",cat:"ספרים וטכנולוגיה"},
+    {name:"Hondos Centre — קוסמטיקה",hours:"09:00–21:00",cat:"קוסמטיקה ובריאות"},
+    {name:"Starbucks",hours:"08:00–22:00",cat:"קפה"},
+    {name:"McDonalds / Burger King",hours:"09:00–23:00",cat:"מזון מהיר"},
+    {name:"פוד קורט — מסעדות שונות",hours:"10:00–22:00",cat:"אוכל"},
+  ]},
+  {name:"שוק Agora – 1866",distance:"8.5 ק״מ",rating:4.6,emoji:"🏪",maps:"https://www.google.com/maps/search/Agora+market+Chania+1866",stores:[
+    {name:"שוק עירוני מקורה — Agora",hours:"07:00–15:00",cat:"שוק כולל"},
+    {name:"דגים טריים ופירות ים",hours:"07:00–14:00",cat:"דגים"},
+    {name:"בשר ועוף — קצבים מקומיים",hours:"07:00–14:30",cat:"בשר"},
+    {name:"גבינות כרתיות — חנויות מיוחדות",hours:"08:00–15:00",cat:"גבינות"},
+    {name:"עשבי תבלין ותה יווני",hours:"07:00–15:00",cat:"תבלינים"},
+    {name:"דבש ומוצרי כוורת",hours:"08:00–15:00",cat:"דבש"},
+    {name:"זיתים ושמן זית",hours:"07:00–15:00",cat:"מוצרים מקומיים"},
+    {name:"פירות וירקות טריים",hours:"06:30–14:00",cat:"תוצרת טרייה"},
+    {name:"לחם ומאפים — אופים מקומיים",hours:"07:00–13:00",cat:"מאפיות"},
+    {name:"מסעדות קטנות בתוך השוק",hours:"08:00–15:00",cat:"אוכל מקומי"},
+    {name:"ביגוד וטקסטיל — סטנדים",hours:"08:00–15:00",cat:"ביגוד"},
+    {name:"מזכרות ומוצרי עץ זית",hours:"09:00–14:00",cat:"מזכרות"},
+  ]},
+  {name:"רחוב Skridlof — Leather Lane",distance:"8.5 ק״מ",rating:4.5,emoji:"👜",maps:"https://www.google.com/maps/search/Skridlof+leather+street+Chania",stores:[
+    {name:"מגפי עור כרתיים — על פי הזמנה",hours:"09:00–21:00",cat:"עור בעבודת יד"},
+    {name:"תיקי עור ותרמילים",hours:"09:00–21:00",cat:"תיקים"},
+    {name:"סנדלים יוונים מסורתיים",hours:"09:00–21:00",cat:"נעליים"},
+    {name:"חגורות ורצועות עור",hours:"09:00–20:00",cat:"אביזרי עור"},
+    {name:"ארנקים ואביזרים",hours:"09:00–21:00",cat:"אביזרים"},
+    {name:"מוצרי עור מצוירים — אמנות",hours:"10:00–20:00",cat:"אמנות עור"},
+  ]},
 ];
 
 const JUMBOS=[
@@ -644,6 +683,7 @@ const RESTAURANTS=[
   {name:"Akrogiali Beach Bar",type:"בר חוף",distance:"550 מ׳",rating:4.1,price:"££",tags:["בר","חוף","שקיעה","קוקטיילים"],desc:"ארוחות קלות, קוקטיילים ומאגרות. מקום מושלם לצפות בשקיעה",maps:"https://www.google.com/maps/search/beach+bar+Stalos+Crete",hours:"10:00–01:00",mustTry:"Frappe, סלט יווני"},
   {name:"Veneto Restaurant",type:"יוונית מודרנית",distance:"8 ק״מ",rating:4.6,price:"£££",tags:["פרמיום","חניה","ערב","נמל"],desc:"מסעדת פרמיום בנמל הוונציאני של חניה. חוויה גסטרונומית מלאה עם נוף לנמל",maps:"https://www.google.com/maps/search/Veneto+Restaurant+Chania",hours:"13:00–00:00",mustTry:"סטייק כרתי, יין מקומי"},
   {name:"Salis Restaurant",type:"ים-תיכונית",distance:"8.5 ק״מ",rating:4.7,price:"£££",tags:["פרמיום","יין","ים-תיכוני","חניה"],desc:"אחת המסעדות הטובות בחניה — תפריט מסוגנן ויין כרתי מצוין",maps:"https://www.google.com/maps/search/Salis+Restaurant+Chania",hours:"19:00–00:00",mustTry:"טרטר פירות ים"},
+  {name:"Pulse Vegan",type:"טבעוני / צמחוני",distance:"8 ק״מ",rating:4.8,price:"££",tags:["טבעוני","מזכרות ים","נוף לים","#1 צמחוני חאניה"],desc:"מסעדה טבעונית מדהימה ליד חומות העיר העתיקה ומול הים — 4.8★ עם 2,000+ ביקורות! מנות יווניות קלאסיות בגרסה טבעונית. טובה גם לאוכלי הכל.",maps:"https://maps.app.goo.gl/LNwJRe4qHSteD8v99",hours:"א׳: 17:00–23:00  •  ב׳–ש׳: 09:00–23:00",mustTry:"מזה שיתופי, מוסקה טבעונית, עוגת גזר"},
 ];
 
 /* ── STATE ── */
