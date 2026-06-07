@@ -3,194 +3,522 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🇬🇷 משפחת דנון — יוון</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>🇬🇷 משפחת דנון — כרתים</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#003566;--blue:#0077B6;--blue-mid:#0096C7;--blue-light:#00B4D8;--blue-pale:#CAF0F8;
-  --gold:#C8A200;--gold-bg:#FFF8D6;--sand:#F8F5EF;--white:#FFFFFF;
-  --text:#1A1A2E;--text-muted:#6B7280;--text-light:#9CA3AF;
-  --border:#E5E7EB;--border-light:#F3F4F6;
-  --green:#059669;--green-bg:#ECFDF5;
-  --radius:16px;--radius-sm:10px;--radius-xs:7px;
-  --shadow:0 2px 12px rgba(0,53,102,0.08);--shadow-lg:0 8px 32px rgba(0,53,102,0.14);
+  --navy:#0A1628;
+  --navy-mid:#122040;
+  --blue:#1565C0;
+  --blue-mid:#1976D2;
+  --blue-bright:#2196F3;
+  --teal:#00897B;
+  --teal-light:#4DB6AC;
+  --gold:#B8860B;
+  --gold-bright:#D4A017;
+  --gold-bg:#FDF6DC;
+  --sand:#FAF8F3;
+  --cream:#FFF9F0;
+  --white:#FFFFFF;
+  --text:#0D1B2A;
+  --text-mid:#2C3E50;
+  --text-muted:#6B7C93;
+  --text-light:#9EAFC2;
+  --border:#E4EAF2;
+  --border-light:#F0F4F9;
+  --green:#00695C;
+  --green-bg:#E0F2F1;
+  --green-bright:#26A69A;
+  --radius:20px;
+  --radius-sm:12px;
+  --radius-xs:8px;
+  --shadow-xs:0 1px 4px rgba(10,22,40,0.06);
+  --shadow:0 4px 20px rgba(10,22,40,0.09);
+  --shadow-lg:0 12px 40px rgba(10,22,40,0.14);
+  --shadow-xl:0 20px 60px rgba(10,22,40,0.18);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--text);min-height:100vh;}
 
-/* NAV */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Heebo',sans-serif;
+  background:var(--sand);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+/* ── NAVBAR ── */
 .navbar{
   position:sticky;top:0;z-index:999;
-  background:linear-gradient(135deg,var(--navy) 0%,#005b9a 100%);
-  padding:0 12px;display:flex;align-items:center;gap:2px;
-  height:58px;overflow-x:auto;scrollbar-width:none;
-  box-shadow:0 2px 16px rgba(0,0,0,0.25);
+  background:var(--navy);
+  padding:0 16px;
+  display:flex;align-items:center;gap:2px;
+  height:56px;overflow-x:auto;scrollbar-width:none;
+  box-shadow:0 2px 20px rgba(0,0,0,0.35);
+}
+.navbar::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(21,101,192,0.3) 0%,transparent 50%);
+  pointer-events:none;
 }
 .navbar::-webkit-scrollbar{display:none;}
+
 .nav-btn{
-  display:flex;align-items:center;gap:5px;
-  padding:8px 13px;border:none;border-radius:9px;
+  position:relative;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border:none;border-radius:9px;
   cursor:pointer;font-family:'Heebo',sans-serif;
   font-size:13px;font-weight:600;white-space:nowrap;
-  color:rgba(255,255,255,0.65);background:transparent;
-  transition:all .18s;border-bottom:2px solid transparent;
+  color:rgba(255,255,255,0.55);background:transparent;
+  transition:all .22s cubic-bezier(.4,0,.2,1);
+  letter-spacing:0.2px;
 }
-.nav-btn:hover{color:#fff;background:rgba(255,255,255,0.1);}
-.nav-btn.active{color:#fff;background:rgba(255,255,255,0.15);border-bottom-color:rgba(255,255,255,0.6);}
+.nav-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
+.nav-btn.active{
+  color:#fff;
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 0 0 1px rgba(255,255,255,0.15);
+}
+.nav-btn.active::after{
+  content:'';position:absolute;bottom:-1px;right:10px;left:10px;
+  height:2px;background:linear-gradient(90deg,#64B5F6,#B3E5FC);
+  border-radius:2px 2px 0 0;
+}
 
-/* PAGES */
-.page{display:none;max-width:780px;margin:0 auto;padding:24px 16px 80px;}
+/* ── PAGES ── */
+.page{display:none;max-width:800px;margin:0 auto;padding:28px 16px 100px;}
 .page.active{display:block;}
 
-/* HERO */
+/* ── HERO ── */
 .hero{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 55%,var(--blue-light) 100%);
-  border-radius:var(--radius);padding:44px 28px 40px;text-align:center;color:#fff;
-  margin-bottom:18px;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,var(--navy) 0%,#0D3B6E 40%,#1565C0 80%,#1E88E5 100%);
+  border-radius:24px;
+  padding:52px 36px 48px;
+  text-align:center;color:#fff;
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow-xl);
 }
-.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);}
-.hero::after{content:'';position:absolute;bottom:-70px;left:-30px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);}
-.hero-flag{font-size:56px;margin-bottom:10px;}
-.hero h1{font-size:26px;font-weight:900;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,0.2);}
-.hero-sub{font-size:15px;opacity:.82;margin-bottom:3px;}
-.hero-loc{font-size:13px;opacity:.6;}
+.hero-circle-1{
+  position:absolute;top:-80px;right:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.hero-circle-2{
+  position:absolute;bottom:-100px;left:-40px;
+  width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,0.03);
+}
+.hero-circle-3{
+  position:absolute;top:20px;left:20px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(100,181,246,0.07);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:30px;padding:5px 14px;
+  font-size:12px;font-weight:600;letter-spacing:0.5px;
+  margin-bottom:16px;backdrop-filter:blur(4px);
+}
+.hero-flag{font-size:52px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:30px;font-weight:700;
+  margin-bottom:8px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.3);
+  letter-spacing:-0.3px;
+}
+.hero-sub{font-size:15px;opacity:.78;margin-bottom:4px;font-weight:400;}
+.hero-loc{font-size:12px;opacity:.52;letter-spacing:0.5px;}
+.hero-divider{
+  width:40px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
+  margin:16px auto;
+}
 
-/* QUICK GRID */
-.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;}
+/* ── QUICK CARDS ── */
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+}
 .quick-card{
-  background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);
-  padding:18px 10px;text-align:center;cursor:pointer;transition:all .18s;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px 12px 18px;
+  text-align:center;cursor:pointer;
+  transition:all .24s cubic-bezier(.4,0,.2,1);
+  box-shadow:var(--shadow-xs);
+  position:relative;overflow:hidden;
 }
-.quick-card:hover{border-color:var(--blue);box-shadow:var(--shadow-lg);transform:translateY(-3px);}
-.quick-card .qc-emoji{font-size:28px;margin-bottom:8px;}
-.quick-card .qc-label{font-size:13px;font-weight:700;color:var(--text);}
-.quick-card .qc-sub{font-size:11px;color:var(--text-muted);margin-top:3px;}
+.quick-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--teal-light));
+  opacity:0;transition:opacity .24s;
+}
+.quick-card:hover{
+  border-color:var(--blue-mid);
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+}
+.quick-card:hover::before{opacity:1;}
+.qc-emoji{font-size:30px;margin-bottom:10px;}
+.qc-label{font-size:13px;font-weight:700;color:var(--text);}
+.qc-sub{font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;}
 
-/* SECTION HEADER */
-.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
-.sec-hdr h2{font-size:20px;font-weight:800;}
-.sec-badge{background:var(--blue-pale);color:var(--navy);font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;}
+/* ── SECTION HEADER ── */
+.sec-hdr{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+.sec-hdr h2{
+  font-size:20px;font-weight:800;color:var(--text);
+  letter-spacing:-0.3px;
+}
+.sec-badge{
+  background:linear-gradient(135deg,#E3F2FD,#BBDEFB);
+  color:var(--navy);font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:20px;
+  border:1px solid rgba(21,101,192,0.15);
+}
 
-/* CARD */
+/* ── CARD ── */
 .card{
-  background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);
-  padding:18px 20px;margin-bottom:12px;transition:box-shadow .18s;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  margin-bottom:12px;
+  transition:all .22s;
+  box-shadow:var(--shadow-xs);
+  position:relative;overflow:hidden;
 }
-.card:hover{box-shadow:var(--shadow);}
-.card.best-match{border-color:var(--green);border-width:2px;}
-.card-title{font-size:15px;font-weight:700;}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
-.card-desc{font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:10px;}
-.card-meta{display:flex;gap:14px;font-size:12px;color:var(--text-muted);flex-wrap:wrap;align-items:center;}
-.card-meta span{display:flex;align-items:center;gap:3px;}
+.card:hover{box-shadow:var(--shadow);border-color:#C5D5E8;}
+.card.best-match{border-color:var(--green-bright);border-width:2px;}
+.card.best-match::before{
+  content:'';position:absolute;top:0;right:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--teal),var(--green-bright));
+}
 
-/* STARS */
-.stars{color:#D4A017;font-size:14px;letter-spacing:1px;}
-.stars-val{font-size:12px;color:var(--text-muted);margin-right:3px;}
+/* card accent line on left/right */
+.card-accent{border-right:4px solid var(--blue-mid);}
+.card-accent-gold{border-right:4px solid var(--gold-bright);}
 
-/* BADGE */
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--border-light);color:var(--text-muted);margin:2px;}
-.badge.blue{background:#EFF6FF;color:#1D4ED8;}
-.badge.green{background:var(--green-bg);color:#065F46;}
-.badge.gold{background:var(--gold-bg);color:#78520a;}
-.badge.red{background:#FEF2F2;color:#991B1B;}
-.badge.navy{background:#EFF6FF;color:var(--navy);}
+.card-title{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-0.2px;}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.card-desc{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:12px;}
 
-/* MAPS LINK */
+.card-meta{display:flex;gap:16px;font-size:12px;color:var(--text-muted);flex-wrap:wrap;align-items:center;}
+.card-meta span{display:flex;align-items:center;gap:4px;font-weight:500;}
+
+/* ── STARS ── */
+.stars-wrap{display:flex;align-items:center;gap:4px;}
+.stars-filled{color:#F59E0B;font-size:13px;letter-spacing:1px;}
+.stars-empty{color:#DDE1E7;font-size:13px;letter-spacing:1px;}
+.rating-num{
+  font-size:12px;font-weight:700;color:var(--text-mid);
+  background:#FFFBEB;border:1px solid #FDE68A;
+  padding:2px 7px;border-radius:6px;
+}
+
+/* ── BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;
+  font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:20px;
+  background:var(--border-light);color:var(--text-muted);
+  margin:2px;letter-spacing:0.1px;
+  border:1px solid transparent;
+}
+.badge.blue{background:#EBF5FB;color:#1565C0;border-color:#BBDEFB;}
+.badge.green{background:var(--green-bg);color:#00695C;border-color:#B2DFDB;}
+.badge.gold{background:var(--gold-bg);color:#7B5800;border-color:#F9E4A0;}
+.badge.red{background:#FEF2F2;color:#B91C1C;border-color:#FECACA;}
+.badge.teal{background:#E0F2F1;color:#00695C;border-color:#B2DFDB;}
+.badge.navy{background:#E8EDF5;color:var(--navy);border-color:#C5D5E8;}
+.badge.star{background:#FFFBEB;color:#92400E;border-color:#FDE68A;}
+
+/* ── MAPS BUTTON ── */
 .maps-link{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;
-  margin-top:10px;padding:7px 14px;
-  border:1.5px solid var(--blue);border-radius:8px;transition:all .18s;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;
+  color:var(--blue);text-decoration:none;
+  margin-top:12px;padding:8px 16px;
+  background:linear-gradient(135deg,#EBF5FB,#DBEAFE);
+  border:1px solid #BFDBFE;
+  border-radius:9px;
+  transition:all .2s;letter-spacing:0.2px;
 }
-.maps-link:hover{background:var(--blue);color:#fff;}
+.maps-link:hover{
+  background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+  color:#fff;border-color:transparent;
+  box-shadow:0 4px 14px rgba(21,101,192,0.35);
+  transform:translateY(-1px);
+}
 
-/* TIP BOX */
+/* ── TIP BOX ── */
 .tip-box{
-  background:linear-gradient(135deg,#FFFDE7,#FFF8D6);border:1px solid #E6CC50;
-  border-radius:var(--radius-sm);padding:12px 16px;font-size:13px;color:#5C4200;
-  margin-bottom:18px;line-height:1.6;
+  background:linear-gradient(135deg,#FFFDE7,#FFF8D6);
+  border:1px solid #F5D76E;
+  border-radius:14px;
+  padding:14px 18px;
+  font-size:13px;color:#5C4200;
+  margin-bottom:20px;line-height:1.65;
+  box-shadow:0 2px 8px rgba(180,140,0,0.1);
 }
+.tip-box strong{color:#3D2B00;}
 
-/* TOGGLE */
-.toggle-wrap{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:4px;display:inline-flex;margin-bottom:16px;}
+/* ── TOGGLE ── */
+.toggle-wrap{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;padding:4px;
+  display:inline-flex;margin-bottom:18px;
+  box-shadow:var(--shadow-xs);
+}
 .toggle-btn{
-  padding:10px 26px;border:none;border-radius:9px;cursor:pointer;
-  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
-  transition:all .18s;color:var(--text-muted);background:transparent;
+  padding:10px 28px;border:none;border-radius:11px;
+  cursor:pointer;font-family:'Heebo',sans-serif;
+  font-size:14px;font-weight:700;
+  transition:all .22s;color:var(--text-muted);background:transparent;
 }
-.toggle-btn.active{background:var(--navy);color:#fff;box-shadow:0 2px 8px rgba(0,53,102,0.3);}
+.toggle-btn.active{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  box-shadow:0 4px 14px rgba(10,22,40,0.3);
+}
 
-/* SEARCH */
-.search-wrap{position:relative;margin-bottom:18px;}
+/* ── SEARCH ── */
+.search-wrap{position:relative;margin-bottom:20px;}
 .search-input{
-  width:100%;padding:13px 46px 13px 16px;
-  border:1.5px solid var(--border);border-radius:12px;
-  font-family:'Heebo',sans-serif;font-size:14px;
-  background:#fff;color:var(--text);outline:none;transition:border-color .18s;
+  width:100%;
+  padding:14px 50px 14px 18px;
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  font-family:'Heebo',sans-serif;
+  font-size:14px;background:var(--white);
+  color:var(--text);outline:none;
+  transition:all .2s;
+  box-shadow:var(--shadow-xs);
 }
-.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,119,182,0.1);}
-.search-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:18px;}
+.search-input:focus{
+  border-color:var(--blue-mid);
+  box-shadow:0 0 0 4px rgba(21,101,192,0.08),var(--shadow-xs);
+}
+.search-icon{
+  position:absolute;right:16px;top:50%;
+  transform:translateY(-50%);font-size:18px;
+  color:var(--text-light);pointer-events:none;
+}
 
-/* BEST MATCH LABEL */
-.bm-label{font-size:11px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:4px;margin-bottom:6px;}
+/* ── BEST MATCH ── */
+.bm-label{
+  font-size:11px;font-weight:800;color:var(--green);
+  display:flex;align-items:center;gap:5px;
+  margin-bottom:8px;letter-spacing:0.3px;
+}
 
-/* RANK BALL */
+/* ── RANK BALL ── */
 .rank-ball{
-  width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  min-width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
   font-size:13px;font-weight:900;flex-shrink:0;
 }
-.rank-1{background:#FFF3B0;color:#78520a;}
-.rank-2{background:#F3F4F6;color:#374151;}
-.rank-3{background:#FEE2E2;color:#991B1B;}
-.rank-4{background:#F3F4F6;color:#6B7280;}
+.rk-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 2px 8px rgba(245,158,11,0.25);}
+.rk-2{background:linear-gradient(135deg,#F1F5F9,#E2E8F0);color:#475569;}
+.rk-3{background:linear-gradient(135deg,#FEE2E2,#FECACA);color:#991B1B;}
+.rk-4{background:#F1F5F9;color:#94A3B8;}
 
-/* DIST BADGE */
-.dist-badge{font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;background:#EFF6FF;color:var(--navy);white-space:nowrap;}
-
-/* ACCORDION */
-.acc-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;}
-.acc-body{display:none;padding:0 20px 16px;border-top:1.5px solid var(--border);}
-.acc-body.open{display:block;}
-.store-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:13px;border-bottom:1px solid var(--border-light);}
-.store-row:last-child{border-bottom:none;}
-.arrow{font-size:18px;color:var(--text-muted);transition:transform .2s;}
-.arrow.open{transform:rotate(180deg);}
-
-/* JUMBO */
-.jumbo-card{border-right:4px solid #F5C400 !important;}
-
-/* VILLA */
-.villa-hero{
-  background:linear-gradient(135deg,#1a4d15 0%,#2d7a25 60%,#3d9a30 100%);
-  border-radius:var(--radius);padding:40px 24px;text-align:center;color:#fff;margin-bottom:18px;
+/* ── DIST BADGE ── */
+.dist-badge{
+  font-size:12px;font-weight:800;
+  padding:6px 14px;border-radius:20px;
+  background:linear-gradient(135deg,#E8EDF5,#D6E4F7);
+  color:var(--navy);
+  border:1px solid #C5D5E8;
+  white-space:nowrap;
+  letter-spacing:0.1px;
 }
+
+/* ── ACCORDION ── */
+.acc-wrap{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  margin-bottom:12px;box-shadow:var(--shadow-xs);
+  transition:box-shadow .2s;
+}
+.acc-wrap:hover{box-shadow:var(--shadow);}
+.acc-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 22px;cursor:pointer;
+  transition:background .15s;
+}
+.acc-header:hover{background:#F8FAFD;}
+.acc-body{display:none;padding:0 22px 18px;border-top:1px solid var(--border);}
+.acc-body.open{display:block;}
+.store-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;font-size:13px;
+  border-bottom:1px solid var(--border-light);
+}
+.store-row:last-child{border-bottom:none;}
+.store-name{font-weight:700;color:var(--text-mid);}
+.store-hours{color:var(--text-muted);font-size:12px;font-weight:500;}
+
+.arrow{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--border-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--text-muted);
+  transition:all .22s;flex-shrink:0;
+}
+.arrow.open{background:var(--blue);color:#fff;transform:rotate(180deg);}
+
+/* ── WALKING VISUALIZATION ── */
+.walk-viz{
+  background:linear-gradient(135deg,#EBF5FB,#F0F9FF);
+  border:1px solid #BFDBFE;
+  border-radius:16px;padding:20px 16px 16px;
+  margin-bottom:20px;
+}
+.walk-viz-title{
+  font-size:11px;font-weight:800;color:var(--blue);
+  letter-spacing:0.5px;margin-bottom:16px;text-align:center;
+}
+.walk-bars{display:flex;gap:10px;align-items:flex-end;height:100px;}
+.walk-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.walk-bar-fill{
+  width:100%;border-radius:8px 8px 0 0;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding-top:6px;font-size:10px;font-weight:800;
+}
+.walk-bar-name{font-size:10px;font-weight:800;color:var(--text-muted);text-align:center;line-height:1.3;}
+.walk-bar-dist{font-size:10px;font-weight:700;color:var(--blue);text-align:center;}
+
+/* ── ATTRACTION CARD ── */
+.attr-layout{display:flex;gap:16px;align-items:flex-start;}
+.attr-icon-box{
+  width:50px;height:50px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+  background:linear-gradient(135deg,#EBF5FB,#DBEAFE);
+  box-shadow:0 2px 8px rgba(21,101,192,0.12);
+}
+.attr-tip{
+  display:flex;align-items:center;gap:6px;
+  background:var(--green-bg);border:1px solid #B2DFDB;
+  border-radius:9px;padding:8px 12px;
+  font-size:12px;color:#00695C;font-weight:600;
+  margin-bottom:10px;
+}
+
+/* ── RESTAURANT CARD ── */
+.price-pill{
+  display:inline-flex;align-items:center;
+  background:var(--gold-bg);color:#7B5800;
+  border:1px solid #F9E4A0;
+  font-size:11px;font-weight:800;
+  padding:3px 9px;border-radius:7px;
+}
+.must-try{
+  background:#F0F9FF;border:1px solid #BAE6FD;
+  border-radius:9px;padding:8px 12px;
+  font-size:12px;color:#0369A1;margin-top:8px;
+  font-weight:600;
+}
+
+/* ── JUMBO ── */
+.jumbo-card{border-right:5px solid #F5C400;}
+.jumbo-logo{
+  width:38px;height:38px;background:#F5C400;
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:18px;color:#1a1a1a;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(245,196,0,0.35);
+}
+
+/* ── VILLA ── */
+.villa-hero{
+  background:linear-gradient(150deg,#134E2C 0%,#1B6E3A 45%,#2E9B52 85%,#3DAA60 100%);
+  border-radius:24px;padding:48px 28px;
+  text-align:center;color:#fff;margin-bottom:20px;
+  position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(19,78,44,0.4);
+}
+.villa-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.villa-hero::after{content:'';position:absolute;bottom:-100px;left:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.03);}
 .villa-btn{
   display:inline-flex;align-items:center;gap:8px;
-  padding:13px 24px;border-radius:12px;font-family:'Heebo',sans-serif;
-  font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;
-  transition:all .2s;margin:5px;border:none;
+  padding:14px 26px;border-radius:13px;
+  font-family:'Heebo',sans-serif;font-size:14px;font-weight:800;
+  text-decoration:none;cursor:pointer;transition:all .22s;margin:5px;border:none;
+  letter-spacing:0.2px;
 }
-.villa-btn.primary{background:#fff;color:#1a4d15;}
-.villa-btn.primary:hover{background:#F0FDF4;transform:translateY(-1px);}
-.villa-btn.sec{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);}
-.villa-btn.sec:hover{background:rgba(255,255,255,.25);}
-.villa-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
-.villa-feat{background:#fff;border-radius:var(--radius-sm);padding:13px 10px;text-align:center;font-size:13px;font-weight:600;}
+.villa-btn.primary{
+  background:#fff;color:#134E2C;
+  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+.villa-btn.primary:hover{background:#F0FDF4;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.25);}
+.villa-btn.sec{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);}
+.villa-btn.sec:hover{background:rgba(255,255,255,.2);}
+.villa-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:18px;}
+.villa-feat{
+  background:rgba(255,255,255,.08);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:13px;padding:14px 10px;
+  text-align:center;font-size:13px;font-weight:600;color:#fff;
+}
 
-/* ATTRACTION CARD */
-.attr-row{display:flex;gap:14px;align-items:flex-start;}
-.attr-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--blue-pale);}
-.attr-tip{background:var(--green-bg);border-radius:var(--radius-xs);padding:7px 10px;font-size:12px;color:#065F46;margin-bottom:8px;}
+/* ── DRIVING MAP ── */
+.drive-timeline{
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:20px;
+}
+.drive-step{display:flex;align-items:center;gap:12px;position:relative;}
+.drive-step::before{
+  content:'';position:absolute;
+  right:19px;top:42px;
+  width:2px;height:calc(100% - 8px);
+  background:var(--border);
+  z-index:0;
+}
+.drive-step:last-child::before{display:none;}
+.drive-dot{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:900;flex-shrink:0;z-index:1;
+}
+.dd-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 3px 10px rgba(245,158,11,0.3);}
+.dd-2{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E40AF;box-shadow:0 3px 10px rgba(37,99,235,0.2);}
+.dd-3{background:linear-gradient(135deg,#F1F5F9,#E2E8F0);color:#475569;}
+.drive-content{flex:1;padding:14px 0;}
 
-/* RESTAURANT CARD */
-.price-badge{display:inline-block;background:var(--gold-bg);color:#78520a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;margin-right:4px;}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#C5D5E8;border-radius:99px;}
 
-/* WALKING MAP VIZ */
-.walk-viz{display:flex;align-items:flex-end;gap:6px;padding:16px;background:#F9FAFB;border-radius:var(--radius-sm);margin-bottom:16px;overflow-x:auto;}
-.walk-bar{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:60px;}
-.walk-bar-inner{width:100%;border-radius:6px 6px 0 0;display:flex;align-items:flex-end;justify-content:center;font-size:10px;font-weight:800;color:#fff;padding:4px 2px;}
-.walk-bar-label{font-size:10px;font-weight:700;text-align:center;color:var(--text-muted);}
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.page.active .card,.page.active .acc-wrap,.page.active .quick-card{
+  animation:fadeUp .3s ease both;
+}
+.page.active .card:nth-child(1){animation-delay:.04s;}
+.page.active .card:nth-child(2){animation-delay:.08s;}
+.page.active .card:nth-child(3){animation-delay:.12s;}
+.page.active .card:nth-child(4){animation-delay:.16s;}
+.page.active .card:nth-child(5){animation-delay:.20s;}
+.page.active .card:nth-child(6){animation-delay:.24s;}
+.page.active .quick-card:nth-child(1){animation-delay:.05s;}
+.page.active .quick-card:nth-child(2){animation-delay:.10s;}
+.page.active .quick-card:nth-child(3){animation-delay:.15s;}
+.page.active .quick-card:nth-child(4){animation-delay:.20s;}
+.page.active .quick-card:nth-child(5){animation-delay:.25s;}
 </style>
 </head>
 <body>
@@ -208,20 +536,34 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--text);min
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero">
+    <div class="hero-circle-1"></div>
+    <div class="hero-circle-2"></div>
+    <div class="hero-circle-3"></div>
+    <div class="hero-eyebrow">✈️ &nbsp;קיץ 2025 &nbsp;•&nbsp; כרתים, יוון</div>
     <div class="hero-flag"></div>
-    <h1>ברוכים הבאים, משפחת דנון!</h1>
-    <div class="hero-sub">Stalos • כרתים • יוון</div>
-    <div class="hero-loc">המדריך המשפחתי המלא לחופשה המושלמת ☀️</div>
+    <h1>ברוכים הבאים,<br>משפחת דנון!</h1>
+    <div class="hero-divider"></div>
+    <div class="hero-sub">המדריך המשפחתי המלא לחופשה המושלמת</div>
+    <div class="hero-loc">Stalos • Crete • Greece ☀️</div>
   </div>
   <div class="quick-grid">
-    <div class="quick-card" onclick="goto('attractions')"><div class="qc-emoji">🏛️</div><div class="qc-label">אטרקציות</div><div class="qc-sub">6 מקומות</div></div>
-    <div class="quick-card" onclick="goto('restaurants')"><div class="qc-emoji">🍽️</div><div class="qc-label">מסעדות</div><div class="qc-sub">6 מסעדות</div></div>
-    <div class="quick-card" onclick="goto('supermarkets')"><div class="qc-emoji">🛒</div><div class="qc-label">סופרים</div><div class="qc-sub">הליכה ונסיעה</div></div>
-    <div class="quick-card" onclick="goto('shopping')"><div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">מולים + Jumbo</div></div>
-    <div class="quick-card" onclick="gotoVilla()"><div class="qc-emoji">🏡</div><div class="qc-label">הוילה שלנו</div><div class="qc-sub">ניווט לוילה</div></div>
+    <div class="quick-card" onclick="goto('attractions')">
+      <div class="qc-emoji">🏛️</div><div class="qc-label">אטרקציות</div><div class="qc-sub">6 מקומות</div>
+    </div>
+    <div class="quick-card" onclick="goto('restaurants')">
+      <div class="qc-emoji">🍽️</div><div class="qc-label">מסעדות</div><div class="qc-sub">6 מסעדות</div>
+    </div>
+    <div class="quick-card" onclick="goto('supermarkets')">
+      <div class="qc-emoji">🛒</div><div class="qc-label">סופרים</div><div class="qc-sub">הליכה ונסיעה</div>
+    </div>
+    <div class="quick-card" onclick="goto('shopping')">
+      <div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">מולים + Jumbo</div>
+    </div>
+    <div class="quick-card" onclick="gotoVilla()">
+      <div class="qc-emoji">🏡</div><div class="qc-label">הוילה שלנו</div><div class="qc-sub">ניווט לוילה</div>
+    </div>
   </div>
 </div>
-
 
 <!-- ATTRACTIONS -->
 <div id="page-attractions" class="page">
@@ -239,12 +581,13 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--text);min
 <div id="page-supermarkets" class="page">
   <div class="sec-hdr"><h2>🛒 סופרמרקטים</h2></div>
   <div class="toggle-wrap">
-    <button class="toggle-btn active" onclick="setMode('walking',this)">🚶 הליכה</button>
+    <button class="toggle-btn active" onclick="setMode('walking',this)">🚶‍♂️ הליכה</button>
     <button class="toggle-btn" onclick="setMode('driving',this)">🚗 נסיעה</button>
   </div>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="search-input" placeholder="חפש... למשל: ירקות, זול, אורגני" oninput="renderMarkets()">
+    <input type="text" class="search-input" id="search-input"
+      placeholder="חפש... למשל: ירקות, זול, אורגני" oninput="renderMarkets()">
   </div>
   <div id="market-tip" class="tip-box"></div>
   <div id="walk-viz-wrap"></div>
@@ -256,84 +599,88 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--text);min
   <div class="sec-hdr"><h2>🛍️ מרכזי קניות</h2><span class="sec-badge">3 מרכזים</span></div>
   <div id="malls-list"></div>
   <div class="sec-hdr" style="margin-top:32px;">
-    <div style="width:34px;height:34px;background:#F5C400;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#1a1a1a;flex-shrink:0;">J</div>
+    <div class="jumbo-logo">J</div>
     <h2>Jumbo</h2>
+    <span class="sec-badge" style="background:linear-gradient(135deg,#FFFDE7,#FFF8D6);color:#7B5800;border-color:#F9E4A0;">רשת פופולרית ביוון</span>
   </div>
-  <p style="color:var(--text-muted);font-size:13px;margin-bottom:16px;">רשת הקניות הפופולרית ביוון — צעצועים, כלי בית, קישוטים ועוד במחירים נמוכים מאוד 🟡</p>
+  <p style="color:var(--text-muted);font-size:13px;margin-bottom:18px;font-weight:500;">
+    צעצועים, כלי בית, קישוטים ועוד — במחירים נמוכים מאוד. חובה לכל תייר! 🟡
+  </p>
   <div id="jumbos-list"></div>
 </div>
 
 <!-- VILLA -->
 <div id="page-villa" class="page">
   <div class="villa-hero">
-    <div style="font-size:52px;margin-bottom:10px;">🏡</div>
-    <h2 style="font-size:24px;font-weight:900;margin-bottom:7px;">הוילה שלנו — Stalos</h2>
-    <p style="font-size:14px;opacity:.85;margin-bottom:4px;">וילה רומנטית עם 4 חדרי שינה ובריכה פרטית</p>
-    <p style="font-size:12px;opacity:.62;margin-bottom:20px;">Stalos • כרתים • יוון • 8 אורחים • 6 מיטות</p>
+    <div style="font-size:54px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">🏡</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;">הוילה שלנו</h2>
+    <p style="font-size:14px;opacity:.82;margin-bottom:4px;font-weight:500;">Stalos • כרתים • יוון</p>
+    <p style="font-size:13px;opacity:.6;margin-bottom:6px;">וילה רומנטית עם 4 חדרי שינה ובריכה פרטית</p>
+    <p style="font-size:12px;opacity:.5;margin-bottom:22px;letter-spacing:0.3px;">8 אורחים • 6 מיטות • 3.5 חדרי רחצה</p>
     <div>
       <a href="https://www.google.com/maps/dir//35.518,24.018" target="_blank" class="villa-btn primary">🗺️ נווט ב-Google Maps</a>
       <a href="https://www.google.com/maps/search/Villa+Stalos+Crete" target="_blank" class="villa-btn sec">📍 הצג במפה</a>
     </div>
-  </div>
-  <div class="villa-feats">
-    <div class="villa-feat">🏊 בריכה פרטית</div>
-    <div class="villa-feat">🛏️ 4 חדרי שינה</div>
-    <div class="villa-feat">🌅 נוף לים</div>
-    <div class="villa-feat">🌿 גינה</div>
-    <div class="villa-feat">🚗 חניה</div>
-    <div class="villa-feat">❄️ מיזוג אויר</div>
+    <div class="villa-feats">
+      <div class="villa-feat">🏊 בריכה פרטית</div>
+      <div class="villa-feat">🛏️ 4 חדרי שינה</div>
+      <div class="villa-feat">🌅 נוף לים</div>
+      <div class="villa-feat">🌿 גינה</div>
+      <div class="villa-feat">🚗 חניה</div>
+      <div class="villa-feat">❄️ מיזוג אויר</div>
+    </div>
   </div>
 </div>
 
 <script>
-const VILLA_MAPS = "https://www.google.com/maps/dir//35.518,24.018";
+const VILLA_MAPS="https://www.google.com/maps/dir//35.518,24.018";
 
-const MARKETS = {
+const MARKETS={
   walking:[
     {name:"ALKION",rank:1,distance:"~400 מ׳",walk:"~5 דקות",rating:5.0,
      tags:["הכי קרוב","הכי מדורג","מומלץ!"],
-     features:{cheap:false,vegetables:4,variety:3,organic:false},
+     features:{cheap:false,vegetables:4,variety:3},
      maps:"https://www.google.com/maps/search/Alkion+supermarket+Stalos+Crete",
      desc:"הסופר הקרוב ביותר לוילה — ממש 5 דקות הליכה. ההמלצה הראשונה שלנו!"},
     {name:"DIAS",rank:2,distance:"~500 מ׳",walk:"~6 דקות",rating:4.5,
      tags:["קרוב","מגוון סביר"],
-     features:{cheap:false,vegetables:3,variety:3,organic:false},
+     features:{cheap:false,vegetables:3,variety:3},
      maps:"https://www.google.com/maps/search/Dias+supermarket+Stalos+Crete",
-     desc:"מיקום נוח, מגוון סביר. 6 דקות הליכה מהוילה."},
+     desc:"מיקום נוח ומגוון סביר — 6 דקות הליכה מהוילה"},
     {name:"Stalos Market",rank:3,distance:"~700 מ׳",walk:"~8 דקות",rating:4.2,
-     tags:["מרחק בינוני","מוצרים טריים"],
-     features:{cheap:false,vegetables:4,variety:2,organic:false},
+     tags:["מרחק בינוני","ירקות טריים"],
+     features:{cheap:false,vegetables:4,variety:2},
      maps:"https://www.google.com/maps/search/Stalos+Market+supermarket+Crete",
      desc:"שוק מקומי קטן עם מוצרים טריים ואווירה יוונית אמיתית"},
     {name:"GIORGOS",rank:4,distance:"~900 מ׳",walk:"~11 דקות",rating:4.0,
      tags:["רחוק יותר"],
-     features:{cheap:false,vegetables:3,variety:3,organic:false},
+     features:{cheap:false,vegetables:3,variety:3},
      maps:"https://www.google.com/maps/search/Giorgos+supermarket+Stalos+Crete",
-     desc:"קצת יותר רחוק — אבל אופציה טובה נוספת לגיוון"},
+     desc:"קצת יותר רחוק — אבל אופציה נוספת טובה לגיוון"},
   ],
   driving:[
-    {name:"Lidl – Dartsos",rank:1,distance:"~5 דקות נסיעה",walk:null,rating:4.1,
+    {name:"Lidl – Dartsos",rank:1,distance:"~5 ד׳ נסיעה",walk:null,rating:4.1,
      tags:["הכי זול","פתוח ראשון","ירקות מעולים"],
-     features:{cheap:true,vegetables:5,variety:3,organic:false},
+     features:{cheap:true,vegetables:5,variety:3},
      maps:"https://www.google.com/maps/search/Lidl+Dartssos+Chania+Crete",
      desc:"הכי זול באזור. פתוח גם בראשון 11:00–20:00. פירות וירקות טריים מעולים!",
-     hours:"ראשון: 11:00–20:00  |  שאר הימים: 08:00–21:00"},
-    {name:"Sklavenitis – חאניה דרום",rank:2,distance:"~10 דקות נסיעה",walk:null,rating:4.7,
-     tags:["הכי מדורג!","חניה חינם","מגוון ענק","מומלץ!"],
-     features:{cheap:false,vegetables:5,variety:5,organic:false},
+     hours:"ראשון: 11:00–20:00  •  שאר הימים: 08:00–21:00"},
+    {name:"Sklavenitis – חאניה דרום",rank:2,distance:"~10 ד׳ נסיעה",walk:null,rating:4.7,
+     tags:["הכי מדורג!","חניה חינם ורחבה","מגוון ענק"],
+     features:{cheap:false,vegetables:5,variety:5},
      maps:"https://www.google.com/maps/search/Sklavenitis+South+Chania",
-     desc:"הכי מדורג! רשת יוונית גדולה — מחירים טובים, מגוון ענק, חניה חינם ורחבה.",
+     desc:"הכי מדורג! רשת יוונית גדולה — מחירים טובים, מגוון ענק וחניה חינם ורחבה.",
      hours:"08:00–21:00 כל הימים"},
-    {name:"Sklavenitis – מרכז חאניה",rank:3,distance:"~15 דקות נסיעה",walk:null,rating:4.5,
+    {name:"Sklavenitis – מרכז חאניה",rank:3,distance:"~15 ד׳ נסיעה",walk:null,rating:4.5,
      tags:["בלב העיר","ללא חניה נוחה"],
-     features:{cheap:false,vegetables:5,variety:5,organic:false},
+     features:{cheap:false,vegetables:5,variety:5},
      maps:"https://www.google.com/maps/search/Sklavenitis+Chania+center",
-     desc:"ממש בלב העיר — אבל חניה קשה. עדיף ל-Sklavenitis הדרומי.",
+     desc:"ממש בלב העיר — אבל חניה קשה. עדיף Sklavenitis הדרומי.",
      hours:"08:00–21:00 כל הימים"},
   ]
 };
 
-const MALLS = [
+const MALLS=[
   {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",
    maps:"https://www.google.com/maps/search/Chania+city+centre+shopping",
    stores:[
@@ -362,18 +709,18 @@ const MALLS = [
    ]},
 ];
 
-const JUMBOS = [
+const JUMBOS=[
   {name:"Jumbo Χανιά",distance:"7.2 ק״מ",rating:4.4,hours:"09:00–21:00",
    maps:"https://www.google.com/maps/search/Jumbo+Chania",
    desc:"מגוון ענק של צעצועים, כלי בית, קישוטים, ספרים ועוד — במחירים נמוכים מאוד. חובה לכל תייר!"},
 ];
 
-const ATTRACTIONS = [
+const ATTRACTIONS=[
   {name:"חוף Stalos",type:"חוף",emoji:"🏖️",distance:"500 מ׳",rating:4.3,
    desc:"החוף השקט של הכפר — מים שקופים, חצץ עדין ואווירה מקומית. ממש מתחת לוילה!",
    maps:"https://www.google.com/maps/search/Stalos+beach+Crete",duration:"כמה שעות",tip:"בוקר מוקדם — שקט לגמרי"},
   {name:"העיר העתיקה של חניה",type:"תרבות",emoji:"🏛️",distance:"8 ק״מ",rating:4.8,
-   desc:"הנמל הוונציאני, מסגד, שווקים עמוסים ואדריכלות עוצרת נשימה. חובה!",
+   desc:"הנמל הוונציאני, מסגד, שווקים עמוסים ואדריכלות עוצרת נשימה. חובה לכל תייר!",
    maps:"https://www.google.com/maps/search/Chania+Old+Town",duration:"חצי יום",tip:"הגיעו בשעת בין ערביים לצבעים הכי יפים"},
   {name:"Elafonisi Beach",type:"חוף",emoji:"🌸",distance:"75 ק״מ",rating:4.9,
    desc:"חוף ורדרד ייחודי — המים הטורקיז ביותר שראיתם. אחד מ-10 החופים היפים בעולם!",
@@ -389,7 +736,7 @@ const ATTRACTIONS = [
    maps:"https://www.google.com/maps/search/Botanical+Park+Crete",duration:"3–4 שעות",tip:"מצוין לילדים ולאוהבי טבע"},
 ];
 
-const RESTAURANTS = [
+const RESTAURANTS=[
   {name:"Mastrapas Taverna",type:"טברנה יוונית",distance:"200 מ׳",rating:4.5,price:"££",
    desc:"המסעדה המקומית הכי אמיתית — ספינקופיטה, מוסקה, גרילד פיש. ממש קרוב לוילה!",
    maps:"https://www.google.com/maps/search/Mastrapas+Taverna+Stalos",hours:"12:00–23:00",mustTry:"מוסקה, ספינקופיטה"},
@@ -410,15 +757,22 @@ const RESTAURANTS = [
    maps:"https://www.google.com/maps/search/Salis+Restaurant+Chania",hours:"19:00–00:00",mustTry:"טרטר פירות ים"},
 ];
 
-let currentMode = 'walking';
-let openMallIdx = null;
+let currentMode='walking';
 
 function starsHTML(r){
   const f=Math.floor(r),h=(r%1)>=0.5,e=5-f-(h?1:0);
-  return `<span class="stars">${'★'.repeat(f)}${h?'½':''}${'☆'.repeat(e)}</span><span class="stars-val">${r}</span>`;
+  const filled='★'.repeat(f)+(h?'✦':'');
+  return `<div class="stars-wrap"><span class="stars-filled">${filled}</span><span class="stars-empty">${'☆'.repeat(e)}</span><span class="rating-num">${r}</span></div>`;
 }
 
-function goto(pageId, btn){
+function tagClass(t,cheap){
+  if(t.includes('מומלץ')||t.includes('הכי מדורג'))return 'gold';
+  if(t.includes('זול')||t.includes('חינם'))return 'green';
+  if(t.includes('קרוב')||t.includes('פתוח'))return 'blue';
+  return '';
+}
+
+function goto(pageId,btn){
   if(pageId==='villa'){gotoVilla(btn);return;}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -442,14 +796,14 @@ function gotoVilla(btn){
 
 function renderAttractions(){
   document.getElementById('attractions-list').innerHTML=ATTRACTIONS.map(a=>`
-    <div class="card">
-      <div class="attr-row">
-        <div class="attr-icon">${a.emoji}</div>
+    <div class="card card-accent">
+      <div class="attr-layout">
+        <div class="attr-icon-box">${a.emoji}</div>
         <div style="flex:1;min-width:0;">
           <div class="card-header">
             <div>
-              <span class="badge">${a.type}</span>
-              <div class="card-title" style="margin-top:5px;">${a.name}</div>
+              <span class="badge navy">${a.type}</span>
+              <div class="card-title" style="margin-top:6px;">${a.name}</div>
             </div>
             ${starsHTML(a.rating)}
           </div>
@@ -459,7 +813,7 @@ function renderAttractions(){
             <span>📍 ${a.distance}</span>
             <span>⏱️ ${a.duration}</span>
           </div>
-          <a href="${a.maps}" target="_blank" class="maps-link">🗺️ Google Maps</a>
+          <a href="${a.maps}" target="_blank" class="maps-link">🗺️ פתח ב-Google Maps</a>
         </div>
       </div>
     </div>
@@ -471,19 +825,21 @@ function renderRestaurants(){
     <div class="card">
       <div class="card-header">
         <div>
-          <span class="badge">${r.type}</span>
-          <span class="price-badge">${r.price}</span>
-          <div class="card-title" style="margin-top:5px;">🍽️ ${r.name}</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
+            <span class="badge">${r.type}</span>
+            <span class="price-pill">${r.price}</span>
+          </div>
+          <div class="card-title">🍽️ ${r.name}</div>
         </div>
         ${starsHTML(r.rating)}
       </div>
       <div class="card-desc">${r.desc}</div>
-      <div class="card-meta" style="margin-bottom:4px;">
+      <div class="card-meta" style="margin-bottom:8px;">
         <span>📍 ${r.distance}</span>
         <span>🕐 ${r.hours}</span>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">🍴 חובה לנסות: <strong>${r.mustTry}</strong></div>
-      <a href="${r.maps}" target="_blank" class="maps-link">🗺️ Google Maps</a>
+      <div class="must-try">🍴 חובה לנסות: <strong>${r.mustTry}</strong></div>
+      <a href="${r.maps}" target="_blank" class="maps-link">🗺️ פתח ב-Google Maps</a>
     </div>
   `).join('');
 }
@@ -500,10 +856,9 @@ function scoreM(m,q){
   if(!q.trim())return m.rating+(4-m.rank)*0.5;
   const query=q.toLowerCase();let score=m.rating;
   if(m.name.toLowerCase().includes(query))score+=3;
-  m.tags.forEach(t=>{if(t.includes(query)||query.split(' ').some(w=>t.includes(w)))score+=2;});
+  m.tags.forEach(t=>{if(t.includes(query)||query.split(' ').some(w=>w&&t.includes(w)))score+=2;});
   if(['ירק','ירקות'].some(k=>query.includes(k)))score+=m.features.vegetables*0.5;
   if(['זול','מחיר','cheap'].some(k=>query.includes(k)))score+=m.features.cheap?3:-1;
-  if(['אורגני','organic'].some(k=>query.includes(k)))score+=m.features.organic?4:-1;
   if(['מגוון','variety'].some(k=>query.includes(k)))score+=m.features.variety*0.5;
   return score;
 }
@@ -513,76 +868,84 @@ function renderMarkets(){
   const markets=MARKETS[currentMode].map(m=>({...m,score:scoreM(m,q)})).sort((a,b)=>b.score-a.score);
 
   // Tip
-  const tip=document.getElementById('market-tip');
-  if(currentMode==='walking'){
-    tip.innerHTML='💡 כולם במרחק הליכה מהוילה! ההמלצה: <strong>ALKION</strong> — הכי קרוב (400 מ׳) והכי מדורג.';
-  } else {
-    tip.innerHTML='💡 המלצה: <strong>Sklavenitis הדרומי</strong> (~10 דקות) — הכי מדורג (4.7★), מגוון ענק, חניה חינם ורחבה. רוצים זול? <strong>Lidl ב-5 דקות</strong> — עם ירקות טריים מעולים!';
-  }
+  document.getElementById('market-tip').innerHTML=currentMode==='walking'
+    ?'💡 כולם במרחק הליכה מהוילה! ההמלצה: <strong>ALKION</strong> — הכי קרוב (400 מ׳) והכי מדורג.'
+    :'💡 ההמלצה: <strong>Sklavenitis הדרומי</strong> (~10 דקות) — 4.7★, מגוון ענק, חניה חינם. רוצים זול? <strong>Lidl ב-5 דקות</strong> עם ירקות טריים מעולים!';
 
   // Walking viz
   const vizWrap=document.getElementById('walk-viz-wrap');
   if(currentMode==='walking'){
     const bars=[
-      {label:'ALKION',dist:400,color:'#0077B6'},
-      {label:'DIAS',dist:500,color:'#00B4D8'},
-      {label:'Stalos\nMarket',dist:700,color:'#90E0EF'},
-      {label:'GIORGOS',dist:900,color:'#CAF0F8'},
+      {n:'ALKION',d:400,c:'#1565C0'},{n:'DIAS',d:500,c:'#1E88E5'},
+      {n:'Stalos Market',d:700,c:'#64B5F6'},{n:'GIORGOS',d:900,c:'#90CAF9'}
     ];
-    const max=900;
+    const maxH=80;
     vizWrap.innerHTML=`
-      <div style="margin-bottom:16px;">
-        <div style="font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:8px;">מרחק הליכה מהוילה</div>
-        <div class="walk-viz">
-          ${bars.map(b=>`
-            <div class="walk-bar">
-              <div class="walk-bar-inner" style="height:${Math.round(b.dist/max*80)+20}px;background:${b.color};">
-                <span style="color:${b.dist>600?'var(--navy)':'#fff'};font-size:10px;font-weight:800;">${b.dist}מ׳</span>
-              </div>
-              <div class="walk-bar-label">${b.label}</div>
-            </div>
-          `).join('')}
+      <div class="walk-viz">
+        <div class="walk-viz-title">📏 מרחק הליכה מהוילה</div>
+        <div class="walk-bars">
+          ${bars.map(b=>{
+            const h=Math.round((b.d/900)*maxH)+20;
+            return `<div class="walk-bar">
+              <div class="walk-bar-dist">${b.d}מ׳</div>
+              <div class="walk-bar-fill" style="height:${h}px;background:${b.c};border-radius:8px 8px 0 0;width:100%;"></div>
+              <div class="walk-bar-name">${b.n}</div>
+            </div>`;
+          }).join('')}
         </div>
       </div>`;
   } else {
-    vizWrap.innerHTML='';
+    const steps=[
+      {n:'Lidl – Dartsos',min:5,cls:'dd-1',note:'הכי זול'},
+      {n:'Sklavenitis דרום',min:10,cls:'dd-2',note:'הכי מדורג ✓'},
+      {n:'Sklavenitis מרכז',min:15,cls:'dd-3',note:'ללא חניה נוחה'},
+    ];
+    vizWrap.innerHTML=`<div class="drive-timeline" style="margin-bottom:20px;">
+      ${steps.map(s=>`
+        <div class="drive-step">
+          <div class="drive-dot ${s.cls}">${s.min}′</div>
+          <div class="drive-content">
+            <div style="font-size:13px;font-weight:700;color:var(--text-mid);">${s.n}</div>
+            <div style="font-size:12px;color:var(--text-muted);">${s.note}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
   }
 
-  document.getElementById('markets-list').innerHTML=markets.map((m,i)=>{
-    const rankColors={1:'#FFF3B0,#78520a',2:'#F3F4F6,#374151',3:'#FEE2E2,#991B1B',4:'#F3F4F6,#6B7280'};
-    const [rbg,rtx]=(rankColors[m.rank]||'#F3F4F6,#6B7280').split(',');
-    return `
-    <div class="card ${i===0&&q?'best-match':''}">
+  const rkMap={1:'rk-1',2:'rk-2',3:'rk-3',4:'rk-4'};
+  document.getElementById('markets-list').innerHTML=markets.map((m,i)=>`
+    <div class="card ${i===0&&q?'best-match':''}" ${i===0&&!q&&currentMode==='driving'?'style="border-right:4px solid var(--gold-bright);"':''}>
       ${i===0&&q?'<div class="bm-label">✅ הכי מתאים לחיפוש שלך</div>':''}
       <div class="card-header">
-        <div style="display:flex;align-items:center;gap:10px;">
-          ${currentMode==='walking'?`<div class="rank-ball" style="background:${rbg};color:${rtx};">${m.rank}</div>`:''}
+        <div style="display:flex;align-items:center;gap:12px;">
+          ${currentMode==='walking'?`<div class="rank-ball ${rkMap[m.rank]||'rk-4'}">${m.rank}</div>`:''}
           <div>
             <div class="card-title">${m.name}</div>
-            <div style="margin-top:3px;">${starsHTML(m.rating)}</div>
+            <div style="margin-top:4px;">${starsHTML(m.rating)}</div>
           </div>
         </div>
         <div class="dist-badge">${currentMode==='walking'?m.walk:m.distance}</div>
       </div>
       <div class="card-desc">${m.desc}</div>
-      ${m.hours?`<div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">🕐 ${m.hours}</div>`:''}
-      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px;">
-        ${m.tags.map(t=>`<span class="badge ${m.features.cheap?'green':m.tags.includes('מומלץ!')?'gold':''}">${t}</span>`).join('')}
+      ${m.hours?`<div style="font-size:12px;color:var(--text-muted);font-weight:600;margin-bottom:10px;background:var(--border-light);border-radius:8px;padding:7px 12px;display:inline-block;">🕐 ${m.hours}</div>`:''}
+      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:2px;">
+        ${m.tags.map(t=>`<span class="badge ${tagClass(t)}">${t}</span>`).join('')}
       </div>
       <a href="${m.maps}" target="_blank" class="maps-link">🗺️ נווט ב-Google Maps</a>
-    </div>`}).join('');
+    </div>`).join('');
 }
 
 function renderShopping(){
   document.getElementById('malls-list').innerHTML=MALLS.map((mall,mi)=>`
-    <div class="card" style="padding:0;overflow:hidden;">
+    <div class="acc-wrap">
       <div class="acc-header" onclick="toggleMall(${mi})">
         <div>
-          <div class="card-title">${mall.emoji} ${mall.name}</div>
-          <div class="card-meta" style="margin-top:4px;">
-            <span>📍 ${mall.distance}</span>
-            <span>${starsHTML(mall.rating)}</span>
-            <span style="color:#0077B6;font-size:11px;font-weight:600;">${mall.stores.length} חנויות ▾</span>
+          <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">${mall.emoji} ${mall.name}</div>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <span style="font-size:12px;color:var(--text-muted);font-weight:600;">📍 ${mall.distance}</span>
+            ${starsHTML(mall.rating)}
+            <span class="badge blue">${mall.stores.length} חנויות</span>
           </div>
         </div>
         <div class="arrow" id="arrow-${mi}">▾</div>
@@ -590,10 +953,13 @@ function renderShopping(){
       <div class="acc-body" id="mall-body-${mi}">
         ${mall.stores.map(s=>`
           <div class="store-row">
-            <div><span style="font-weight:600;">${s.name}</span> <span class="badge">${s.cat}</span></div>
-            <span style="color:var(--text-muted);font-size:12px;">🕐 ${s.hours}</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="store-name">${s.name}</span>
+              <span class="badge">${s.cat}</span>
+            </div>
+            <span class="store-hours">🕐 ${s.hours}</span>
           </div>`).join('')}
-        <a href="${mall.maps}" target="_blank" class="maps-link" style="display:inline-flex;margin-top:12px;">🗺️ נווט ב-Google Maps</a>
+        <a href="${mall.maps}" target="_blank" class="maps-link" style="margin-top:14px;">🗺️ נווט ב-Google Maps</a>
       </div>
     </div>
   `).join('');
@@ -601,11 +967,16 @@ function renderShopping(){
   document.getElementById('jumbos-list').innerHTML=JUMBOS.map(j=>`
     <div class="card jumbo-card">
       <div class="card-header">
-        <div class="card-title">🟡 ${j.name}</div>
-        ${starsHTML(j.rating)}
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="jumbo-logo">J</div>
+          <div>
+            <div class="card-title">${j.name}</div>
+            <div style="margin-top:4px;">${starsHTML(j.rating)}</div>
+          </div>
+        </div>
       </div>
       <div class="card-desc">${j.desc}</div>
-      <div class="card-meta">
+      <div class="card-meta" style="margin-bottom:4px;">
         <span>📍 ${j.distance}</span>
         <span>🕐 ${j.hours}</span>
       </div>
@@ -619,11 +990,10 @@ function toggleMall(mi){
   const arrow=document.getElementById('arrow-'+mi);
   const open=body.classList.contains('open');
   document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
-  document.querySelectorAll('[id^="arrow-"]').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.arrow').forEach(a=>a.classList.remove('open'));
   if(!open){body.classList.add('open');arrow.classList.add('open');}
 }
 
-// Init
 renderAttractions();renderRestaurants();renderMarkets();renderShopping();
 </script>
 </body>
