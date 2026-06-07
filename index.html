@@ -2,523 +2,510 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>🇬🇷 משפחת דנון — כרתים</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* ─── LIGHT MODE TOKENS ─── */
 :root{
-  --navy:#0A1628;
-  --navy-mid:#122040;
-  --blue:#1565C0;
-  --blue-mid:#1976D2;
-  --blue-bright:#2196F3;
-  --teal:#00897B;
-  --teal-light:#4DB6AC;
-  --gold:#B8860B;
-  --gold-bright:#D4A017;
-  --gold-bg:#FDF6DC;
-  --sand:#FAF8F3;
-  --cream:#FFF9F0;
-  --white:#FFFFFF;
-  --text:#0D1B2A;
-  --text-mid:#2C3E50;
-  --text-muted:#6B7C93;
-  --text-light:#9EAFC2;
-  --border:#E4EAF2;
-  --border-light:#F0F4F9;
-  --green:#00695C;
-  --green-bg:#E0F2F1;
-  --green-bright:#26A69A;
-  --radius:20px;
-  --radius-sm:12px;
-  --radius-xs:8px;
-  --shadow-xs:0 1px 4px rgba(10,22,40,0.06);
-  --shadow:0 4px 20px rgba(10,22,40,0.09);
-  --shadow-lg:0 12px 40px rgba(10,22,40,0.14);
-  --shadow-xl:0 20px 60px rgba(10,22,40,0.18);
+  --navy:#0A1628; --navy-mid:#122040;
+  --blue:#1565C0; --blue-mid:#1976D2; --blue-bright:#2196F3;
+  --teal:#00897B; --teal-light:#4DB6AC;
+  --gold:#B8860B; --gold-bright:#D4A017; --gold-bg:#FDF6DC;
+  --green:#00695C; --green-bg:#E0F2F1; --green-bright:#26A69A;
+
+  /* surfaces */
+  --bg:#FAF8F3; --surface:#FFFFFF; --surface2:#F4F6FB; --surface3:#EEF2F8;
+
+  /* text */
+  --tx:#0D1B2A; --tx-mid:#2C3E50; --tx-muted:#6B7C93; --tx-light:#9EAFC2;
+
+  /* borders */
+  --bd:#E4EAF2; --bd-light:#F0F4F9;
+
+  /* navbar */
+  --nav-bg:linear-gradient(135deg,#0A1628 0%,#122040 60%,#1565C0 100%);
+  --nav-text:rgba(255,255,255,.55);
+  --nav-active:#fff;
+  --nav-active-bg:rgba(255,255,255,.12);
+
+  /* shadows */
+  --sh-xs:0 1px 4px rgba(10,22,40,.06);
+  --sh:0 4px 20px rgba(10,22,40,.09);
+  --sh-lg:0 12px 40px rgba(10,22,40,.14);
+  --sh-xl:0 20px 60px rgba(10,22,40,.18);
+
+  /* misc */
+  --radius:20px; --radius-sm:12px; --radius-xs:8px;
+  --tip-bg:linear-gradient(135deg,#FFFDE7,#FFF8D6);
+  --tip-bd:#F5D76E; --tip-tx:#5C4200;
+  --stars-color:#F59E0B;
+  --rating-bg:#FFFBEB; --rating-bd:#FDE68A; --rating-tx:#78350F;
+  --maps-bg:linear-gradient(135deg,#EBF5FB,#DBEAFE);
+  --maps-bd:#BFDBFE;
+  --toggle-bg:#FFFFFF;
+  --must-bg:#F0F9FF; --must-bd:#BAE6FD; --must-tx:#0369A1;
+  --attr-icon-bg:linear-gradient(135deg,#EBF5FB,#DBEAFE);
+  --acc-hover:#F8FAFD;
+  --walk-viz-bg:linear-gradient(135deg,#EBF5FB,#F0F9FF);
+  --walk-viz-bd:#BFDBFE;
+  --drive-bd:#E4EAF2;
+  --dark-btn-bg:transparent;
+  --dark-btn-bd:rgba(255,255,255,.25);
+  --dark-btn-icon:🌙;
 }
 
+/* ─── DARK MODE TOKENS ─── */
+body.dark{
+  --bg:#0D1117; --surface:#161B22; --surface2:#1C2128; --surface3:#21262D;
+  --tx:#E6EDF3; --tx-mid:#C9D1D9; --tx-muted:#8B949E; --tx-light:#6E7681;
+  --bd:#30363D; --bd-light:#21262D;
+  --nav-bg:linear-gradient(135deg,#010409 0%,#0D1117 60%,#0A1628 100%);
+  --nav-text:rgba(255,255,255,.45); --nav-active:#fff;
+  --nav-active-bg:rgba(255,255,255,.1);
+  --sh-xs:0 1px 4px rgba(0,0,0,.3);
+  --sh:0 4px 20px rgba(0,0,0,.4);
+  --sh-lg:0 12px 40px rgba(0,0,0,.5);
+  --sh-xl:0 20px 60px rgba(0,0,0,.6);
+  --tip-bg:linear-gradient(135deg,#2D2500,#332B00);
+  --tip-bd:#665000; --tip-tx:#E6C84A;
+  --stars-color:#E6B800;
+  --rating-bg:#2D2200; --rating-bd:#554000; --rating-tx:#E6C84A;
+  --maps-bg:linear-gradient(135deg,#0D2137,#0D1B33);
+  --maps-bd:#1E3A5F;
+  --toggle-bg:#1C2128;
+  --must-bg:#001C30; --must-bd:#0D3352; --must-tx:#58A6E6;
+  --attr-icon-bg:linear-gradient(135deg,#0D2137,#0D1B33);
+  --acc-hover:#1C2128;
+  --walk-viz-bg:linear-gradient(135deg,#0D2137,#0A1628);
+  --walk-viz-bd:#1E3A5F;
+  --drive-bd:#30363D;
+  --gold-bg:#2D2200;
+  --green-bg:#001A16;
+  --dark-btn-bd:rgba(255,255,255,.15);
+}
+
+/* ─── BASE ─── */
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-
 body{
   font-family:'Heebo',sans-serif;
-  background:var(--sand);
-  color:var(--text);
-  min-height:100vh;
-  line-height:1.6;
+  background:var(--bg);color:var(--tx);
+  min-height:100vh;line-height:1.6;
+  transition:background .25s,color .25s;
 }
 
-/* ── NAVBAR ── */
+/* ─── NAVBAR ─── */
 .navbar{
   position:sticky;top:0;z-index:999;
-  background:var(--navy);
-  padding:0 16px;
-  display:flex;align-items:center;gap:2px;
-  height:56px;overflow-x:auto;scrollbar-width:none;
-  box-shadow:0 2px 20px rgba(0,0,0,0.35);
+  background:var(--nav-bg);
+  padding:0 8px;display:flex;align-items:center;gap:2px;
+  height:54px;overflow-x:auto;scrollbar-width:none;
+  box-shadow:0 2px 20px rgba(0,0,0,.35);
 }
 .navbar::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(21,101,192,0.3) 0%,transparent 50%);
+  background:linear-gradient(90deg,rgba(21,101,192,.2) 0%,transparent 60%);
   pointer-events:none;
 }
 .navbar::-webkit-scrollbar{display:none;}
-
 .nav-btn{
-  position:relative;
-  display:flex;align-items:center;gap:6px;
-  padding:8px 14px;border:none;border-radius:9px;
-  cursor:pointer;font-family:'Heebo',sans-serif;
-  font-size:13px;font-weight:600;white-space:nowrap;
-  color:rgba(255,255,255,0.55);background:transparent;
-  transition:all .22s cubic-bezier(.4,0,.2,1);
-  letter-spacing:0.2px;
+  position:relative;display:flex;align-items:center;gap:5px;
+  padding:8px 12px;border:none;border-radius:9px;cursor:pointer;
+  font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;
+  white-space:nowrap;color:var(--nav-text);background:transparent;
+  transition:all .2s;min-height:38px;
 }
-.nav-btn:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
-.nav-btn.active{
-  color:#fff;
-  background:rgba(255,255,255,0.12);
-  box-shadow:0 0 0 1px rgba(255,255,255,0.15);
-}
+.nav-btn:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.08);}
+.nav-btn.active{color:var(--nav-active);background:var(--nav-active-bg);box-shadow:0 0 0 1px rgba(255,255,255,.15);}
 .nav-btn.active::after{
   content:'';position:absolute;bottom:-1px;right:10px;left:10px;
-  height:2px;background:linear-gradient(90deg,#64B5F6,#B3E5FC);
-  border-radius:2px 2px 0 0;
+  height:2px;background:linear-gradient(90deg,#64B5F6,#B3E5FC);border-radius:2px 2px 0 0;
 }
+.nav-spacer{flex:1;}
+.dark-toggle{
+  display:flex;align-items:center;justify-content:center;
+  min-width:36px;height:36px;padding:0;border:1px solid var(--dark-btn-bd);
+  border-radius:10px;cursor:pointer;font-size:16px;
+  background:var(--dark-btn-bg);color:#fff;transition:all .2s;flex-shrink:0;
+}
+.dark-toggle:hover{background:rgba(255,255,255,.1);}
 
-/* ── PAGES ── */
-.page{display:none;max-width:800px;margin:0 auto;padding:28px 16px 100px;}
+/* ─── PAGES ─── */
+.page{display:none;max-width:800px;margin:0 auto;padding:24px 16px 100px;}
 .page.active{display:block;}
 
-/* ── HERO ── */
+/* ─── HERO ─── */
 .hero{
   background:linear-gradient(150deg,var(--navy) 0%,#0D3B6E 40%,#1565C0 80%,#1E88E5 100%);
-  border-radius:24px;
-  padding:52px 36px 48px;
-  text-align:center;color:#fff;
-  margin-bottom:20px;
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow-xl);
+  border-radius:22px;padding:48px 28px 44px;
+  text-align:center;color:#fff;margin-bottom:20px;
+  position:relative;overflow:hidden;box-shadow:var(--sh-xl);
 }
-.hero-circle-1{
-  position:absolute;top:-80px;right:-60px;
-  width:280px;height:280px;border-radius:50%;
-  background:rgba(255,255,255,0.04);
-}
-.hero-circle-2{
-  position:absolute;bottom:-100px;left:-40px;
-  width:320px;height:320px;border-radius:50%;
-  background:rgba(255,255,255,0.03);
-}
-.hero-circle-3{
-  position:absolute;top:20px;left:20px;
-  width:120px;height:120px;border-radius:50%;
-  background:rgba(100,181,246,0.07);
-}
+.hero-c1{position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);}
+.hero-c2{position:absolute;bottom:-100px;left:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.03);}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,0.12);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:30px;padding:5px 14px;
-  font-size:12px;font-weight:600;letter-spacing:0.5px;
-  margin-bottom:16px;backdrop-filter:blur(4px);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:30px;padding:5px 14px;font-size:12px;font-weight:600;
+  letter-spacing:.5px;margin-bottom:14px;
 }
-.hero-flag{font-size:52px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));}
+.hero-flag{font-size:50px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));}
 .hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:30px;font-weight:700;
-  margin-bottom:8px;
-  text-shadow:0 2px 12px rgba(0,0,0,0.3);
-  letter-spacing:-0.3px;
+  font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
+  margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.3);
 }
-.hero-sub{font-size:15px;opacity:.78;margin-bottom:4px;font-weight:400;}
-.hero-loc{font-size:12px;opacity:.52;letter-spacing:0.5px;}
-.hero-divider{
-  width:40px;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
-  margin:16px auto;
-}
+.hero-sub{font-size:14px;opacity:.78;margin-bottom:4px;}
+.hero-loc{font-size:12px;opacity:.52;letter-spacing:.5px;}
+.hero-div{width:40px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);margin:14px auto;}
 
-/* ── QUICK CARDS ── */
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-}
+/* ─── QUICK GRID ─── */
+.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;}
 .quick-card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:22px 12px 18px;
-  text-align:center;cursor:pointer;
-  transition:all .24s cubic-bezier(.4,0,.2,1);
-  box-shadow:var(--shadow-xs);
-  position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--bd);border-radius:16px;
+  padding:20px 10px 16px;text-align:center;cursor:pointer;
+  transition:all .22s;box-shadow:var(--sh-xs);position:relative;overflow:hidden;
 }
 .quick-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--teal-light));
-  opacity:0;transition:opacity .24s;
+  background:linear-gradient(90deg,var(--blue),var(--teal-light));opacity:0;transition:opacity .22s;
 }
-.quick-card:hover{
-  border-color:var(--blue-mid);
-  box-shadow:var(--shadow-lg);
-  transform:translateY(-4px);
-}
+.quick-card:hover{border-color:var(--blue-mid);box-shadow:var(--sh-lg);transform:translateY(-3px);}
 .quick-card:hover::before{opacity:1;}
-.qc-emoji{font-size:30px;margin-bottom:10px;}
-.qc-label{font-size:13px;font-weight:700;color:var(--text);}
-.qc-sub{font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;}
+.qc-emoji{font-size:28px;margin-bottom:8px;}
+.qc-label{font-size:13px;font-weight:700;color:var(--tx);}
+.qc-sub{font-size:11px;color:var(--tx-muted);margin-top:3px;font-weight:500;}
 
-/* ── SECTION HEADER ── */
-.sec-hdr{
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:20px;padding-bottom:14px;
-  border-bottom:1px solid var(--border);
-}
-.sec-hdr h2{
-  font-size:20px;font-weight:800;color:var(--text);
-  letter-spacing:-0.3px;
-}
+/* ─── SECTION HEADER ─── */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--bd);}
+.sec-hdr h2{font-size:20px;font-weight:800;color:var(--tx);letter-spacing:-.3px;}
 .sec-badge{
-  background:linear-gradient(135deg,#E3F2FD,#BBDEFB);
-  color:var(--navy);font-size:11px;font-weight:700;
-  padding:4px 12px;border-radius:20px;
-  border:1px solid rgba(21,101,192,0.15);
+  background:linear-gradient(135deg,#E3F2FD,#BBDEFB);color:var(--navy);
+  font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;
+  border:1px solid rgba(21,101,192,.15);
 }
+body.dark .sec-badge{background:linear-gradient(135deg,#0D2137,#0D1B33);color:#58A6E6;border-color:#1E3A5F;}
 
-/* ── CARD ── */
+/* ─── CARDS ─── */
 .card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:20px 22px;
-  margin-bottom:12px;
-  transition:all .22s;
-  box-shadow:var(--shadow-xs);
-  position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--bd);border-radius:var(--radius);
+  padding:20px 20px;margin-bottom:12px;transition:all .2s;
+  box-shadow:var(--sh-xs);position:relative;overflow:hidden;
 }
-.card:hover{box-shadow:var(--shadow);border-color:#C5D5E8;}
+.card:hover{box-shadow:var(--sh);border-color:var(--bd);}
+body.dark .card:hover{border-color:#3D4F6E;}
 .card.best-match{border-color:var(--green-bright);border-width:2px;}
 .card.best-match::before{
   content:'';position:absolute;top:0;right:0;left:0;height:3px;
   background:linear-gradient(90deg,var(--teal),var(--green-bright));
 }
-
-/* card accent line on left/right */
 .card-accent{border-right:4px solid var(--blue-mid);}
-.card-accent-gold{border-right:4px solid var(--gold-bright);}
-
-.card-title{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-0.2px;}
+.card-title{font-size:15px;font-weight:800;color:var(--tx);letter-spacing:-.2px;}
 .card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
-.card-desc{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:12px;}
-
-.card-meta{display:flex;gap:16px;font-size:12px;color:var(--text-muted);flex-wrap:wrap;align-items:center;}
+.card-desc{font-size:13px;color:var(--tx-muted);line-height:1.7;margin-bottom:12px;}
+.card-meta{display:flex;gap:14px;font-size:12px;color:var(--tx-muted);flex-wrap:wrap;align-items:center;}
 .card-meta span{display:flex;align-items:center;gap:4px;font-weight:500;}
 
-/* ── STARS ── */
+/* ─── STARS ─── */
 .stars-wrap{display:flex;align-items:center;gap:4px;}
-.stars-filled{color:#F59E0B;font-size:13px;letter-spacing:1px;}
-.stars-empty{color:#DDE1E7;font-size:13px;letter-spacing:1px;}
+.stars-f{color:var(--stars-color);font-size:13px;letter-spacing:1px;}
+.stars-e{color:var(--bd);font-size:13px;letter-spacing:1px;}
 .rating-num{
-  font-size:12px;font-weight:700;color:var(--text-mid);
-  background:#FFFBEB;border:1px solid #FDE68A;
+  font-size:12px;font-weight:700;color:var(--rating-tx);
+  background:var(--rating-bg);border:1px solid var(--rating-bd);
   padding:2px 7px;border-radius:6px;
 }
 
-/* ── BADGE ── */
+/* ─── BADGES ─── */
 .badge{
-  display:inline-flex;align-items:center;
-  font-size:11px;font-weight:600;
-  padding:3px 10px;border-radius:20px;
-  background:var(--border-light);color:var(--text-muted);
-  margin:2px;letter-spacing:0.1px;
-  border:1px solid transparent;
+  display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:20px;background:var(--surface2);
+  color:var(--tx-muted);margin:2px;border:1px solid var(--bd);
 }
 .badge.blue{background:#EBF5FB;color:#1565C0;border-color:#BBDEFB;}
-.badge.green{background:var(--green-bg);color:#00695C;border-color:#B2DFDB;}
+.badge.green{background:var(--green-bg);color:var(--green);border-color:#B2DFDB;}
 .badge.gold{background:var(--gold-bg);color:#7B5800;border-color:#F9E4A0;}
-.badge.red{background:#FEF2F2;color:#B91C1C;border-color:#FECACA;}
-.badge.teal{background:#E0F2F1;color:#00695C;border-color:#B2DFDB;}
-.badge.navy{background:#E8EDF5;color:var(--navy);border-color:#C5D5E8;}
-.badge.star{background:#FFFBEB;color:#92400E;border-color:#FDE68A;}
+.badge.navy{background:var(--surface2);color:var(--navy);border-color:var(--bd);}
+.badge.teal{background:var(--green-bg);color:var(--teal);border-color:#B2DFDB;}
+body.dark .badge{background:var(--surface3);color:var(--tx-muted);border-color:var(--bd);}
+body.dark .badge.blue{background:#0D2137;color:#58A6E6;border-color:#1E3A5F;}
+body.dark .badge.green{background:#001A16;color:#4DB6AC;border-color:#00695C;}
+body.dark .badge.gold{background:#2D2200;color:#D4A017;border-color:#554000;}
+body.dark .badge.navy{background:var(--surface3);color:var(--tx-mid);border-color:var(--bd);}
 
-/* ── MAPS BUTTON ── */
+/* ─── MAPS LINK ─── */
 .maps-link{
   display:inline-flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:700;
-  color:var(--blue);text-decoration:none;
+  font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;
   margin-top:12px;padding:8px 16px;
-  background:linear-gradient(135deg,#EBF5FB,#DBEAFE);
-  border:1px solid #BFDBFE;
-  border-radius:9px;
-  transition:all .2s;letter-spacing:0.2px;
+  background:var(--maps-bg);border:1px solid var(--maps-bd);
+  border-radius:9px;transition:all .2s;
 }
 .maps-link:hover{
-  background:linear-gradient(135deg,var(--blue),var(--blue-mid));
-  color:#fff;border-color:transparent;
-  box-shadow:0 4px 14px rgba(21,101,192,0.35);
-  transform:translateY(-1px);
+  background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;
+  border-color:transparent;box-shadow:0 4px 14px rgba(21,101,192,.35);transform:translateY(-1px);
 }
 
-/* ── TIP BOX ── */
+/* ─── TIP BOX ─── */
 .tip-box{
-  background:linear-gradient(135deg,#FFFDE7,#FFF8D6);
-  border:1px solid #F5D76E;
-  border-radius:14px;
-  padding:14px 18px;
-  font-size:13px;color:#5C4200;
-  margin-bottom:20px;line-height:1.65;
-  box-shadow:0 2px 8px rgba(180,140,0,0.1);
+  background:var(--tip-bg);border:1px solid var(--tip-bd);
+  border-radius:14px;padding:14px 18px;font-size:13px;
+  color:var(--tip-tx);margin-bottom:18px;line-height:1.65;
 }
-.tip-box strong{color:#3D2B00;}
+.tip-box strong{color:var(--tip-tx);font-weight:800;}
 
-/* ── TOGGLE ── */
+/* ─── TOGGLE ─── */
 .toggle-wrap{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:14px;padding:4px;
-  display:inline-flex;margin-bottom:18px;
-  box-shadow:var(--shadow-xs);
+  background:var(--toggle-bg);border:1px solid var(--bd);
+  border-radius:14px;padding:4px;display:inline-flex;
+  margin-bottom:16px;box-shadow:var(--sh-xs);
 }
 .toggle-btn{
-  padding:10px 28px;border:none;border-radius:11px;
-  cursor:pointer;font-family:'Heebo',sans-serif;
-  font-size:14px;font-weight:700;
-  transition:all .22s;color:var(--text-muted);background:transparent;
+  padding:10px 24px;border:none;border-radius:11px;cursor:pointer;
+  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
+  transition:all .22s;color:var(--tx-muted);background:transparent;
 }
 .toggle-btn.active{
   background:linear-gradient(135deg,var(--navy),var(--blue));
-  color:#fff;
-  box-shadow:0 4px 14px rgba(10,22,40,0.3);
+  color:#fff;box-shadow:0 4px 14px rgba(10,22,40,.3);
 }
 
-/* ── SEARCH ── */
-.search-wrap{position:relative;margin-bottom:20px;}
+/* ─── SEARCH ─── */
+.search-wrap{position:relative;margin-bottom:18px;}
 .search-input{
-  width:100%;
-  padding:14px 50px 14px 18px;
-  border:1.5px solid var(--border);
-  border-radius:14px;
-  font-family:'Heebo',sans-serif;
-  font-size:14px;background:var(--white);
-  color:var(--text);outline:none;
-  transition:all .2s;
-  box-shadow:var(--shadow-xs);
+  width:100%;padding:13px 48px 13px 16px;
+  border:1.5px solid var(--bd);border-radius:14px;
+  font-family:'Heebo',sans-serif;font-size:14px;
+  background:var(--surface);color:var(--tx);outline:none;
+  transition:all .2s;box-shadow:var(--sh-xs);
 }
-.search-input:focus{
-  border-color:var(--blue-mid);
-  box-shadow:0 0 0 4px rgba(21,101,192,0.08),var(--shadow-xs);
+.search-input::placeholder{color:var(--tx-light);}
+.search-input:focus{border-color:var(--blue-mid);box-shadow:0 0 0 4px rgba(21,101,192,.1),var(--sh-xs);}
+body.dark .search-input:focus{box-shadow:0 0 0 4px rgba(21,101,192,.15),var(--sh-xs);}
+.search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--tx-light);pointer-events:none;}
+.search-clear{
+  position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  background:var(--surface3);border:none;border-radius:50%;
+  width:22px;height:22px;cursor:pointer;font-size:11px;
+  color:var(--tx-muted);display:none;align-items:center;justify-content:center;
 }
-.search-icon{
-  position:absolute;right:16px;top:50%;
-  transform:translateY(-50%);font-size:18px;
-  color:var(--text-light);pointer-events:none;
-}
+.search-clear.visible{display:flex;}
 
-/* ── BEST MATCH ── */
+/* ─── BEST MATCH ─── */
 .bm-label{
   font-size:11px;font-weight:800;color:var(--green);
-  display:flex;align-items:center;gap:5px;
-  margin-bottom:8px;letter-spacing:0.3px;
+  display:flex;align-items:center;gap:5px;margin-bottom:8px;
 }
 
-/* ── RANK BALL ── */
+/* ─── RANK BALL ─── */
 .rank-ball{
   min-width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:13px;font-weight:900;flex-shrink:0;
 }
-.rk-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 2px 8px rgba(245,158,11,0.25);}
+.rk-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 2px 8px rgba(245,158,11,.25);}
 .rk-2{background:linear-gradient(135deg,#F1F5F9,#E2E8F0);color:#475569;}
 .rk-3{background:linear-gradient(135deg,#FEE2E2,#FECACA);color:#991B1B;}
-.rk-4{background:#F1F5F9;color:#94A3B8;}
+.rk-4{background:var(--surface2);color:var(--tx-muted);}
+body.dark .rk-2{background:linear-gradient(135deg,#1C2128,#21262D);color:#8B949E;}
+body.dark .rk-3{background:linear-gradient(135deg,#2D0D0D,#3D1010);color:#F48080;}
 
-/* ── DIST BADGE ── */
+/* ─── DIST BADGE ─── */
 .dist-badge{
-  font-size:12px;font-weight:800;
-  padding:6px 14px;border-radius:20px;
-  background:linear-gradient(135deg,#E8EDF5,#D6E4F7);
-  color:var(--navy);
-  border:1px solid #C5D5E8;
-  white-space:nowrap;
-  letter-spacing:0.1px;
+  font-size:12px;font-weight:800;padding:6px 14px;border-radius:20px;
+  background:linear-gradient(135deg,var(--surface2),var(--surface3));
+  color:var(--navy);border:1px solid var(--bd);white-space:nowrap;
 }
+body.dark .dist-badge{color:var(--tx-mid);}
 
-/* ── ACCORDION ── */
+/* ─── ACCORDION ─── */
 .acc-wrap{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
-  margin-bottom:12px;box-shadow:var(--shadow-xs);
-  transition:box-shadow .2s;
+  background:var(--surface);border:1px solid var(--bd);border-radius:var(--radius);
+  overflow:hidden;margin-bottom:12px;box-shadow:var(--sh-xs);transition:box-shadow .2s;
 }
-.acc-wrap:hover{box-shadow:var(--shadow);}
-.acc-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 22px;cursor:pointer;
-  transition:background .15s;
-}
-.acc-header:hover{background:#F8FAFD;}
-.acc-body{display:none;padding:0 22px 18px;border-top:1px solid var(--border);}
+.acc-wrap:hover{box-shadow:var(--sh);}
+.acc-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;transition:background .15s;}
+.acc-header:hover{background:var(--acc-hover);}
+.acc-body{display:none;padding:0 20px 18px;border-top:1px solid var(--bd);}
 .acc-body.open{display:block;}
-.store-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 0;font-size:13px;
-  border-bottom:1px solid var(--border-light);
-}
+.store-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;border-bottom:1px solid var(--bd-light);}
 .store-row:last-child{border-bottom:none;}
-.store-name{font-weight:700;color:var(--text-mid);}
-.store-hours{color:var(--text-muted);font-size:12px;font-weight:500;}
-
+.store-name{font-weight:700;color:var(--tx-mid);}
+.store-hours{color:var(--tx-muted);font-size:12px;font-weight:500;}
 .arrow{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--border-light);
+  width:28px;height:28px;border-radius:50%;background:var(--surface2);
   display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:var(--text-muted);
-  transition:all .22s;flex-shrink:0;
+  font-size:12px;color:var(--tx-muted);transition:all .22s;flex-shrink:0;
 }
 .arrow.open{background:var(--blue);color:#fff;transform:rotate(180deg);}
 
-/* ── WALKING VISUALIZATION ── */
+/* ─── WALKING VIZ ─── */
 .walk-viz{
-  background:linear-gradient(135deg,#EBF5FB,#F0F9FF);
-  border:1px solid #BFDBFE;
-  border-radius:16px;padding:20px 16px 16px;
-  margin-bottom:20px;
+  background:var(--walk-viz-bg);border:1px solid var(--walk-viz-bd);
+  border-radius:16px;padding:18px 14px 14px;margin-bottom:18px;
 }
-.walk-viz-title{
-  font-size:11px;font-weight:800;color:var(--blue);
-  letter-spacing:0.5px;margin-bottom:16px;text-align:center;
-}
+.walk-viz-title{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.5px;margin-bottom:14px;text-align:center;}
 .walk-bars{display:flex;gap:10px;align-items:flex-end;height:100px;}
-.walk-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
-.walk-bar-fill{
-  width:100%;border-radius:8px 8px 0 0;
-  display:flex;align-items:flex-start;justify-content:center;
-  padding-top:6px;font-size:10px;font-weight:800;
-}
-.walk-bar-name{font-size:10px;font-weight:800;color:var(--text-muted);text-align:center;line-height:1.3;}
-.walk-bar-dist{font-size:10px;font-weight:700;color:var(--blue);text-align:center;}
+.walk-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;}
+.walk-bar-name{font-size:10px;font-weight:800;color:var(--tx-muted);text-align:center;line-height:1.3;}
+.walk-bar-dist{font-size:10px;font-weight:700;color:var(--blue);}
 
-/* ── ATTRACTION CARD ── */
+/* ─── DRIVING TIMELINE ─── */
+.drive-timeline{margin-bottom:18px;}
+.drive-step{display:flex;align-items:center;gap:12px;position:relative;}
+.drive-step::before{content:'';position:absolute;right:19px;top:42px;width:2px;height:calc(100% - 8px);background:var(--drive-bd);z-index:0;}
+.drive-step:last-child::before{display:none;}
+.drive-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;z-index:1;}
+.dd-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 3px 10px rgba(245,158,11,.3);}
+.dd-2{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E40AF;box-shadow:0 3px 10px rgba(37,99,235,.2);}
+.dd-3{background:var(--surface2);color:var(--tx-muted);}
+.drive-content{flex:1;padding:12px 0;}
+
+/* ─── RESTAURANT EXTRAS ─── */
+.price-pill{
+  display:inline-flex;align-items:center;
+  background:var(--gold-bg);color:#7B5800;
+  border:1px solid #F9E4A0;font-size:11px;font-weight:800;
+  padding:3px 9px;border-radius:7px;
+}
+body.dark .price-pill{background:#2D2200;color:#D4A017;border-color:#554000;}
+.must-try{
+  background:var(--must-bg);border:1px solid var(--must-bd);
+  border-radius:9px;padding:8px 12px;
+  font-size:12px;color:var(--must-tx);margin-top:8px;font-weight:600;
+}
+
+/* ─── ATTR ICON ─── */
 .attr-layout{display:flex;gap:16px;align-items:flex-start;}
 .attr-icon-box{
-  width:50px;height:50px;border-radius:14px;
+  width:48px;height:48px;border-radius:14px;
   display:flex;align-items:center;justify-content:center;
-  font-size:24px;flex-shrink:0;
-  background:linear-gradient(135deg,#EBF5FB,#DBEAFE);
-  box-shadow:0 2px 8px rgba(21,101,192,0.12);
+  font-size:22px;flex-shrink:0;background:var(--attr-icon-bg);
+  box-shadow:0 2px 8px rgba(21,101,192,.12);
 }
 .attr-tip{
   display:flex;align-items:center;gap:6px;
   background:var(--green-bg);border:1px solid #B2DFDB;
   border-radius:9px;padding:8px 12px;
-  font-size:12px;color:#00695C;font-weight:600;
-  margin-bottom:10px;
+  font-size:12px;color:var(--green);font-weight:600;margin-bottom:10px;
 }
+body.dark .attr-tip{border-color:#00695C;color:#4DB6AC;}
 
-/* ── RESTAURANT CARD ── */
-.price-pill{
-  display:inline-flex;align-items:center;
-  background:var(--gold-bg);color:#7B5800;
-  border:1px solid #F9E4A0;
-  font-size:11px;font-weight:800;
-  padding:3px 9px;border-radius:7px;
-}
-.must-try{
-  background:#F0F9FF;border:1px solid #BAE6FD;
-  border-radius:9px;padding:8px 12px;
-  font-size:12px;color:#0369A1;margin-top:8px;
-  font-weight:600;
-}
-
-/* ── JUMBO ── */
-.jumbo-card{border-right:5px solid #F5C400;}
+/* ─── JUMBO ─── */
+.jumbo-card{border-right:5px solid #F5C400 !important;}
 .jumbo-logo{
-  width:38px;height:38px;background:#F5C400;
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;background:#F5C400;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
   font-weight:900;font-size:18px;color:#1a1a1a;flex-shrink:0;
-  box-shadow:0 4px 12px rgba(245,196,0,0.35);
+  box-shadow:0 4px 12px rgba(245,196,0,.35);
 }
 
-/* ── VILLA ── */
+/* ─── VILLA ─── */
 .villa-hero{
   background:linear-gradient(150deg,#134E2C 0%,#1B6E3A 45%,#2E9B52 85%,#3DAA60 100%);
-  border-radius:24px;padding:48px 28px;
-  text-align:center;color:#fff;margin-bottom:20px;
-  position:relative;overflow:hidden;
-  box-shadow:0 20px 60px rgba(19,78,44,0.4);
+  border-radius:22px;padding:46px 24px;text-align:center;color:#fff;
+  margin-bottom:18px;position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(19,78,44,.4);
 }
-.villa-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);}
-.villa-hero::after{content:'';position:absolute;bottom:-100px;left:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.03);}
+.villa-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);}
+.villa-hero::after{content:'';position:absolute;bottom:-100px;left:-40px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.03);}
 .villa-btn{
   display:inline-flex;align-items:center;gap:8px;
-  padding:14px 26px;border-radius:13px;
+  padding:13px 24px;border-radius:13px;
   font-family:'Heebo',sans-serif;font-size:14px;font-weight:800;
   text-decoration:none;cursor:pointer;transition:all .22s;margin:5px;border:none;
-  letter-spacing:0.2px;
 }
-.villa-btn.primary{
-  background:#fff;color:#134E2C;
-  box-shadow:0 4px 20px rgba(0,0,0,0.2);
-}
-.villa-btn.primary:hover{background:#F0FDF4;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.25);}
+.villa-btn.primary{background:#fff;color:#134E2C;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.villa-btn.primary:hover{background:#F0FDF4;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25);}
 .villa-btn.sec{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);}
 .villa-btn.sec:hover{background:rgba(255,255,255,.2);}
-.villa-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:18px;}
+.villa-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px;}
 .villa-feat{
-  background:rgba(255,255,255,.08);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:13px;padding:14px 10px;
-  text-align:center;font-size:13px;font-weight:600;color:#fff;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:13px;padding:13px 10px;text-align:center;font-size:13px;font-weight:600;color:#fff;
 }
 
-/* ── DRIVING MAP ── */
-.drive-timeline{
-  display:flex;flex-direction:column;gap:0;
-  margin-bottom:20px;
+/* ─── HOURS PILL ─── */
+.hours-pill{
+  font-size:12px;color:var(--tx-muted);font-weight:600;
+  background:var(--surface2);border:1px solid var(--bd);
+  border-radius:8px;padding:6px 12px;display:inline-block;margin-bottom:10px;
 }
-.drive-step{display:flex;align-items:center;gap:12px;position:relative;}
-.drive-step::before{
-  content:'';position:absolute;
-  right:19px;top:42px;
-  width:2px;height:calc(100% - 8px);
-  background:var(--border);
-  z-index:0;
-}
-.drive-step:last-child::before{display:none;}
-.drive-dot{
-  width:40px;height:40px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:900;flex-shrink:0;z-index:1;
-}
-.dd-1{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;box-shadow:0 3px 10px rgba(245,158,11,0.3);}
-.dd-2{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E40AF;box-shadow:0 3px 10px rgba(37,99,235,0.2);}
-.dd-3{background:linear-gradient(135deg,#F1F5F9,#E2E8F0);color:#475569;}
-.drive-content{flex:1;padding:14px 0;}
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:5px;height:5px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:#C5D5E8;border-radius:99px;}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.page.active .card,.page.active .acc-wrap,.page.active .quick-card{
-  animation:fadeUp .3s ease both;
-}
-.page.active .card:nth-child(1){animation-delay:.04s;}
-.page.active .card:nth-child(2){animation-delay:.08s;}
-.page.active .card:nth-child(3){animation-delay:.12s;}
-.page.active .card:nth-child(4){animation-delay:.16s;}
-.page.active .card:nth-child(5){animation-delay:.20s;}
-.page.active .card:nth-child(6){animation-delay:.24s;}
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.page.active>.card,.page.active .acc-wrap,.page.active .quick-card{animation:fadeUp .28s ease both;}
+.page.active>.card:nth-child(1),.page.active .acc-wrap:nth-child(1){animation-delay:.04s;}
+.page.active>.card:nth-child(2),.page.active .acc-wrap:nth-child(2){animation-delay:.08s;}
+.page.active>.card:nth-child(3),.page.active .acc-wrap:nth-child(3){animation-delay:.12s;}
+.page.active>.card:nth-child(4),.page.active .acc-wrap:nth-child(4){animation-delay:.16s;}
+.page.active>.card:nth-child(5),.page.active .acc-wrap:nth-child(5){animation-delay:.20s;}
+.page.active>.card:nth-child(6){animation-delay:.24s;}
 .page.active .quick-card:nth-child(1){animation-delay:.05s;}
 .page.active .quick-card:nth-child(2){animation-delay:.10s;}
 .page.active .quick-card:nth-child(3){animation-delay:.15s;}
 .page.active .quick-card:nth-child(4){animation-delay:.20s;}
 .page.active .quick-card:nth-child(5){animation-delay:.25s;}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:99px;}
+
+/* ─── MOBILE ─── */
+@media(max-width:600px){
+  .navbar{padding:0 4px;height:52px;}
+  .nav-btn{padding:7px 9px;font-size:12px;gap:4px;}
+  .dark-toggle{min-width:34px;height:34px;font-size:15px;}
+  .page{padding:16px 12px 90px;}
+
+  .hero{padding:34px 18px 30px;border-radius:18px;}
+  .hero h1{font-size:22px;}
+  .hero-sub{font-size:13px;}
+  .hero-eyebrow{font-size:11px;padding:4px 12px;}
+  .hero-flag{font-size:42px;}
+
+  .quick-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .quick-card{padding:16px 8px 13px;}
+  .qc-emoji{font-size:24px;margin-bottom:6px;}
+  .qc-label{font-size:12px;}
+  .qc-sub{font-size:10px;}
+
+  .card{padding:16px 14px;}
+  .card-title{font-size:14px;}
+  .card-desc{font-size:12px;}
+  .card-meta{gap:10px;font-size:11px;}
+  .card-header{gap:6px;}
+
+  .toggle-btn{padding:9px 16px;font-size:13px;}
+  .search-input{font-size:13px;padding:12px 44px 12px 14px;}
+
+  .attr-layout{gap:12px;}
+  .attr-icon-box{width:40px;height:40px;font-size:18px;}
+
+  .sec-hdr h2{font-size:18px;}
+  .acc-header{padding:14px 16px;}
+  .acc-body{padding:0 16px 14px;}
+
+  .villa-hero{padding:34px 16px;}
+  .villa-feat{font-size:12px;padding:11px 8px;}
+  .villa-feats{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .villa-btn{padding:11px 18px;font-size:13px;}
+
+  .walk-bars{height:80px;gap:6px;}
+  .walk-bar-name,.walk-bar-dist{font-size:9px;}
+
+  .maps-link{font-size:11px;padding:7px 12px;}
+  .tip-box{font-size:12px;padding:12px 14px;}
+
+  .rank-ball{min-width:28px;height:28px;font-size:12px;}
+  .dist-badge{font-size:11px;padding:5px 10px;}
+}
+
+@media(max-width:380px){
+  .nav-btn{padding:7px 7px;font-size:11px;}
+  .hero h1{font-size:19px;}
+}
 </style>
 </head>
 <body>
@@ -531,37 +518,27 @@ body{
   <button class="nav-btn" data-page="supermarkets" onclick="goto('supermarkets',this)">🛒 סופרים</button>
   <button class="nav-btn" data-page="shopping" onclick="goto('shopping',this)">🛍️ קניות</button>
   <button class="nav-btn" data-page="villa" onclick="gotoVilla(this)">🏡 וילה</button>
+  <div class="nav-spacer"></div>
+  <button class="dark-toggle" id="darkBtn" onclick="toggleDark()" title="מצב כהה">🌙</button>
 </nav>
 
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <div class="hero-circle-1"></div>
-    <div class="hero-circle-2"></div>
-    <div class="hero-circle-3"></div>
+    <div class="hero-c1"></div><div class="hero-c2"></div>
     <div class="hero-eyebrow">✈️ &nbsp;קיץ 2025 &nbsp;•&nbsp; כרתים, יוון</div>
     <div class="hero-flag"></div>
     <h1>ברוכים הבאים,<br>משפחת דנון!</h1>
-    <div class="hero-divider"></div>
+    <div class="hero-div"></div>
     <div class="hero-sub">המדריך המשפחתי המלא לחופשה המושלמת</div>
     <div class="hero-loc">Stalos • Crete • Greece ☀️</div>
   </div>
   <div class="quick-grid">
-    <div class="quick-card" onclick="goto('attractions')">
-      <div class="qc-emoji">🏛️</div><div class="qc-label">אטרקציות</div><div class="qc-sub">6 מקומות</div>
-    </div>
-    <div class="quick-card" onclick="goto('restaurants')">
-      <div class="qc-emoji">🍽️</div><div class="qc-label">מסעדות</div><div class="qc-sub">6 מסעדות</div>
-    </div>
-    <div class="quick-card" onclick="goto('supermarkets')">
-      <div class="qc-emoji">🛒</div><div class="qc-label">סופרים</div><div class="qc-sub">הליכה ונסיעה</div>
-    </div>
-    <div class="quick-card" onclick="goto('shopping')">
-      <div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">מולים + Jumbo</div>
-    </div>
-    <div class="quick-card" onclick="gotoVilla()">
-      <div class="qc-emoji">🏡</div><div class="qc-label">הוילה שלנו</div><div class="qc-sub">ניווט לוילה</div>
-    </div>
+    <div class="quick-card" onclick="goto('attractions')"><div class="qc-emoji">🏛️</div><div class="qc-label">אטרקציות</div><div class="qc-sub">6 מקומות</div></div>
+    <div class="quick-card" onclick="goto('restaurants')"><div class="qc-emoji">🍽️</div><div class="qc-label">מסעדות</div><div class="qc-sub">6 מסעדות</div></div>
+    <div class="quick-card" onclick="goto('supermarkets')"><div class="qc-emoji">🛒</div><div class="qc-label">סופרים</div><div class="qc-sub">הליכה ונסיעה</div></div>
+    <div class="quick-card" onclick="goto('shopping')"><div class="qc-emoji">🛍️</div><div class="qc-label">קניות</div><div class="qc-sub">מולים + Jumbo</div></div>
+    <div class="quick-card" onclick="gotoVilla()"><div class="qc-emoji">🏡</div><div class="qc-label">הוילה שלנו</div><div class="qc-sub">ניווט לוילה</div></div>
   </div>
 </div>
 
@@ -574,6 +551,14 @@ body{
 <!-- RESTAURANTS -->
 <div id="page-restaurants" class="page">
   <div class="sec-hdr"><h2>🍽️ מסעדות באזור</h2><span class="sec-badge">6 מסעדות</span></div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="rest-search"
+      placeholder="חפש מסעדה... למשל: ים, קפה, זול, ביר"
+      oninput="renderRestaurants()">
+    <button class="search-clear" id="rest-clear" onclick="clearRestSearch()">✕</button>
+  </div>
+  <div id="rest-tip" style="display:none;" class="tip-box"></div>
   <div id="restaurants-list"></div>
 </div>
 
@@ -587,7 +572,9 @@ body{
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input type="text" class="search-input" id="search-input"
-      placeholder="חפש... למשל: ירקות, זול, אורגני" oninput="renderMarkets()">
+      placeholder="חפש... למשל: ירקות, זול, אורגני"
+      oninput="renderMarkets()">
+    <button class="search-clear" id="mkt-clear" onclick="clearMktSearch()">✕</button>
   </div>
   <div id="market-tip" class="tip-box"></div>
   <div id="walk-viz-wrap"></div>
@@ -598,25 +585,23 @@ body{
 <div id="page-shopping" class="page">
   <div class="sec-hdr"><h2>🛍️ מרכזי קניות</h2><span class="sec-badge">3 מרכזים</span></div>
   <div id="malls-list"></div>
-  <div class="sec-hdr" style="margin-top:32px;">
+  <div class="sec-hdr" style="margin-top:30px;">
     <div class="jumbo-logo">J</div>
     <h2>Jumbo</h2>
     <span class="sec-badge" style="background:linear-gradient(135deg,#FFFDE7,#FFF8D6);color:#7B5800;border-color:#F9E4A0;">רשת פופולרית ביוון</span>
   </div>
-  <p style="color:var(--text-muted);font-size:13px;margin-bottom:18px;font-weight:500;">
-    צעצועים, כלי בית, קישוטים ועוד — במחירים נמוכים מאוד. חובה לכל תייר! 🟡
-  </p>
+  <p style="color:var(--tx-muted);font-size:13px;margin-bottom:16px;font-weight:500;">צעצועים, כלי בית, קישוטים ועוד — במחירים נמוכים מאוד. חובה! 🟡</p>
   <div id="jumbos-list"></div>
 </div>
 
 <!-- VILLA -->
 <div id="page-villa" class="page">
   <div class="villa-hero">
-    <div style="font-size:54px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">🏡</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;">הוילה שלנו</h2>
+    <div style="font-size:52px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">🏡</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:7px;">הוילה שלנו</h2>
     <p style="font-size:14px;opacity:.82;margin-bottom:4px;font-weight:500;">Stalos • כרתים • יוון</p>
-    <p style="font-size:13px;opacity:.6;margin-bottom:6px;">וילה רומנטית עם 4 חדרי שינה ובריכה פרטית</p>
-    <p style="font-size:12px;opacity:.5;margin-bottom:22px;letter-spacing:0.3px;">8 אורחים • 6 מיטות • 3.5 חדרי רחצה</p>
+    <p style="font-size:13px;opacity:.6;margin-bottom:5px;">וילה רומנטית עם 4 חדרי שינה ובריכה פרטית</p>
+    <p style="font-size:12px;opacity:.5;margin-bottom:20px;letter-spacing:.3px;">8 אורחים • 6 מיטות • 3.5 חדרי רחצה</p>
     <div>
       <a href="https://www.google.com/maps/dir//35.518,24.018" target="_blank" class="villa-btn primary">🗺️ נווט ב-Google Maps</a>
       <a href="https://www.google.com/maps/search/Villa+Stalos+Crete" target="_blank" class="villa-btn sec">📍 הצג במפה</a>
@@ -635,43 +620,44 @@ body{
 <script>
 const VILLA_MAPS="https://www.google.com/maps/dir//35.518,24.018";
 
+/* ── DATA ── */
 const MARKETS={
   walking:[
-    {name:"ALKION",rank:1,distance:"~400 מ׳",walk:"~5 דקות",rating:5.0,
+    {name:"ALKION",rank:1,walk:"~5 דקות",distance:"~400 מ׳",rating:5.0,
      tags:["הכי קרוב","הכי מדורג","מומלץ!"],
      features:{cheap:false,vegetables:4,variety:3},
      maps:"https://www.google.com/maps/search/Alkion+supermarket+Stalos+Crete",
      desc:"הסופר הקרוב ביותר לוילה — ממש 5 דקות הליכה. ההמלצה הראשונה שלנו!"},
-    {name:"DIAS",rank:2,distance:"~500 מ׳",walk:"~6 דקות",rating:4.5,
+    {name:"DIAS",rank:2,walk:"~6 דקות",distance:"~500 מ׳",rating:4.5,
      tags:["קרוב","מגוון סביר"],
      features:{cheap:false,vegetables:3,variety:3},
      maps:"https://www.google.com/maps/search/Dias+supermarket+Stalos+Crete",
      desc:"מיקום נוח ומגוון סביר — 6 דקות הליכה מהוילה"},
-    {name:"Stalos Market",rank:3,distance:"~700 מ׳",walk:"~8 דקות",rating:4.2,
+    {name:"Stalos Market",rank:3,walk:"~8 דקות",distance:"~700 מ׳",rating:4.2,
      tags:["מרחק בינוני","ירקות טריים"],
      features:{cheap:false,vegetables:4,variety:2},
      maps:"https://www.google.com/maps/search/Stalos+Market+supermarket+Crete",
      desc:"שוק מקומי קטן עם מוצרים טריים ואווירה יוונית אמיתית"},
-    {name:"GIORGOS",rank:4,distance:"~900 מ׳",walk:"~11 דקות",rating:4.0,
+    {name:"GIORGOS",rank:4,walk:"~11 דקות",distance:"~900 מ׳",rating:4.0,
      tags:["רחוק יותר"],
      features:{cheap:false,vegetables:3,variety:3},
      maps:"https://www.google.com/maps/search/Giorgos+supermarket+Stalos+Crete",
      desc:"קצת יותר רחוק — אבל אופציה נוספת טובה לגיוון"},
   ],
   driving:[
-    {name:"Lidl – Dartsos",rank:1,distance:"~5 ד׳ נסיעה",walk:null,rating:4.1,
+    {name:"Lidl – Dartsos",rank:1,walk:null,distance:"~5 ד׳ נסיעה",rating:4.1,
      tags:["הכי זול","פתוח ראשון","ירקות מעולים"],
      features:{cheap:true,vegetables:5,variety:3},
      maps:"https://www.google.com/maps/search/Lidl+Dartssos+Chania+Crete",
      desc:"הכי זול באזור. פתוח גם בראשון 11:00–20:00. פירות וירקות טריים מעולים!",
      hours:"ראשון: 11:00–20:00  •  שאר הימים: 08:00–21:00"},
-    {name:"Sklavenitis – חאניה דרום",rank:2,distance:"~10 ד׳ נסיעה",walk:null,rating:4.7,
-     tags:["הכי מדורג!","חניה חינם ורחבה","מגוון ענק"],
+    {name:"Sklavenitis – חאניה דרום",rank:2,walk:null,distance:"~10 ד׳ נסיעה",rating:4.7,
+     tags:["הכי מדורג!","חניה חינם","מגוון ענק"],
      features:{cheap:false,vegetables:5,variety:5},
      maps:"https://www.google.com/maps/search/Sklavenitis+South+Chania",
      desc:"הכי מדורג! רשת יוונית גדולה — מחירים טובים, מגוון ענק וחניה חינם ורחבה.",
      hours:"08:00–21:00 כל הימים"},
-    {name:"Sklavenitis – מרכז חאניה",rank:3,distance:"~15 ד׳ נסיעה",walk:null,rating:4.5,
+    {name:"Sklavenitis – מרכז חאניה",rank:3,walk:null,distance:"~15 ד׳ נסיעה",rating:4.5,
      tags:["בלב העיר","ללא חניה נוחה"],
      features:{cheap:false,vegetables:5,variety:5},
      maps:"https://www.google.com/maps/search/Sklavenitis+Chania+center",
@@ -683,30 +669,17 @@ const MARKETS={
 const MALLS=[
   {name:"Chania City Centre",distance:"8 ק״מ",rating:4.4,emoji:"🏙️",
    maps:"https://www.google.com/maps/search/Chania+city+centre+shopping",
-   stores:[
-     {name:"Zara",hours:"09:00–21:00",cat:"אופנה"},
-     {name:"H&M",hours:"09:00–21:00",cat:"אופנה"},
-     {name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},
-     {name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},
-     {name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים"},
-     {name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה"},
-   ]},
+   stores:[{name:"Zara",hours:"09:00–21:00",cat:"אופנה"},{name:"H&M",hours:"09:00–21:00",cat:"אופנה"},
+     {name:"Stradivarius",hours:"09:00–21:00",cat:"אופנה"},{name:"Sephora",hours:"09:00–21:00",cat:"קוסמטיקה"},
+     {name:"Foot Locker",hours:"10:00–21:00",cat:"נעליים"},{name:"Marks & Spencer",hours:"09:00–21:00",cat:"אופנה"}]},
   {name:"רחוב בוטיקים Chalepa",distance:"9 ק״מ",rating:4.2,emoji:"🛍️",
    maps:"https://www.google.com/maps/search/Chalepa+shopping+Chania",
-   stores:[
-     {name:"Greek Souvenirs",hours:"09:00–23:00",cat:"מזכרות"},
-     {name:"Olive Wood Crafts",hours:"10:00–22:00",cat:"אומנות יוונית"},
-     {name:"Greek Natural Cosmetics",hours:"09:00–21:00",cat:"קוסמטיקה"},
-     {name:"Local Honey & Spices",hours:"09:00–20:00",cat:"מזון מקומי"},
-   ]},
+   stores:[{name:"Greek Souvenirs",hours:"09:00–23:00",cat:"מזכרות"},{name:"Olive Wood Crafts",hours:"10:00–22:00",cat:"אומנות יוונית"},
+     {name:"Greek Natural Cosmetics",hours:"09:00–21:00",cat:"קוסמטיקה"},{name:"Local Honey & Spices",hours:"09:00–20:00",cat:"מזון מקומי"}]},
   {name:"שוק Agora – 1866",distance:"8.5 ק״מ",rating:4.6,emoji:"🏪",
    maps:"https://www.google.com/maps/search/Agora+market+Chania+1866",
-   stores:[
-     {name:"Agora Municipal Market",hours:"07:00–15:00",cat:"שוק כולל"},
-     {name:"Fresh Fish & Seafood",hours:"07:00–14:00",cat:"דגים טריים"},
-     {name:"Cretan Cheese Shops",hours:"08:00–15:00",cat:"גבינות מקומיות"},
-     {name:"Herb & Spice Stalls",hours:"07:00–15:00",cat:"עשבי תבלין"},
-   ]},
+   stores:[{name:"Agora Municipal Market",hours:"07:00–15:00",cat:"שוק כולל"},{name:"Fresh Fish & Seafood",hours:"07:00–14:00",cat:"דגים טריים"},
+     {name:"Cretan Cheese Shops",hours:"08:00–15:00",cat:"גבינות מקומיות"},{name:"Herb & Spice Stalls",hours:"07:00–15:00",cat:"עשבי תבלין"}]},
 ];
 
 const JUMBOS=[
@@ -738,51 +711,79 @@ const ATTRACTIONS=[
 
 const RESTAURANTS=[
   {name:"Mastrapas Taverna",type:"טברנה יוונית",distance:"200 מ׳",rating:4.5,price:"££",
+   tags:["קרוב לוילה","יוונית מסורתית"],
    desc:"המסעדה המקומית הכי אמיתית — ספינקופיטה, מוסקה, גרילד פיש. ממש קרוב לוילה!",
    maps:"https://www.google.com/maps/search/Mastrapas+Taverna+Stalos",hours:"12:00–23:00",mustTry:"מוסקה, ספינקופיטה"},
   {name:"Taverna Elia",type:"מאכלי ים",distance:"400 מ׳",rating:4.3,price:"£££",
+   tags:["מאכלי ים","נוף לים","קרוב"],
    desc:"דגים טריים ישר מהים, שרימפס ותמנון על הגריל. נוף לים מרהיב",
    maps:"https://www.google.com/maps/search/Taverna+Elia+Stalos+Crete",hours:"13:00–00:00",mustTry:"תמנון, שרימפס ביין"},
   {name:"To Stachi Bakery",type:"קפה ומאפים",distance:"350 מ׳",rating:4.4,price:"£",
+   tags:["זול","בוקר","קפה","מאפים","קרוב"],
    desc:"קפה יווני מסורתי, מאפים טריים וגלידה — ארוחת בוקר מושלמת ליד הבית",
    maps:"https://www.google.com/maps/search/bakery+cafe+Stalos+Crete",hours:"07:00–15:00",mustTry:"בוגטסה, קפה יווני"},
   {name:"Akrogiali Beach Bar",type:"בר חוף",distance:"550 מ׳",rating:4.1,price:"££",
+   tags:["בר","חוף","שקיעה","קוקטיילים"],
    desc:"ארוחות קלות, קוקטיילים ומאגרות. מקום מושלם לצפות בשקיעה",
    maps:"https://www.google.com/maps/search/beach+bar+Stalos+Crete",hours:"10:00–01:00",mustTry:"Frappe, סלט יווני"},
   {name:"Veneto Restaurant",type:"יוונית מודרנית",distance:"8 ק״מ",rating:4.6,price:"£££",
+   tags:["פרמיום","חניה","ערב","נמל"],
    desc:"מסעדת פרמיום בנמל הוונציאני של חניה. חוויה גסטרונומית מלאה עם נוף לנמל",
    maps:"https://www.google.com/maps/search/Veneto+Restaurant+Chania",hours:"13:00–00:00",mustTry:"סטייק כרתי, יין מקומי"},
   {name:"Salis Restaurant",type:"ים-תיכונית",distance:"8.5 ק״מ",rating:4.7,price:"£££",
+   tags:["פרמיום","יין","ים-תיכוני","חניה"],
    desc:"אחת המסעדות הטובות בחניה — תפריט מסוגנן ויין כרתי מצוין",
    maps:"https://www.google.com/maps/search/Salis+Restaurant+Chania",hours:"19:00–00:00",mustTry:"טרטר פירות ים"},
 ];
 
+/* ── HELPERS ── */
+let darkMode=false;
 let currentMode='walking';
 
 function starsHTML(r){
   const f=Math.floor(r),h=(r%1)>=0.5,e=5-f-(h?1:0);
-  const filled='★'.repeat(f)+(h?'✦':'');
-  return `<div class="stars-wrap"><span class="stars-filled">${filled}</span><span class="stars-empty">${'☆'.repeat(e)}</span><span class="rating-num">${r}</span></div>`;
+  return `<div class="stars-wrap"><span class="stars-f">${'★'.repeat(f)}${h?'✦':''}</span><span class="stars-e">${'☆'.repeat(e)}</span><span class="rating-num">${r}</span></div>`;
 }
 
-function tagClass(t,cheap){
-  if(t.includes('מומלץ')||t.includes('הכי מדורג'))return 'gold';
-  if(t.includes('זול')||t.includes('חינם'))return 'green';
-  if(t.includes('קרוב')||t.includes('פתוח'))return 'blue';
-  return '';
+function tagCls(t){
+  if(/(מומלץ|מדורג|ענק)/.test(t))return'gold';
+  if(/(זול|חינם)/.test(t))return'green';
+  if(/(קרוב|פתוח|בוקר|קפה)/.test(t))return'blue';
+  return'';
 }
 
+function hl(text,q){
+  if(!q)return text;
+  const re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  return text.replace(re,'<mark style="background:#FEF08A;color:#78350F;border-radius:3px;padding:0 2px;">$1</mark>');
+}
+
+/* ── DARK MODE ── */
+function toggleDark(){
+  darkMode=!darkMode;
+  document.body.classList.toggle('dark',darkMode);
+  document.getElementById('darkBtn').textContent=darkMode?'☀️':'🌙';
+  localStorage.setItem('dk',darkMode?'1':'0');
+}
+(function(){
+  if(localStorage.getItem('dk')==='1'){darkMode=true;document.body.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
+})();
+
+/* ── NAVIGATION ── */
 function goto(pageId,btn){
   if(pageId==='villa'){gotoVilla(btn);return;}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+pageId).classList.add('active');
+  const pg=document.getElementById('page-'+pageId);
+  pg.classList.add('active');
+  // re-trigger animations
+  pg.querySelectorAll('.card,.acc-wrap,.quick-card').forEach(el=>{el.style.animation='none';void el.offsetWidth;el.style.animation='';});
   const b=btn||document.querySelector(`[data-page="${pageId}"]`);
   if(b)b.classList.add('active');
-  if(pageId==='supermarkets')renderMarkets();
+  if(pageId==='supermarkets'){document.getElementById('search-input').value='';renderMarkets();}
   if(pageId==='shopping')renderShopping();
   if(pageId==='attractions')renderAttractions();
-  if(pageId==='restaurants')renderRestaurants();
+  if(pageId==='restaurants'){document.getElementById('rest-search').value='';renderRestaurants();}
 }
 
 function gotoVilla(btn){
@@ -794,6 +795,7 @@ function gotoVilla(btn){
   if(b)b.classList.add('active');
 }
 
+/* ── ATTRACTIONS ── */
 function renderAttractions(){
   document.getElementById('attractions-list').innerHTML=ATTRACTIONS.map(a=>`
     <div class="card card-accent">
@@ -801,58 +803,95 @@ function renderAttractions(){
         <div class="attr-icon-box">${a.emoji}</div>
         <div style="flex:1;min-width:0;">
           <div class="card-header">
-            <div>
-              <span class="badge navy">${a.type}</span>
-              <div class="card-title" style="margin-top:6px;">${a.name}</div>
-            </div>
+            <div><span class="badge navy">${a.type}</span><div class="card-title" style="margin-top:5px;">${a.name}</div></div>
             ${starsHTML(a.rating)}
           </div>
           <div class="card-desc">${a.desc}</div>
           <div class="attr-tip">💡 ${a.tip}</div>
-          <div class="card-meta">
-            <span>📍 ${a.distance}</span>
-            <span>⏱️ ${a.duration}</span>
-          </div>
+          <div class="card-meta"><span>📍 ${a.distance}</span><span>⏱️ ${a.duration}</span></div>
           <a href="${a.maps}" target="_blank" class="maps-link">🗺️ פתח ב-Google Maps</a>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
+}
+
+/* ── RESTAURANTS ── */
+function scoreRest(r,q){
+  if(!q.trim())return r.rating;
+  const query=q.toLowerCase();let score=0;
+  if(r.name.toLowerCase().includes(query))score+=4;
+  if(r.type.toLowerCase().includes(query))score+=3;
+  if(r.desc.toLowerCase().includes(query))score+=2;
+  r.tags.forEach(t=>{if(t.toLowerCase().includes(query)||query.split(' ').some(w=>w&&t.includes(w)))score+=2;});
+  if(/זול|£$/.test(query)&&r.price==='£')score+=4;
+  if(/ים|דג|שרימפס|תמנון/.test(query)&&r.type.includes('ים'))score+=4;
+  if(/קפה|בוקר|מאפ/.test(query)&&r.type.includes('קפה'))score+=4;
+  if(/בר|חוף|שקיעה|קוקטייל/.test(query)&&r.type.includes('בר'))score+=4;
+  if(/קרוב|ליד|הליכ/.test(query))score+=parseFloat(r.distance)<600?3:0;
+  if(score===0&&r.rating>0)score=r.rating;
+  return score;
 }
 
 function renderRestaurants(){
-  document.getElementById('restaurants-list').innerHTML=RESTAURANTS.map(r=>`
-    <div class="card">
+  const q=document.getElementById('rest-search').value||'';
+  const clearBtn=document.getElementById('rest-clear');
+  clearBtn.classList.toggle('visible',q.length>0);
+
+  const scored=RESTAURANTS.map(r=>({...r,score:scoreRest(r,q)})).sort((a,b)=>b.score-a.score);
+
+  const tipEl=document.getElementById('rest-tip');
+  if(q.trim()&&scored.length>0){
+    tipEl.style.display='block';
+    tipEl.innerHTML=`🔍 מציג תוצאות לחיפוש "<strong>${q}</strong>" — ${scored.filter(r=>r.score>1).length} מסעדות נמצאו`;
+  } else {
+    tipEl.style.display='none';
+  }
+
+  document.getElementById('restaurants-list').innerHTML=scored.map((r,i)=>`
+    <div class="card ${i===0&&q?'best-match':''}">
+      ${i===0&&q?'<div class="bm-label">✅ הכי מתאים לחיפוש שלך</div>':''}
       <div class="card-header">
         <div>
           <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
-            <span class="badge">${r.type}</span>
+            <span class="badge">${hl(r.type,q)}</span>
             <span class="price-pill">${r.price}</span>
           </div>
-          <div class="card-title">🍽️ ${r.name}</div>
+          <div class="card-title">🍽️ ${hl(r.name,q)}</div>
         </div>
         ${starsHTML(r.rating)}
       </div>
-      <div class="card-desc">${r.desc}</div>
+      <div class="card-desc">${hl(r.desc,q)}</div>
       <div class="card-meta" style="margin-bottom:8px;">
         <span>📍 ${r.distance}</span>
         <span>🕐 ${r.hours}</span>
       </div>
       <div class="must-try">🍴 חובה לנסות: <strong>${r.mustTry}</strong></div>
       <a href="${r.maps}" target="_blank" class="maps-link">🗺️ פתח ב-Google Maps</a>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
+function clearRestSearch(){
+  document.getElementById('rest-search').value='';
+  renderRestaurants();
+}
+
+/* ── SUPERMARKETS ── */
 function setMode(m,btn){
   currentMode=m;
   document.getElementById('search-input').value='';
+  document.getElementById('mkt-clear').classList.remove('visible');
   document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderMarkets();
 }
 
-function scoreM(m,q){
+function clearMktSearch(){
+  document.getElementById('search-input').value='';
+  document.getElementById('mkt-clear').classList.remove('visible');
+  renderMarkets();
+}
+
+function scoreMkt(m,q){
   if(!q.trim())return m.rating+(4-m.rank)*0.5;
   const query=q.toLowerCase();let score=m.rating;
   if(m.name.toLowerCase().includes(query))score+=3;
@@ -865,85 +904,50 @@ function scoreM(m,q){
 
 function renderMarkets(){
   const q=document.getElementById('search-input').value||'';
-  const markets=MARKETS[currentMode].map(m=>({...m,score:scoreM(m,q)})).sort((a,b)=>b.score-a.score);
+  document.getElementById('mkt-clear').classList.toggle('visible',q.length>0);
+  const markets=MARKETS[currentMode].map(m=>({...m,score:scoreMkt(m,q)})).sort((a,b)=>b.score-a.score);
 
-  // Tip
   document.getElementById('market-tip').innerHTML=currentMode==='walking'
     ?'💡 כולם במרחק הליכה מהוילה! ההמלצה: <strong>ALKION</strong> — הכי קרוב (400 מ׳) והכי מדורג.'
     :'💡 ההמלצה: <strong>Sklavenitis הדרומי</strong> (~10 דקות) — 4.7★, מגוון ענק, חניה חינם. רוצים זול? <strong>Lidl ב-5 דקות</strong> עם ירקות טריים מעולים!';
 
-  // Walking viz
   const vizWrap=document.getElementById('walk-viz-wrap');
   if(currentMode==='walking'){
-    const bars=[
-      {n:'ALKION',d:400,c:'#1565C0'},{n:'DIAS',d:500,c:'#1E88E5'},
-      {n:'Stalos Market',d:700,c:'#64B5F6'},{n:'GIORGOS',d:900,c:'#90CAF9'}
-    ];
-    const maxH=80;
-    vizWrap.innerHTML=`
-      <div class="walk-viz">
-        <div class="walk-viz-title">📏 מרחק הליכה מהוילה</div>
-        <div class="walk-bars">
-          ${bars.map(b=>{
-            const h=Math.round((b.d/900)*maxH)+20;
-            return `<div class="walk-bar">
-              <div class="walk-bar-dist">${b.d}מ׳</div>
-              <div class="walk-bar-fill" style="height:${h}px;background:${b.c};border-radius:8px 8px 0 0;width:100%;"></div>
-              <div class="walk-bar-name">${b.n}</div>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>`;
+    const bars=[{n:'ALKION',d:400,c:'#1565C0'},{n:'DIAS',d:500,c:'#1E88E5'},{n:'Stalos Market',d:700,c:'#64B5F6'},{n:'GIORGOS',d:900,c:'#90CAF9'}];
+    vizWrap.innerHTML=`<div class="walk-viz"><div class="walk-viz-title">📏 מרחק הליכה מהוילה</div><div class="walk-bars">${bars.map(b=>{const h=Math.round((b.d/900)*76)+18;return`<div class="walk-bar"><div class="walk-bar-dist">${b.d}מ׳</div><div style="width:100%;height:${h}px;background:${b.c};border-radius:7px 7px 0 0;"></div><div class="walk-bar-name">${b.n}</div></div>`;}).join('')}</div></div>`;
   } else {
-    const steps=[
-      {n:'Lidl – Dartsos',min:5,cls:'dd-1',note:'הכי זול'},
-      {n:'Sklavenitis דרום',min:10,cls:'dd-2',note:'הכי מדורג ✓'},
-      {n:'Sklavenitis מרכז',min:15,cls:'dd-3',note:'ללא חניה נוחה'},
-    ];
-    vizWrap.innerHTML=`<div class="drive-timeline" style="margin-bottom:20px;">
-      ${steps.map(s=>`
-        <div class="drive-step">
-          <div class="drive-dot ${s.cls}">${s.min}′</div>
-          <div class="drive-content">
-            <div style="font-size:13px;font-weight:700;color:var(--text-mid);">${s.n}</div>
-            <div style="font-size:12px;color:var(--text-muted);">${s.note}</div>
-          </div>
-        </div>
-      `).join('')}
-    </div>`;
+    vizWrap.innerHTML=`<div class="drive-timeline">${[{n:'Lidl – Dartsos',min:5,cls:'dd-1',note:'הכי זול'},{n:'Sklavenitis דרום',min:10,cls:'dd-2',note:'הכי מדורג ✓'},{n:'Sklavenitis מרכז',min:15,cls:'dd-3',note:'ללא חניה נוחה'}].map(s=>`<div class="drive-step"><div class="drive-dot ${s.cls}">${s.min}′</div><div class="drive-content"><div style="font-size:13px;font-weight:700;color:var(--tx-mid);">${s.n}</div><div style="font-size:12px;color:var(--tx-muted);">${s.note}</div></div></div>`).join('')}</div>`;
   }
 
   const rkMap={1:'rk-1',2:'rk-2',3:'rk-3',4:'rk-4'};
   document.getElementById('markets-list').innerHTML=markets.map((m,i)=>`
-    <div class="card ${i===0&&q?'best-match':''}" ${i===0&&!q&&currentMode==='driving'?'style="border-right:4px solid var(--gold-bright);"':''}>
+    <div class="card ${i===0&&q?'best-match':''}">
       ${i===0&&q?'<div class="bm-label">✅ הכי מתאים לחיפוש שלך</div>':''}
       <div class="card-header">
-        <div style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
           ${currentMode==='walking'?`<div class="rank-ball ${rkMap[m.rank]||'rk-4'}">${m.rank}</div>`:''}
-          <div>
-            <div class="card-title">${m.name}</div>
-            <div style="margin-top:4px;">${starsHTML(m.rating)}</div>
-          </div>
+          <div><div class="card-title">${m.name}</div><div style="margin-top:4px;">${starsHTML(m.rating)}</div></div>
         </div>
         <div class="dist-badge">${currentMode==='walking'?m.walk:m.distance}</div>
       </div>
       <div class="card-desc">${m.desc}</div>
-      ${m.hours?`<div style="font-size:12px;color:var(--text-muted);font-weight:600;margin-bottom:10px;background:var(--border-light);border-radius:8px;padding:7px 12px;display:inline-block;">🕐 ${m.hours}</div>`:''}
-      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:2px;">
-        ${m.tags.map(t=>`<span class="badge ${tagClass(t)}">${t}</span>`).join('')}
+      ${m.hours?`<div class="hours-pill">🕐 ${m.hours}</div>`:''}
+      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:4px;">
+        ${m.tags.map(t=>`<span class="badge ${tagCls(t)}">${t}</span>`).join('')}
       </div>
       <a href="${m.maps}" target="_blank" class="maps-link">🗺️ נווט ב-Google Maps</a>
     </div>`).join('');
 }
 
+/* ── SHOPPING ── */
 function renderShopping(){
   document.getElementById('malls-list').innerHTML=MALLS.map((mall,mi)=>`
     <div class="acc-wrap">
       <div class="acc-header" onclick="toggleMall(${mi})">
         <div>
-          <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">${mall.emoji} ${mall.name}</div>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <span style="font-size:12px;color:var(--text-muted);font-weight:600;">📍 ${mall.distance}</span>
+          <div style="font-size:15px;font-weight:800;color:var(--tx);margin-bottom:5px;">${mall.emoji} ${mall.name}</div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <span style="font-size:12px;color:var(--tx-muted);font-weight:600;">📍 ${mall.distance}</span>
             ${starsHTML(mall.rating)}
             <span class="badge blue">${mall.stores.length} חנויות</span>
           </div>
@@ -953,36 +957,27 @@ function renderShopping(){
       <div class="acc-body" id="mall-body-${mi}">
         ${mall.stores.map(s=>`
           <div class="store-row">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span class="store-name">${s.name}</span>
-              <span class="badge">${s.cat}</span>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span class="store-name">${s.name}</span><span class="badge">${s.cat}</span>
             </div>
             <span class="store-hours">🕐 ${s.hours}</span>
           </div>`).join('')}
         <a href="${mall.maps}" target="_blank" class="maps-link" style="margin-top:14px;">🗺️ נווט ב-Google Maps</a>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 
   document.getElementById('jumbos-list').innerHTML=JUMBOS.map(j=>`
     <div class="card jumbo-card">
       <div class="card-header">
         <div style="display:flex;align-items:center;gap:10px;">
           <div class="jumbo-logo">J</div>
-          <div>
-            <div class="card-title">${j.name}</div>
-            <div style="margin-top:4px;">${starsHTML(j.rating)}</div>
-          </div>
+          <div><div class="card-title">${j.name}</div><div style="margin-top:4px;">${starsHTML(j.rating)}</div></div>
         </div>
       </div>
       <div class="card-desc">${j.desc}</div>
-      <div class="card-meta" style="margin-bottom:4px;">
-        <span>📍 ${j.distance}</span>
-        <span>🕐 ${j.hours}</span>
-      </div>
+      <div class="card-meta"><span>📍 ${j.distance}</span><span>🕐 ${j.hours}</span></div>
       <a href="${j.maps}" target="_blank" class="maps-link">🗺️ נווט ב-Google Maps</a>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function toggleMall(mi){
@@ -994,6 +989,7 @@ function toggleMall(mi){
   if(!open){body.classList.add('open');arrow.classList.add('open');}
 }
 
+/* ── INIT ── */
 renderAttractions();renderRestaurants();renderMarkets();renderShopping();
 </script>
 </body>
